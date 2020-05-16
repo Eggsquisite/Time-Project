@@ -96,7 +96,10 @@ public class CharacterPathing : MonoBehaviour
         waitTimes[waitTimeIndex] = newWaitTime;
 
         // Restart coroutine with new wait time
-        StopCoroutine(WaitForNextMove());
-        StartCoroutine(WaitForNextMove());
+        if (!readyToMove)
+        {
+            StopCoroutine(WaitForNextMove());
+            StartCoroutine(WaitForNextMove());
+        }
     }
 }
