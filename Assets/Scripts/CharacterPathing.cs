@@ -10,6 +10,7 @@ public class CharacterPathing : MonoBehaviour
     [SerializeField] List<float> waitTimes;
 
     Animator anim;
+    SpriteRenderer sprite;
     private int waypointIndex = 0;
     private int waitTimeIndex = 0;
     private float normalSpeed = 0f;
@@ -21,8 +22,9 @@ public class CharacterPathing : MonoBehaviour
     {
         // Set position of character to start of path
         transform.position = waypoints[waypointIndex].transform.position;
-        anim = GetComponent<Animator>();
         normalSpeed = moveSpeed;
+        anim = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -73,6 +75,7 @@ public class CharacterPathing : MonoBehaviour
     {
         moveSpeed *= speedMultiplier;
         speedChange = true;
+        //sprite.sortingOrder = 10;
     }
 
     public void ResetMoveSpeed()
@@ -81,6 +84,7 @@ public class CharacterPathing : MonoBehaviour
         {
             moveSpeed = normalSpeed;
             speedChange = false;
+            //sprite.sortingOrder = 0;
         }
         else
             return;

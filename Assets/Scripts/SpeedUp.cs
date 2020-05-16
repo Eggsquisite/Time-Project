@@ -31,6 +31,7 @@ public class SpeedUp : MonoBehaviour
         if (ready != readyStatus)
             ready = readyStatus;
 
+        // Turn on collision
         if (ready)
             coll.enabled = true;
     }
@@ -40,11 +41,13 @@ public class SpeedUp : MonoBehaviour
         if (collision.tag == "Character")
         {
             var character = collision.GetComponent<CharacterPathing>();
-            
-            collision.GetComponent<Animator>().SetFloat("runMultiplier", animMultiplier);
+            var characterAnim = collision.GetComponent<Animator>();
+
+            // Increases move/anim speed and decreases wait time by multiplier
             character.NewMoveSpeed(speedMultiplier);
             var tmpWait = character.GetWaitTime();
             character.SetWaitTime(tmpWait * waitMultiplier);
+            characterAnim.SetFloat("runMultiplier", animMultiplier);
         }
     }
 
@@ -52,8 +55,12 @@ public class SpeedUp : MonoBehaviour
     {
         if (collision.tag == "Character") 
         {
-            collision.GetComponent<CharacterPathing>().ResetMoveSpeed();
-            collision.GetComponent<Animator>().SetFloat("runMultiplier", 1);
+            var character = collision.GetComponent<CharacterPathing>();
+            var characterAnim = collision.GetComponent<Animator>();
+
+            // Resets move/anim speed
+            character.ResetMoveSpeed();
+            characterAnim.SetFloat("runMultiplier", 1);
         }
     }
 }
