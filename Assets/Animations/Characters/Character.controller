@@ -26,7 +26,7 @@ AnimatorState:
   m_SpeedParameter: runMultiplier
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
-  m_TimeParameter: 
+  m_TimeParameter: runMultiplier
 --- !u!1102 &-2808444266084226849
 AnimatorState:
   serializedVersion: 5
@@ -71,7 +71,7 @@ AnimatorController:
     m_Controller: {fileID: 0}
   - m_Name: runMultiplier
     m_Type: 1
-    m_DefaultFloat: 0
+    m_DefaultFloat: 1
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}

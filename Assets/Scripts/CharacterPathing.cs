@@ -13,6 +13,7 @@ public class CharacterPathing : MonoBehaviour
     int waypointIndex = 0;
     int waitTimeIndex = 0;
     bool readyToMove = true;
+    bool speedChange = false;
 
     // Start is called before the first frame update
     void Start()
@@ -57,5 +58,22 @@ public class CharacterPathing : MonoBehaviour
             readyToMove = true;
             anim.SetBool("Moving", true);
         }
+    }
+
+    public void NewMoveSpeed(float speedMultiplier)
+    {
+        moveSpeed *= speedMultiplier;
+        speedChange = true;
+    }
+
+    public void OldMoveSpeed(float speedMultiplier)
+    {
+        if (speedChange == true)
+        {
+            moveSpeed /= speedMultiplier;
+            speedChange = false;
+        }
+        else
+            return;
     }
 }
