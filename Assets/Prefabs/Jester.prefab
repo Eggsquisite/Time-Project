@@ -121,9 +121,13 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   waitTimes:
   - 0.5
-  - 1
+  - 3
+  - 2
+  - 2
 --- !u!50 &1052489953
 Rigidbody2D:
   serializedVersion: 4

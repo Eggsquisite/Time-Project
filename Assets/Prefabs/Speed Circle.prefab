@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5172776518020513974}
   - component: {fileID: 390441433}
   - component: {fileID: 7094006662610753818}
+  - component: {fileID: 813462190}
   m_Layer: 0
   m_Name: Speed Circle
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 5172776518020513975}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.26, y: 1.71, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 3.5, y: 3.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -110,5 +111,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 451be47e5ee01bc43ad7ea31f6668414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMultiplier: 1.75
+  speedMultiplier: 2
   animMultiplier: 2
+  waitMultiplier: 0.5
+--- !u!95 &813462190
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5172776518020513975}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4463b21ab2622574ba3ef5d715e443a0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

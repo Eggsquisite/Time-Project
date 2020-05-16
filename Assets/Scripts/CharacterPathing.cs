@@ -78,4 +78,14 @@ public class CharacterPathing : MonoBehaviour
         else
             return;
     }
+
+    public float GetWaitTime()
+    {
+        return waitTimes[waitTimeIndex];
+    }
+
+    public void SetWaitTime(float newWaitTime)
+    {
+        waitTimes[waitTimeIndex] = newWaitTime;
+    }
 }
