@@ -26,15 +26,17 @@ public class SpeedUp : MonoBehaviour
     {
         if (collision.tag == "Character")
         {
-            collision.GetComponent<CharacterPathing>().NewMoveSpeed(speedMultiplier);  
+            collision.GetComponent<CharacterPathing>().NewMoveSpeed(speedMultiplier);
+            collision.GetComponent<Animator>().SetFloat("runMultiplier", animMultiplier);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.attachedRigidbody)
+        if (collision.tag == "Character") 
         {
             collision.GetComponent<CharacterPathing>().OldMoveSpeed(speedMultiplier);
+            collision.GetComponent<Animator>().SetFloat("runMultiplier", 1);
         }
     }
 }
