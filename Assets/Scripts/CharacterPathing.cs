@@ -10,10 +10,11 @@ public class CharacterPathing : MonoBehaviour
     [SerializeField] List<float> waitTimes;
 
     Animator anim;
-    int waypointIndex = 0;
-    int waitTimeIndex = 0;
-    bool readyToMove = true;
-    bool speedChange = false;
+    private int waypointIndex = 0;
+    private int waitTimeIndex = 0;
+    private float normalSpeed = 0f;
+    private bool readyToMove = true;
+    private bool speedChange = false;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class CharacterPathing : MonoBehaviour
         // Set position of character to start of path
         transform.position = waypoints[waypointIndex].transform.position;
         anim = GetComponent<Animator>();
+        normalSpeed = moveSpeed;
     }
 
     // Update is called once per frame
@@ -66,11 +68,11 @@ public class CharacterPathing : MonoBehaviour
         speedChange = true;
     }
 
-    public void OldMoveSpeed(float speedMultiplier)
+    public void ResetMoveSpeed()
     {
         if (speedChange == true)
         {
-            moveSpeed /= speedMultiplier;
+            moveSpeed = normalSpeed;
             speedChange = false;
         }
         else
