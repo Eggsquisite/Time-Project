@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CharacterPathing : MonoBehaviour
 {
+    // Keep movespeed same so player can predict movement, only having to learn the pauses
     [SerializeField] float moveSpeed = 2f;
     [SerializeField] List<Transform> waypoints;
     [SerializeField] List<float> waitTimes;
@@ -50,7 +51,11 @@ public class CharacterPathing : MonoBehaviour
         yield return new WaitForSeconds(waitTimes[waitTimeIndex]);
         if (waitTimeIndex < waitTimes.Count - 1)
             waitTimeIndex++;
-        readyToMove = true;
-        anim.SetBool("Moving", true);
+
+        if (waypointIndex < waypoints.Count)
+        {
+            readyToMove = true;
+            anim.SetBool("Moving", true);
+        }
     }
 }
