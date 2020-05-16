@@ -48,13 +48,20 @@ public class CharacterPathing : MonoBehaviour
 
     IEnumerator WaitForNextMove()
     {
-        readyToMove = false;
-        anim.SetBool("Moving", false);
+        // Stop movement and animation
+        if (readyToMove)
+        {
+            readyToMove = false;
+            anim.SetBool("Moving", false);
+        }
 
         yield return new WaitForSeconds(waitTimes[waitTimeIndex]);
+
+        // Since waitTime.count is one less than the amount of waypoints.count
         if (waitTimeIndex < waitTimes.Count - 1)
             waitTimeIndex++;
 
+        // Restart movement/animation
         if (waypointIndex < waypoints.Count)
         {
             readyToMove = true;
@@ -87,5 +94,9 @@ public class CharacterPathing : MonoBehaviour
     public void SetWaitTime(float newWaitTime)
     {
         waitTimes[waitTimeIndex] = newWaitTime;
+
+        // Restart coroutine with new wait time
+        StopCoroutine(WaitForNextMove());
+        StartCoroutine(WaitForNextMove());
     }
 }
