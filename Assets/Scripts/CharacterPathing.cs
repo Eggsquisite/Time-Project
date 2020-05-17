@@ -5,15 +5,16 @@ using UnityEngine;
 public class CharacterPathing : MonoBehaviour
 {
     // Keep movespeed same so player can predict movement, only having to learn the pauses
-    [SerializeField] float moveSpeed = 2f;
-    [SerializeField] List<Transform> waypoints;
-    [SerializeField] List<float> waitTimes;
+    [SerializeField] CharacterConfig charConfig;
 
     Animator anim;
     SpriteRenderer sprite;
+    private List<float> waitTimes;
+    private List<Transform> waypoints;
+    private float moveSpeed = 0f;
+    private float normalSpeed = 0f;
     private int waypointIndex = 0;
     private int waitTimeIndex = 0;
-    private float normalSpeed = 0f;
     private bool readyToMove = true;
     private bool speedChange = false;
 
@@ -21,10 +22,15 @@ public class CharacterPathing : MonoBehaviour
     void Start()
     {
         // Set position of character to start of path
-        transform.position = waypoints[waypointIndex].transform.position;
-        normalSpeed = moveSpeed;
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
+
+        moveSpeed = charConfig.GetMoveSpeed();
+        normalSpeed = moveSpeed;
+
+        waypoints = charConfig.GetWaypoints();
+        waitTimes = charConfig.GetWaitTimes();
+        transform.position = waypoints[waypointIndex].transform.position;
     }
 
     // Update is called once per frame
@@ -57,6 +63,7 @@ public class CharacterPathing : MonoBehaviour
             anim.SetBool("Moving", false);
         }
 
+        Debug.Log("Waiting..." + waitTimes[waitTimeIndex]);
         yield return new WaitForSeconds(waitTimes[waitTimeIndex]);
 
         // Since waitTime.count is one less than the amount of waypoints.count
@@ -71,7 +78,7 @@ public class CharacterPathing : MonoBehaviour
         }
     }
 
-    public void NewMoveSpeed(float speedMultiplier)
+    public void AltMoveSpeed(float speedMultiplier)
     {
         moveSpeed *= speedMultiplier;
         speedChange = true;
@@ -92,7 +99,8 @@ public class CharacterPathing : MonoBehaviour
 
     public float GetWaitTime()
     {
-        return waitTimes[waitTimeIndex];
+        var tmpWait = waitTimes[waitTimeIndex];
+        return tmpWait;
     }
 
     public void SetWaitTime(float newWaitTime)

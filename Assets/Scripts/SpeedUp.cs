@@ -44,7 +44,7 @@ public class SpeedUp : MonoBehaviour
             var characterAnim = collision.GetComponent<Animator>();
 
             // Increases move/anim speed and decreases wait time by multiplier
-            character.NewMoveSpeed(speedMultiplier);
+            character.AltMoveSpeed(speedMultiplier);
             var tmpWait = character.GetWaitTime();
             character.SetWaitTime(tmpWait * waitMultiplier);
             characterAnim.SetFloat("runMultiplier", animMultiplier);
