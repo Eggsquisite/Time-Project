@@ -13,6 +13,7 @@ public class CharacterPathing : MonoBehaviour
     private List<Transform> waypoints;
     private float moveSpeed = 0f;
     private float normalSpeed = 0f;
+    private float tmpWait = 0f;
     private int waypointIndex = 0;
     private int waitTimeIndex = 0;
     private bool readyToMove = true;
@@ -63,8 +64,14 @@ public class CharacterPathing : MonoBehaviour
             anim.SetBool("Moving", false);
         }
 
-        Debug.Log("Waiting..." + waitTimes[waitTimeIndex]);
         yield return new WaitForSeconds(waitTimes[waitTimeIndex]);
+
+        // Resets waitTime value after wait is successful 
+        if (tmpWait != 0)
+        {
+            waitTimes[waitTimeIndex] = tmpWait;
+            tmpWait = 0;
+        }
 
         // Since waitTime.count is one less than the amount of waypoints.count
         if (waitTimeIndex < waitTimes.Count - 1)
@@ -99,12 +106,12 @@ public class CharacterPathing : MonoBehaviour
 
     public float GetWaitTime()
     {
-        var tmpWait = waitTimes[waitTimeIndex];
-        return tmpWait;
+        return waitTimes[waitTimeIndex];
     }
 
     public void SetWaitTime(float newWaitTime)
     {
+        tmpWait = waitTimes[waitTimeIndex];
         waitTimes[waitTimeIndex] = newWaitTime;
 
         // Restart coroutine with new wait time
