@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 6209264666784211003}
   - component: {fileID: 6209264666784211001}
   - component: {fileID: 6209264666784211000}
+  - component: {fileID: 6383743089691781550}
   m_Layer: 0
   m_Name: Charlotte
   m_TagString: Character
@@ -191,6 +192,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charConfig: {fileID: 11400000, guid: 8791e0ae5a8cabb409a78a35bd0af34d, type: 2}
+--- !u!114 &6383743089691781550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6209264666784210998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6d8b9b41deb4b4ca0600518ff9e38e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitKnightTime: 2
 --- !u!1001 &8862988041608173775
 PrefabInstance:
   m_ObjectHideFlags: 0
