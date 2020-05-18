@@ -8,6 +8,7 @@ public class CharacterConfig : ScriptableObject
     [SerializeField] float moveSpeed = 2f;
     [SerializeField] GameObject characterPrefab;
     [SerializeField] GameObject pathPrefab;
+    [SerializeField] GameObject item = null;
     [SerializeField] List<float> waitTimes;
 
     public GameObject GetCharacterPrefab() { return characterPrefab; }   

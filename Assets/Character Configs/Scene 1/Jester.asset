@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1d2a03cba3452b4585232028b59669f, type: 3}
   m_Name: Jester
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 3
   characterPrefab: {fileID: 6650434749517269441, guid: 96608c7586aa31c46bd43eac7e374948,
     type: 3}
   pathPrefab: {fileID: 9123409111451409570, guid: f3240dcff9f44da4fae7fde87bd8a5a5,
     type: 3}
+  item: {fileID: 0}
   waitTimes:
   - 1
   - 2
+  - 0
+  - 0
   - 1
-  - 1
-  - 1
+  - 0
