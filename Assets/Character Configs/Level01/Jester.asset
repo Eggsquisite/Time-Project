@@ -10,15 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1d2a03cba3452b4585232028b59669f, type: 3}
-  m_Name: Knight01
+  m_Name: Jester
   m_EditorClassIdentifier: 
-  moveSpeed: 2
-  characterPrefab: {fileID: 303074796778650897, guid: 7e3877bd97b50a24fb82b35848fae191,
+  moveSpeed: 2.5
+  characterPrefab: {fileID: 6650434749517269441, guid: 96608c7586aa31c46bd43eac7e374948,
     type: 3}
-  pathPrefab: {fileID: 8045639886402984162, guid: 0924b98aad3de944eab625a72f12a3b3,
+  pathPrefab: {fileID: 9123409111451409570, guid: f3240dcff9f44da4fae7fde87bd8a5a5,
     type: 3}
+  item: {fileID: 0}
   waitTimes:
+  - 1
+  - 3
   - 0
   - 0
+  - 1
   - 0
   - 0
