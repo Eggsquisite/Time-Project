@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Steal : MonoBehaviour
 {
-    GameObject childItem = null;
+    GameObject itemPosition = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        //childItem = this.transform.GetChild(0).gameObject;
+        itemPosition = this.transform.GetChild(0).gameObject;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -17,8 +17,8 @@ public class Steal : MonoBehaviour
         if (collision.tag == "Item")
         {
             Debug.Log("Stealing...");
-            //collision.transform.position = childItem.transform.position;
-            collision.transform.position = Vector2.MoveTowards(collision.transform.position, this.gameObject.transform.position, 2 * Time.deltaTime);
+            collision.transform.position = itemPosition.transform.position;
+            Destroy(itemPosition.gameObject);
             collision.transform.parent = this.gameObject.transform;
 
             GetComponent<Character>().Thievery(true);

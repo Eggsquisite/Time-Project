@@ -41,14 +41,8 @@ public class SpeedUp : MonoBehaviour
     {
         if (collision.tag == "Character")
         {
-            var character = collision.GetComponent<CharacterPathing>();
-            var characterAnim = collision.GetComponent<Animator>();
-
-            // Increases move/anim speed and decreases wait time by multiplier
-            character.AltMoveSpeed(speedMultiplier);
-            var tmpWait = character.GetWaitTime();
-            character.SetWaitTime(tmpWait * waitMultiplier);
-            characterAnim.SetFloat("runMultiplier", animMultiplier);
+            // Speed up movespeed and animation
+            SpeedingUp(collision);
         }
     }
 
@@ -57,22 +51,27 @@ public class SpeedUp : MonoBehaviour
         if (collision.tag == "Character") 
         {
             // Resets move/anim speed
-            StartCoroutine(Stabilizing(collision));
+            Stabilizing(collision);
         }
     }
 
-    IEnumerator Stabilizing(Collider2D collision)
+    private void SpeedingUp(Collider2D collision)
     {
-        var character = collision.GetComponent<Character>();
         var characterPath = collision.GetComponent<CharacterPathing>();
         var characterAnim = collision.GetComponent<Animator>();
-        yield return new WaitForSeconds(stabilizeTime);
 
-        if (character.GetStoppedStatus() == false)
-        {
-            Debug.Log("Get stopped status" + character.GetStoppedStatus());
-            characterPath.ResetMoveSpeed();
-            characterAnim.SetFloat("runMultiplier", 1);
-        }
+        characterPath.AltMoveSpeed(speedMultiplier);
+        var tmpWait = characterPath.GetWaitTime();
+        characterPath.SetWaitTime(tmpWait * waitMultiplier);
+        characterAnim.SetFloat("runMultiplier", animMultiplier);
+    }
+
+    private void Stabilizing(Collider2D collision)
+    {
+        var characterPath = collision.GetComponent<CharacterPathing>();
+        var characterAnim = collision.GetComponent<Animator>();
+
+        characterPath.ResetMoveSpeed();
+        characterAnim.SetFloat("runMultiplier", 1);
     }
 }

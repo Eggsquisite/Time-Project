@@ -13,14 +13,13 @@ MonoBehaviour:
   m_Name: Charlotte
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  characterPrefab: {fileID: 6383743089423426503, guid: f8d6eb131558bc44a938d39106f5434e,
+  characterPrefab: {fileID: 6209264666784210998, guid: f8d6eb131558bc44a938d39106f5434e,
     type: 3}
   pathPrefab: {fileID: 8489769902287809929, guid: 0924b98aad3de944eab625a72f12a3b3,
     type: 3}
-  item: {fileID: 0}
   waitTimes:
   - 0
   - 2
   - 0
   - 6
-  - 1
+  - 0.0625

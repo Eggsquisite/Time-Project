@@ -18,10 +18,10 @@ MonoBehaviour:
   pathPrefab: {fileID: 9123409111451409570, guid: f3240dcff9f44da4fae7fde87bd8a5a5,
     type: 3}
   waitTimes:
-  - 1
+  - 2
   - 3
   - 0
   - 0
-  - 0.5
+  - 0
   - 0
   - 0
