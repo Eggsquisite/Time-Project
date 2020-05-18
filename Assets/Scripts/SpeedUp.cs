@@ -7,6 +7,7 @@ public class SpeedUp : MonoBehaviour
     [SerializeField] float speedMultiplier = 1.25f;
     [SerializeField] float animMultiplier = 1.5f;
     [SerializeField] float waitMultiplier = 0.5f;
+    [SerializeField] float stabilizeTime = 1f;
 
     float zRotateSpeed = -25f;
     Collider2D coll;
@@ -55,11 +56,22 @@ public class SpeedUp : MonoBehaviour
     {
         if (collision.tag == "Character") 
         {
-            var character = collision.GetComponent<CharacterPathing>();
-            var characterAnim = collision.GetComponent<Animator>();
-
             // Resets move/anim speed
-            character.ResetMoveSpeed();
+            StartCoroutine(Stabilizing(collision));
+        }
+    }
+
+    IEnumerator Stabilizing(Collider2D collision)
+    {
+        var character = collision.GetComponent<Character>();
+        var characterPath = collision.GetComponent<CharacterPathing>();
+        var characterAnim = collision.GetComponent<Animator>();
+        yield return new WaitForSeconds(stabilizeTime);
+
+        if (character.GetStoppedStatus() == false)
+        {
+            Debug.Log("Get stopped status" + character.GetStoppedStatus());
+            characterPath.ResetMoveSpeed();
             characterAnim.SetFloat("runMultiplier", 1);
         }
     }

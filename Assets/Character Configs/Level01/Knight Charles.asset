@@ -12,15 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1d2a03cba3452b4585232028b59669f, type: 3}
   m_Name: Knight Charles
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 2.5
   characterPrefab: {fileID: 303074796778650897, guid: 7e3877bd97b50a24fb82b35848fae191,
     type: 3}
   pathPrefab: {fileID: 1576630505957118766, guid: 2a5c7938b588dae44987000398e36557,
     type: 3}
-  item: {fileID: 0}
   waitTimes:
   - 1
   - 1.8
   - 0
   - 0
-  - 2.5
+  - 3.5

@@ -21,7 +21,7 @@ public class Steal : MonoBehaviour
             collision.transform.position = Vector2.MoveTowards(collision.transform.position, this.gameObject.transform.position, 2 * Time.deltaTime);
             collision.transform.parent = this.gameObject.transform;
 
-            GetComponent<Character>().CommitThievery(true);
+            GetComponent<Character>().Thievery(true);
         }
     }
 }
