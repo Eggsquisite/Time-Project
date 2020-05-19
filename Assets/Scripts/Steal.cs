@@ -16,7 +16,6 @@ public class Steal : MonoBehaviour
     {
         if (collision.tag == "Item")
         {
-            Debug.Log("Stealing...");
             collision.transform.position = itemPosition.transform.position;
             Destroy(itemPosition.gameObject);
             collision.transform.parent = this.gameObject.transform;

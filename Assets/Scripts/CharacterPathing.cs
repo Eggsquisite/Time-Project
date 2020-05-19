@@ -13,7 +13,7 @@ public class CharacterPathing : MonoBehaviour
     private List<Transform> waypoints;
     private float moveSpeed = 0f;
     private float normalSpeed = 0f;
-    private float tmpWait = 0f;
+    private float waitModifier = 1f;
     private int waypointIndex = 0;
     private int waitTimeIndex = 0;
     private bool readyToMove = true;
@@ -49,7 +49,7 @@ public class CharacterPathing : MonoBehaviour
 
             if (transform.position == targetPosition)
             {
-                StartCoroutine(WaitForNextMove());
+                StartCoroutine("WaitForNextMove");
                 waypointIndex++;
             }
         }
@@ -64,18 +64,26 @@ public class CharacterPathing : MonoBehaviour
             anim.SetBool("Moving", false);
         }
 
-        yield return new WaitForSeconds(waitTimes[waitTimeIndex]);
+        if (gameObject.name == "Knight Charles")
+        {
+            Debug.Log("Wait index: " + waitTimeIndex);
+        }
+
+        yield return new WaitForSeconds(waitTimes[waitTimeIndex] * waitModifier);
 
         // Resets waitTime value after wait is successful 
-        if (tmpWait != 0)
+        /*if (tmpWait != -1f)
         {
             waitTimes[waitTimeIndex] = tmpWait;
-            tmpWait = 0;
-        }
+            tmpWait = -1f;
+        }*/
 
         // Since waitTime.count is one less than the amount of waypoints.count
         if (waitTimeIndex < waitTimes.Count - 1)
+        {
             waitTimeIndex++;
+            //Debug.Log("Incremented waitIndex-> " + waitTimeIndex);
+        }
 
         // Restart movement/animation
         if (waypointIndex < waypoints.Count)
@@ -109,7 +117,7 @@ public class CharacterPathing : MonoBehaviour
         return waitTimes[waitTimeIndex];
     }
 
-    public void SetWaitTime(float newWaitTime)
+   /* public void SetWaitTime(float newWaitTime)
     {
         tmpWait = waitTimes[waitTimeIndex];
         waitTimes[waitTimeIndex] = newWaitTime;
@@ -117,8 +125,19 @@ public class CharacterPathing : MonoBehaviour
         // Restart coroutine with new wait time
         if (!readyToMove)
         {
-            StopCoroutine(WaitForNextMove());
-            StartCoroutine(WaitForNextMove());
+            StopCoroutine(WaitForNextMove(false));
+            StartCoroutine(WaitForNextMove(true));
+        }
+    }*/
+
+    public void SetWaitTime(float modifier)
+    {
+        waitModifier = modifier;
+        // Restart coroutine with new wait time
+        if (!readyToMove && waitModifier != 1)
+        {
+            StopCoroutine("WaitForNextMove");
+            StartCoroutine("WaitForNextMove");
         }
     }
 }

@@ -11,7 +11,6 @@ public class Character : MonoBehaviour
     private bool knight = false;
     private bool arresting = false;
     //private bool thief = false;
-    private bool stopped = false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,22 +23,11 @@ public class Character : MonoBehaviour
     public void Thievery(bool status)
     {
         thief = status;
-        Debug.Log("Has stolen");
     }
 
     public bool GetThiefStatus()
     {
         return thief;
-    }
-
-    public void SetStopped(bool status)
-    {
-        stopped = status;
-    }
-
-    public bool GetStoppedStatus()
-    {
-        return stopped;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
