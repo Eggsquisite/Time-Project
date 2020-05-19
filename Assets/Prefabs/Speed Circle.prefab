@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5172776518020513974}
   - component: {fileID: 390441433}
   - component: {fileID: 7094006662610753818}
-  - component: {fileID: 813462190}
   m_Layer: 0
   m_Name: Speed Circle
   m_TagString: Untagged
@@ -114,23 +113,3 @@ MonoBehaviour:
   speedMultiplier: 2
   animMultiplier: 2
   waitMultiplier: 0.5
-  stabilizeTime: 1
---- !u!95 &813462190
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5172776518020513975}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0

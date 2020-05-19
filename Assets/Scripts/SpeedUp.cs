@@ -61,8 +61,6 @@ public class SpeedUp : MonoBehaviour
 
         characterPath.SetWaitTime(waitMultiplier);
         characterPath.AltMoveSpeed(speedMultiplier);
-        var tmpWait = characterPath.GetWaitTime();
-        //characterPath.SetWaitTime(tmpWait * waitMultiplier);
         characterAnim.SetFloat("runMultiplier", animMultiplier);
     }
 
