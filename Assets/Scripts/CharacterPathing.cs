@@ -50,9 +50,9 @@ public class CharacterPathing : MonoBehaviour
             {
                 timerStart = true;
                 timerCount = waitTimes[waitTimeIndex] * waitModifier;
+                timer.gameObject.SetActive(true);
                 StartCoroutine("WaitForNextMove");
 
-                //timer.transform.gameObject.SetActive(false);
                 waypointIndex++;
             }
         }
@@ -66,6 +66,7 @@ public class CharacterPathing : MonoBehaviour
         {
             timerStart = false;
             timerCount = 0f;
+            timer.gameObject.SetActive(false);
         }
     }
 
@@ -91,7 +92,7 @@ public class CharacterPathing : MonoBehaviour
             anim.SetBool("Moving", false);
         }
 
-        yield return new WaitForSeconds(waitTimes[waitTimeIndex] * waitModifier);
+        yield return new WaitForSeconds(timerCount);
 
         // Since waitTime.count is one less than the amount of waypoints.count
         if (waitTimeIndex < waitTimes.Count - 1)
