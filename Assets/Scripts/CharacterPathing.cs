@@ -10,12 +10,14 @@ public class CharacterPathing : MonoBehaviour
     [SerializeField] List<float> waitTimes;
 
     Animator anim;
-    SpriteRenderer sprite;
+    Timer timer;
     private List<Transform> waypoints;
     private float normalSpeed = 0f;
     private float waitModifier = 1f;
+    private float timerCount = 0f;
     private int waypointIndex = 0;
     private int waitTimeIndex = 0;
+    private bool timerStart = false;
     private bool readyToMove = true;
     private bool speedChange = false;
 
@@ -24,8 +26,7 @@ public class CharacterPathing : MonoBehaviour
     {
         // Set position of character to start of path
         anim = GetComponent<Animator>();
-        sprite = GetComponent<SpriteRenderer>();
-
+        timer = GetComponentInChildren<Timer>();
         normalSpeed = moveSpeed;
 
         waypoints = GetWaypoints();
@@ -47,9 +48,24 @@ public class CharacterPathing : MonoBehaviour
 
             if (transform.position == targetPosition)
             {
+                timerStart = true;
+                timerCount = waitTimes[waitTimeIndex] * waitModifier;
                 StartCoroutine("WaitForNextMove");
+
+                //timer.transform.gameObject.SetActive(false);
                 waypointIndex++;
             }
+        }
+
+        if (timerCount > 0.0f && timerStart == true)
+        {
+            timerCount -= Time.deltaTime;
+            timer.SetTime(timerCount / waitTimes[waitTimeIndex] * waitModifier);
+        }
+        else if (timerCount <= 0.0f)
+        {
+            timerStart = false;
+            timerCount = 0f;
         }
     }
 

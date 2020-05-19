@@ -56,8 +56,8 @@ public class Character : MonoBehaviour
         charPath.ResetMoveSpeed();
 
         // Destroy stolen item 
-        if(thief.transform.GetChild(0) != null && thiefCharacter.GetThiefStatus() == true)
-            Destroy(thief.transform.GetChild(0).gameObject);
+        if(thief.transform.GetChild(1) != null && thiefCharacter.GetThiefStatus() == true)
+            Destroy(thief.transform.GetChild(1).gameObject);
         
         thiefCharacter.Thievery(false);
     }
