@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 303074796778650899}
   - component: {fileID: 303074796778650896}
-  - component: {fileID: 8957116552602471289}
   - component: {fileID: 303074796778650898}
   - component: {fileID: 5003921728550866212}
   - component: {fileID: 3614986942186422418}
+  - component: {fileID: 8957116552602471289}
   - component: {fileID: 311509286}
   m_Layer: 0
   m_Name: Knight Charles
@@ -86,19 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8957116552602471289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 303074796778650897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b08602fb4bf2cf94d912b5465c891022, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  charConfig: {fileID: 11400000, guid: 26df8a2db29f33c4086c4416cffd71bf, type: 2}
 --- !u!95 &303074796778650898
 Animator:
   serializedVersion: 3
@@ -165,6 +152,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8957116552602471289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303074796778650897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b08602fb4bf2cf94d912b5465c891022, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charConfig: {fileID: 0}
 --- !u!114 &311509286
 MonoBehaviour:
   m_ObjectHideFlags: 0

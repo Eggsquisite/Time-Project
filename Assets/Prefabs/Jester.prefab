@@ -41,9 +41,9 @@ GameObject:
   - component: {fileID: 6650434749517269443}
   - component: {fileID: 6650434749517269440}
   - component: {fileID: 6650434749517269442}
-  - component: {fileID: 6650434749517269501}
   - component: {fileID: 1052489953}
   - component: {fileID: 1052489949}
+  - component: {fileID: 6650434749517269501}
   - component: {fileID: 1849967519}
   - component: {fileID: 8481734991937173516}
   m_Layer: 0
@@ -137,19 +137,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6650434749517269501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6650434749517269441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b08602fb4bf2cf94d912b5465c891022, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  charConfig: {fileID: 11400000, guid: 0feaf5a02cbe24141b29e7c1e7005d47, type: 2}
 --- !u!50 &1052489953
 Rigidbody2D:
   serializedVersion: 4
@@ -197,6 +184,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6650434749517269501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6650434749517269441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b08602fb4bf2cf94d912b5465c891022, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charConfig: {fileID: 0}
 --- !u!114 &1849967519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,3 +222,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitKnightTime: 2
+  thief: 0

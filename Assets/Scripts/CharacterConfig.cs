@@ -6,11 +6,11 @@ using UnityEngine;
 public class CharacterConfig : ScriptableObject
 {
     [SerializeField] float moveSpeed = 2f;
-    [SerializeField] GameObject characterPrefab;
+    //[SerializeField] GameObject characterPrefab;
     [SerializeField] GameObject pathPrefab;
     [SerializeField] List<float> waitTimes;
 
-    public GameObject GetCharacterPrefab() { return characterPrefab; }   
+    //public GameObject GetCharacterPrefab() { return characterPrefab; }   
 
     public List<Transform> GetWaypoints() 
     {

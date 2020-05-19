@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b08602fb4bf2cf94d912b5465c891022, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charConfig: {fileID: 11400000, guid: 8791e0ae5a8cabb409a78a35bd0af34d, type: 2}
+  charConfig: {fileID: 0}
 --- !u!114 &6383743089691781550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,6 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitKnightTime: 2
+  thief: 0
 --- !u!1001 &8862988041608173775
 PrefabInstance:
   m_ObjectHideFlags: 0
