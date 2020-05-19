@@ -5,13 +5,13 @@ using UnityEngine;
 public class CharacterPathing : MonoBehaviour
 {
     // Keep movespeed same so player can predict movement, only having to learn the pauses
-    [SerializeField] CharacterConfig charConfig;
+    [SerializeField] float moveSpeed = 2f;
+    [SerializeField] GameObject pathPrefab;
+    [SerializeField] List<float> waitTimes;
 
     Animator anim;
     SpriteRenderer sprite;
-    private List<float> waitTimes;
     private List<Transform> waypoints;
-    private float moveSpeed = 0f;
     private float normalSpeed = 0f;
     private float waitModifier = 1f;
     private int waypointIndex = 0;
@@ -26,11 +26,9 @@ public class CharacterPathing : MonoBehaviour
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
 
-        moveSpeed = charConfig.GetMoveSpeed();
         normalSpeed = moveSpeed;
 
-        waypoints = charConfig.GetWaypoints();
-        waitTimes = charConfig.GetWaitTimes();
+        waypoints = GetWaypoints();
         transform.position = waypoints[waypointIndex].transform.position;
     }
 
@@ -55,7 +53,20 @@ public class CharacterPathing : MonoBehaviour
         }
     }
 
-    IEnumerator WaitForNextMove()
+    private List<Transform> GetWaypoints()
+    {
+        var charWaypoints = new List<Transform>();
+
+        // foreach (TYPE varname in VARIABLE)
+        foreach (Transform child in pathPrefab.transform)
+        {
+            charWaypoints.Add(child);
+        }
+
+        return charWaypoints;
+    }
+
+        IEnumerator WaitForNextMove()
     {
         // Stop movement and animation
         if (readyToMove)
