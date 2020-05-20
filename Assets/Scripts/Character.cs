@@ -46,14 +46,14 @@ public class Character : MonoBehaviour
         var thiefPath = thief.GetComponent<CharacterPathing>();
 
         // Stop knight and thief for confrontation
-        thiefPath.AltMoveSpeed(0);
-        charPath.AltMoveSpeed(0);
+        thiefPath.AltTimeAffect(0, Color.yellow);
+        charPath.AltTimeAffect(0, Color.yellow);
 
         yield return new WaitForSeconds(waitKnightTime);
 
         // Reset movement of knight and thief
-        thiefPath.ResetMoveSpeed();
-        charPath.ResetMoveSpeed();
+        thiefPath.ResetTime();
+        charPath.ResetTime();
 
         // Destroy stolen item 
         if(thief.transform.GetChild(1) != null && thiefCharacter.GetThiefStatus() == true)

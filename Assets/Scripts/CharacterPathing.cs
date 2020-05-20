@@ -19,7 +19,7 @@ public class CharacterPathing : MonoBehaviour
     private int waitTimeIndex = 0;
     private bool timerStart = false;
     private bool readyToMove = true;
-    private bool speedChange = false;
+    private bool timeAltered = false;
 
     // Start is called before the first frame update
     void Start()
@@ -48,25 +48,19 @@ public class CharacterPathing : MonoBehaviour
 
             if (transform.position == targetPosition)
             {
-                timerStart = true;
-                timerCount = waitTimes[waitTimeIndex] * waitModifier;
-                timer.gameObject.SetActive(true);
-                StartCoroutine("WaitForNextMove");
-
-                waypointIndex++;
+                StopMovement();
+                //StartCoroutine("WaitForNextMove");
             }
         }
 
         if (timerCount > 0.0f && timerStart == true)
         {
-            timerCount -= Time.deltaTime;
-            timer.SetTime(timerCount / waitTimes[waitTimeIndex] * waitModifier);
+            timerCount -= Time.deltaTime * waitModifier;
+            timer.SetTime(timerCount / waitTimes[waitTimeIndex]);
         }
-        else if (timerCount <= 0.0f)
+        else if (timerCount <= 0.0f && timerStart == true)
         {
-            timerStart = false;
-            timerCount = 0f;
-            timer.gameObject.SetActive(false);
+            RestartMovement();
         }
     }
 
@@ -83,11 +77,47 @@ public class CharacterPathing : MonoBehaviour
         return charWaypoints;
     }
 
+    private void StopMovement()
+    {
+        timer.gameObject.SetActive(true);
+        timer.SetTimerStatus(true);
+        timerCount = waitTimes[waitTimeIndex];
+        waypointIndex++;
+
+        // Stop movement and animation
+        if (readyToMove)
+        {
+            timerStart = true;
+            readyToMove = false;
+            anim.SetBool("Moving", false);
+        }
+    }
+
+    private void RestartMovement()
+    {
+        timerStart = false;
+        timerCount = 0f;
+        timer.gameObject.SetActive(false);
+        timer.SetTimerStatus(false);
+
+        // Since waitTime.count is one less than the amount of waypoints.count
+        if (waitTimeIndex < waitTimes.Count - 1)
+            waitTimeIndex++;
+
+        // Restart movement/animation
+        if (waypointIndex < waypoints.Count)
+        {
+            readyToMove = true;
+            anim.SetBool("Moving", true);
+        }
+    }
+
         IEnumerator WaitForNextMove()
     {
         // Stop movement and animation
         if (readyToMove)
         {
+            timerStart = true;
             readyToMove = false;
             anim.SetBool("Moving", false);
         }
@@ -108,20 +138,20 @@ public class CharacterPathing : MonoBehaviour
         }
     }
 
-    public void AltMoveSpeed(float speedMultiplier)
+    public void AltTimeAffect(float speedMultiplier, Color newColor)
     {
+        timeAltered = true;
+        timer.SetColor(newColor);
         moveSpeed *= speedMultiplier;
-        speedChange = true;
-        //sprite.sortingOrder = 10;
     }
 
-    public void ResetMoveSpeed()
+    public void ResetTime()
     {
-        if (speedChange == true)
+        if (timeAltered == true)
         {
+            timeAltered = false;
+            timer.ResetColor();
             moveSpeed = normalSpeed;
-            speedChange = false;
-            //sprite.sortingOrder = 0;
         }
         else
             return;
@@ -130,11 +160,5 @@ public class CharacterPathing : MonoBehaviour
     public void SetWaitTime(float modifier)
     {
         waitModifier = modifier;
-        // Restart coroutine with new wait time
-        if (!readyToMove && waitModifier != 1)
-        {
-            StopCoroutine("WaitForNextMove");
-            StartCoroutine("WaitForNextMove");
-        }
     }
 }

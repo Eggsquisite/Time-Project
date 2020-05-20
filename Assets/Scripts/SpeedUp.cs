@@ -6,10 +6,11 @@ public class SpeedUp : MonoBehaviour
 {
     [SerializeField] float speedMultiplier = 1.25f;
     [SerializeField] float animMultiplier = 1.5f;
-    [SerializeField] float waitMultiplier = 0.5f;
+    [SerializeField] float waitMultiplier = 2f;
 
-    float zRotateSpeed = -25f;
     Collider2D coll;
+    Color lightBlue = new Color(0, 1, 1);
+    float zRotateSpeed = -25f;
     bool ready = false;
 
     private void Start()
@@ -60,7 +61,7 @@ public class SpeedUp : MonoBehaviour
         var characterAnim = collision.GetComponent<Animator>();
 
         characterPath.SetWaitTime(waitMultiplier);
-        characterPath.AltMoveSpeed(speedMultiplier);
+        characterPath.AltTimeAffect(speedMultiplier, lightBlue);
         characterAnim.SetFloat("runMultiplier", animMultiplier);
     }
 
@@ -70,7 +71,7 @@ public class SpeedUp : MonoBehaviour
         var characterAnim = collision.GetComponent<Animator>();
 
         characterPath.SetWaitTime(1);
-        characterPath.ResetMoveSpeed();
+        characterPath.ResetTime();
         characterAnim.SetFloat("runMultiplier", 1);
     }
 }
