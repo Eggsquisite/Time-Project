@@ -34,7 +34,10 @@ public class SpeedUp : MonoBehaviour
 
         // Turn on collision
         if (ready)
+        {
             coll.enabled = true;
+
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
