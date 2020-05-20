@@ -112,4 +112,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMultiplier: 2
   animMultiplier: 2
-  waitMultiplier: 0.5
+  waitMultiplier: 2
