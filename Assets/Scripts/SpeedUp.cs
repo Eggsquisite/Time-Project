@@ -36,7 +36,6 @@ public class SpeedUp : MonoBehaviour
         if (ready)
         {
             coll.enabled = true;
-
         }
     }
 

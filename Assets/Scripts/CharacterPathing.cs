@@ -132,7 +132,7 @@ public class CharacterPathing : MonoBehaviour
             waitTimeIndex--;
 
         // Restart movement/animation
-        if (waypointIndex < waypoints.Count && !rewinding)
+        if (waypointIndex < waypoints.Count)
         {
             readyToMove = true;
             anim.SetBool("Moving", true);
