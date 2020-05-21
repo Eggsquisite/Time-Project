@@ -15,11 +15,13 @@ public class CharacterPathing : MonoBehaviour
     private float normalSpeed = 0f;
     private float waitModifier = 1f;
     private float timerCount = 0f;
+    private float rewindCount = 0f;
     private int waypointIndex = 0;
     private int waitTimeIndex = 0;
     private bool timerStart = false;
     private bool readyToMove = true;
     private bool timeAltered = false;
+    private bool rewinding = false;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +38,7 @@ public class CharacterPathing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (readyToMove == true && waypointIndex < waypoints.Count)
+        if (readyToMove == true && waypointIndex < waypoints.Count && !rewinding)
         {
             // Get value of current position
             var targetPosition = waypoints[waypointIndex].transform.position;
@@ -52,10 +54,29 @@ public class CharacterPathing : MonoBehaviour
                 //StartCoroutine("WaitForNextMove");
             }
         }
+        else if (readyToMove == true && waypointIndex > 0 && rewinding)
+        {
+            var targetPosition = waypoints[waypointIndex].transform.position;
 
-        if (timerCount > 0.0f && timerStart == true)
+            var movementThisFrame = moveSpeed * Time.deltaTime;
+
+            transform.position = Vector2.MoveTowards(transform.position, targetPosition, movementThisFrame);
+
+            if (transform.position == targetPosition)
+            {
+                StopMovement();
+                //StartCoroutine("WaitForNextMove");
+            }
+        }
+
+        if (timerCount > 0.0f && timerStart&& !rewinding)
         {
             timerCount -= Time.deltaTime * waitModifier;
+            timer.SetTime(timerCount / waitTimes[waitTimeIndex]);
+        }
+        else if (timerCount > 0.0f && timerStart && rewinding)
+        {
+            timerCount += Time.deltaTime * waitModifier;
             timer.SetTime(timerCount / waitTimes[waitTimeIndex]);
         }
         else if (timerCount <= 0.0f && timerStart == true)
@@ -82,7 +103,11 @@ public class CharacterPathing : MonoBehaviour
         timer.gameObject.SetActive(true);
         timer.SetTimerStatus(true);
         timerCount = waitTimes[waitTimeIndex];
-        waypointIndex++;
+
+        if (!rewinding)
+            waypointIndex++;
+        else if (rewinding && waypointIndex > 0)
+            waypointIndex--;
 
         // Stop movement and animation
         if (readyToMove)
@@ -101,15 +126,17 @@ public class CharacterPathing : MonoBehaviour
         timer.SetTimerStatus(false);
 
         // Since waitTime.count is one less than the amount of waypoints.count
-        if (waitTimeIndex < waitTimes.Count - 1)
+        if (waitTimeIndex < waitTimes.Count - 1 && !rewinding)
             waitTimeIndex++;
+        else if (waitTimeIndex > 0 && rewinding)
+            waitTimeIndex--;
 
         // Restart movement/animation
-        if (waypointIndex < waypoints.Count)
+        if (waypointIndex < waypoints.Count && !rewinding)
         {
             readyToMove = true;
             anim.SetBool("Moving", true);
-        }
+        } 
     }
 
         IEnumerator WaitForNextMove()
