@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
+    [SerializeField] float speedUp = 2f;
+    [SerializeField] float rewindTime = -1f;
 
+    // Start is called before the first frame update
+    private void Awake()
+    {
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
@@ -24,5 +27,21 @@ public class TimeManager : MonoBehaviour
     public void Play()
     {
         Time.timeScale = 1;
+    }
+
+    public void FastForward()
+    {
+        if (Time.timeScale <= 1)
+            Time.timeScale = speedUp;
+        else if (Time.timeScale > 1)
+            Time.timeScale = 1;
+    }
+
+    public void Rewind()
+    {
+        if (Time.timeScale >= 0)
+            Time.timeScale = rewindTime;
+        else if (Time.timeScale < 0)
+            Time.timeScale = 1;
     }
 }
