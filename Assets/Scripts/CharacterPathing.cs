@@ -82,7 +82,6 @@ public class CharacterPathing : MonoBehaviour
 
     private void RewindingMovement()
     {
-        waypointIndex--;
         var targetPosition = waypoints[waypointIndex].transform.position;
 
         var movementThisFrame = moveSpeed * Time.deltaTime;
@@ -198,5 +197,10 @@ public class CharacterPathing : MonoBehaviour
     public void SetWaitTime(float modifier)
     {
         waitModifier = modifier;
+    }
+
+    public void SetRewinding(bool status)
+    {
+        rewinding = status;
     }
 }
