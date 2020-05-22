@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
-    [SerializeField] float speedUp = 2f;
-    [SerializeField] float rewindTime = -1f;
+    [SerializeField] float fastForward = 2f;
+    GameObject charPathing;
+    CharacterManager charManager = null;
 
     // Start is called before the first frame update
     private void Awake()
@@ -14,9 +15,10 @@ public class TimeManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Start()
     {
-
+        charPathing = GameObject.Find("Characters");
+        charManager = charPathing.GetComponent<CharacterManager>();
     }
 
     public void Pause()
@@ -32,16 +34,13 @@ public class TimeManager : MonoBehaviour
     public void FastForward()
     {
         if (Time.timeScale <= 1)
-            Time.timeScale = speedUp;
+            Time.timeScale = fastForward;
         else if (Time.timeScale > 1)
             Time.timeScale = 1;
     }
 
     public void Rewind()
     {
-        if (Time.timeScale >= 0)
-            Time.timeScale = rewindTime;
-        else if (Time.timeScale < 0)
-            Time.timeScale = 1;
+        charManager.GetCharList();
     }
 }

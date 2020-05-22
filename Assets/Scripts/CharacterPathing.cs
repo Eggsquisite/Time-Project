@@ -40,33 +40,11 @@ public class CharacterPathing : MonoBehaviour
     {
         if (readyToMove == true && waypointIndex < waypoints.Count && !rewinding)
         {
-            // Get value of current position
-            var targetPosition = waypoints[waypointIndex].transform.position;
-
-            // Speed move speed independent of frame
-            var movementThisFrame = moveSpeed * Time.deltaTime;
-
-            transform.position = Vector2.MoveTowards(transform.position, targetPosition, movementThisFrame);
-
-            if (transform.position == targetPosition)
-            {
-                StopMovement();
-                //StartCoroutine("WaitForNextMove");
-            }
+            MoveToNextWaypoint();
         }
         else if (readyToMove == true && waypointIndex > 0 && rewinding)
         {
-            var targetPosition = waypoints[waypointIndex].transform.position;
-
-            var movementThisFrame = moveSpeed * Time.deltaTime;
-
-            transform.position = Vector2.MoveTowards(transform.position, targetPosition, movementThisFrame);
-
-            if (transform.position == targetPosition)
-            {
-                StopMovement();
-                //StartCoroutine("WaitForNextMove");
-            }
+            RewindingMovement();
         }
 
         if (timerCount > 0.0f && timerStart&& !rewinding)
@@ -82,6 +60,39 @@ public class CharacterPathing : MonoBehaviour
         else if (timerCount <= 0.0f && timerStart == true)
         {
             RestartMovement();
+        }
+    }
+
+    private void MoveToNextWaypoint()
+    {
+        // Get value of current position
+        var targetPosition = waypoints[waypointIndex].transform.position;
+
+        // Speed move speed independent of frame
+        var movementThisFrame = moveSpeed * Time.deltaTime;
+
+        transform.position = Vector2.MoveTowards(transform.position, targetPosition, movementThisFrame);
+
+        if (transform.position == targetPosition)
+        {
+            StopMovement();
+            //StartCoroutine("WaitForNextMove");
+        }
+    }
+
+    private void RewindingMovement()
+    {
+        waypointIndex--;
+        var targetPosition = waypoints[waypointIndex].transform.position;
+
+        var movementThisFrame = moveSpeed * Time.deltaTime;
+
+        transform.position = Vector2.MoveTowards(transform.position, targetPosition, movementThisFrame);
+
+        if (transform.position == targetPosition)
+        {
+            StopMovement();
+            //StartCoroutine("WaitForNextMove");
         }
     }
 
