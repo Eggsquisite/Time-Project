@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
-    [SerializeField] float fastForward = 2f;
+    [SerializeField] float timeAlt = 0.25f;
+    private float timeScaleVar = 1;
     GameObject charPathing;
     CharacterManager charManager = null;
 
@@ -33,14 +34,28 @@ public class TimeManager : MonoBehaviour
 
     public void FastForward()
     {
-        if (Time.timeScale <= 1)
-            Time.timeScale = fastForward;
-        else if (Time.timeScale > 1)
-            Time.timeScale = 1;
+        if (Time.timeScale >= 2)
+            return;
+        else
+        {
+            timeScaleVar += timeAlt;
+            Time.timeScale = timeScaleVar;
+        }
+
+        Debug.Log(timeScaleVar + "FF");
     }
 
     public void Rewind()
     {
-        charManager.GetCharList();
+        //charManager.GetCharList();
+        if (Time.timeScale <= 0.25)
+            return;
+        else
+        {
+            timeScaleVar -= timeAlt;
+            Time.timeScale = timeScaleVar;
+        }
+
+        Debug.Log(timeScaleVar + "Slowdown");
     }
 }

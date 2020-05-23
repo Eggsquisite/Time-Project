@@ -122,7 +122,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3103220067598406561
 RectTransform:
   m_ObjectHideFlags: 0
@@ -245,8 +245,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37ae5187b6bcb9849a8473f1b91cc82e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedUp: 2
-  rewindTime: -1
+  fastForward: 2
+  rewind: 0.5
 --- !u!1 &3103220067986720464
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,8 +411,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37ae5187b6bcb9849a8473f1b91cc82e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedUp: 2
-  rewindTime: -1
+  fastForward: 2
+  rewind: 0.5
 --- !u!1 &3103220068272804859
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,8 +577,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37ae5187b6bcb9849a8473f1b91cc82e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedUp: 2
-  rewindTime: -1
+  fastForward: 2
+  rewind: 0.5
 --- !u!1 &3103220068567674628
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,8 +743,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37ae5187b6bcb9849a8473f1b91cc82e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedUp: 2
-  rewindTime: -1
+  fastForward: 2
+  rewind: 0.5
 --- !u!1 &3103220068582428761
 GameObject:
   m_ObjectHideFlags: 0
