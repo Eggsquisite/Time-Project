@@ -49,7 +49,6 @@ public class EnemyMovement : MonoBehaviour
                 attack = false;
             }
         }
-            
 
         if (timeAlt)
             Resetting();
@@ -135,9 +134,9 @@ public class EnemyMovement : MonoBehaviour
             attackTrig.enabled = false;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Civilian")
+        if (collision.tag == "Civilian" && attack == false)
         {
             attack = true;
             moving = false;
