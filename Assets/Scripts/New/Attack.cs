@@ -4,18 +4,11 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
+    [SerializeField] int dmg;
 
-    [SerializeField] Animator anim;
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Character")
-            EnemyAttack();
-    }
-
-    private void EnemyAttack()
-    {
-        Debug.Log("Attacking");
-        anim.SetTrigger("Attack");
+        if (collision.tag == "Civilian")
+            collision.GetComponent<Civvie>().Hurt(dmg);
     }
 }

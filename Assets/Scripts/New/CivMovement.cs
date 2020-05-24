@@ -29,6 +29,7 @@ public class CivMovement : MonoBehaviour
             Resetting();
     }
 
+
     private void Resetting()
     {
         if (maxTimeAlt > 0)

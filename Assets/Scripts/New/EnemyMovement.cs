@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    [Header("Components")]
     [SerializeField] Animator anim;
-    [SerializeField] Collider2D attackColl;
+    [SerializeField] Collider2D attackTrig;
+
+    [Header("Enemy Stats")]
+    [SerializeField] int dmg = 1;
+
+    [Header("Movement Stats")]
     [SerializeField] float moveSpeed = 2f;
     [SerializeField] float walkTime = 2f;
     [SerializeField] float waitTime = 1f;
@@ -18,6 +24,8 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SetAttackTrigger(0);
+
         baseMoveSpeed = moveSpeed;
         baseWaitTime = waitTime;
         baseWalkTime = walkTime;
@@ -117,6 +125,14 @@ public class EnemyMovement : MonoBehaviour
         moveSpeed *= spdMultiplier;
         waitModifier = spdMultiplier;
         anim.SetFloat("animMultiplier", spdMultiplier);
+    }
+
+    public void SetAttackTrigger(float status)
+    {
+        if (status == 1)
+            attackTrig.enabled = true;
+        else
+            attackTrig.enabled = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

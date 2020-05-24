@@ -5,6 +5,8 @@ using UnityEngine;
 public class Civvie : MonoBehaviour
 {
     [SerializeField] int health = 1;
+    [SerializeField] GameObject tombstone;
+    [SerializeField] SpriteRenderer sprite;
 
     // Start is called before the first frame update
     void Start()
@@ -19,8 +21,11 @@ public class Civvie : MonoBehaviour
     }
 
     private void Dead()
-    { 
-        
+    {
+        // Play sound
+
+        Instantiate(tombstone, transform.position, Quaternion.identity);
+        this.gameObject.SetActive(false);
     }
 
     private void Ed()
@@ -31,6 +36,7 @@ public class Civvie : MonoBehaviour
     public void Hurt(int dmg)
     {
         health -= dmg;
+        Debug.Log("Hurt");
 
         if (health <= 0)
             Dead();
