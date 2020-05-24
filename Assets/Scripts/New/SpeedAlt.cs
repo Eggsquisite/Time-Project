@@ -4,17 +4,26 @@ using UnityEngine;
 
 public class SpeedAlt : MonoBehaviour
 {
-    private Color tmp;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] float speedMultiplier = 2f;
+    [SerializeField] float timeLength = 1f;
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        tmp = GetComponent<SpriteRenderer>().color;
-        tmp.a = 0.3f;
+        if (collision.tag == "Character")
+        {
+            var charMovement = collision.GetComponent<CharMovement>();
+
+            charMovement.InPortal(speedMultiplier);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        
+        if (collision.tag == "Character")
+        {
+            var charMovement = collision.GetComponent<CharMovement>();
+
+            charMovement.OutPortal(timeLength);
+        }
     }
 }
