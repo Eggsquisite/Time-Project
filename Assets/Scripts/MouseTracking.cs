@@ -6,9 +6,9 @@ public class MouseTracking : MonoBehaviour
 {
     [SerializeField] GameObject target;
 
-    bool ready = false;
-    bool placed = false;
-    Color tmp;
+    private bool ready = false;
+    private bool placed = false;
+    private Color tmp;
 
     // Start is called before the first frame update
     void Start()
