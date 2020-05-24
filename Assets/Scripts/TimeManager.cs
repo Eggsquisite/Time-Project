@@ -19,7 +19,7 @@ public class TimeManager : MonoBehaviour
     void Start()
     {
         charPathing = GameObject.Find("Characters");
-        charManager = charPathing.GetComponent<CharacterManager>();
+        //charManager = charPathing.GetComponent<CharacterManager>();
     }
 
     public void Pause()
