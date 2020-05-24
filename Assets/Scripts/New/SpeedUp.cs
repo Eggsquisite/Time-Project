@@ -15,7 +15,7 @@ public class SpeedUp : MonoBehaviour
 
     private void Start()
     {
-        coll = GetComponent<CircleCollider2D>();
+        coll = GetComponent<Collider2D>();
         coll.enabled = false;
     }
 
@@ -62,8 +62,8 @@ public class SpeedUp : MonoBehaviour
         var characterPath = collision.GetComponent<CharacterPathing>();
         var characterAnim = collision.GetComponent<Animator>();
 
-        characterPath.SetWaitTime(waitMultiplier);
-        characterPath.AltTimeAffect(speedMultiplier, lightBlue);
+        //characterPath.SetWaitTime(waitMultiplier);
+        //characterPath.AltTimeAffect(speedMultiplier, lightBlue);
         characterAnim.SetFloat("runMultiplier", animMultiplier);
     }
 
