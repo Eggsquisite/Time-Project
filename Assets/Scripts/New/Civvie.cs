@@ -14,7 +14,6 @@ public class Civvie : MonoBehaviour
     [SerializeField] float maxTime = 2f;
     [SerializeField] float timeInterval = 0.1f;
 
-
     private bool enduring;
     private float baseMaxTime, baseTimeInterval;
 
@@ -62,10 +61,16 @@ public class Civvie : MonoBehaviour
         }
     }
 
+    private void Fail()
+    { 
+        
+    }
+
     private void Dead()
     {
         // Play sound
 
+        Fail();
         Instantiate(tombstone, transform.position, Quaternion.identity);
         this.gameObject.SetActive(false);
     }
