@@ -9,7 +9,7 @@ AnimatorController:
   m_Name: bearded-walk-4
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: runMultiplier
+  - m_Name: animMultiplier
     m_Type: 1
     m_DefaultFloat: 1
     m_DefaultInt: 0
@@ -50,7 +50,7 @@ AnimatorState:
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 01372281352484dd687f34152981524e, type: 2}
   m_Tag: 
-  m_SpeedParameter: runMultiplier
+  m_SpeedParameter: animMultiplier
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
@@ -65,7 +65,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1102093455564407730}
-    m_Position: {x: 220, y: 240, z: 0}
+    m_Position: {x: 260, y: 160, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

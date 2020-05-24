@@ -11,9 +11,15 @@ public class SpeedAlt : MonoBehaviour
     {
         if (collision.tag == "Character")
         {
-            var charMovement = collision.GetComponent<CharMovement>();
+            var charMovement = collision.GetComponent<CivMovement>();
 
             charMovement.InPortal(speedMultiplier);
+        }
+        else if (collision.tag == "Enemy")
+        {
+            var enemyMovement = collision.GetComponent<EnemyMovement>();
+
+            enemyMovement.InPortal(speedMultiplier);
         }
     }
 
@@ -21,9 +27,16 @@ public class SpeedAlt : MonoBehaviour
     {
         if (collision.tag == "Character")
         {
-            var charMovement = collision.GetComponent<CharMovement>();
+            var charMovement = collision.GetComponent<CivMovement>();
 
             charMovement.OutPortal(timeLength);
+        }
+        else if (collision.tag == "Enemy")
+        {
+            var enemyMovement = collision.GetComponent<EnemyMovement>();
+
+            // Enemy doesn't stay sped up as long as civilians do
+            enemyMovement.OutPortal(timeLength / 2);
         }
     }
 }

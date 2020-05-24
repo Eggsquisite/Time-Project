@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharMovement : MonoBehaviour
+public class CivMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 2f;
 
     private Transform t;
     private Animator anim;
+    private float waitModifier = 1f;
     private float baseMoveSpeed, maxTimeAlt;
-    private bool timeAlt = false;
+    private bool timeAlt;
 
     // Start is called before the first frame update
     void Start()
@@ -41,8 +42,9 @@ public class CharMovement : MonoBehaviour
         maxTimeAlt = 0;
         timeAlt = false;
 
+        waitModifier = 1f;
         moveSpeed = baseMoveSpeed;
-        anim.SetFloat("runMultiplier", 1f);
+        anim.SetFloat("animMultiplier", 1f);
     }
 
     public void OutPortal(float timeLength)
@@ -57,7 +59,7 @@ public class CharMovement : MonoBehaviour
             moveSpeed = baseMoveSpeed;
 
         moveSpeed *= spdMultiplier;
-        anim.SetFloat("runMultiplier", spdMultiplier);
-        //timeAlt = true;
+        waitModifier = spdMultiplier;
+        anim.SetFloat("animMultiplier", spdMultiplier);
     }
 }
