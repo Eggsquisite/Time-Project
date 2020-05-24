@@ -4,25 +4,23 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    [SerializeField] Animator anim;
     [SerializeField] float moveSpeed = 2f;
     [SerializeField] float walkTime = 2f;
     [SerializeField] float waitTime = 1f;
+    [SerializeField] float attackTime = 1f;
 
-    private Transform t;
-    private Animator anim;
     private float waitModifier = 1f;
-    private float baseMoveSpeed, baseWaitTime, baseWalkTime, maxTimeAlt;
-    private bool timeAlt, moving, left;
+    private bool timeAlt, moving, left, attack;
+    private float baseMoveSpeed, baseWaitTime, baseWalkTime, baseAttackTime, maxTimeAlt;
 
     // Start is called before the first frame update
     void Start()
     {
-        t = GetComponent<Transform>();
-        anim = GetComponent<Animator>();
         baseMoveSpeed = moveSpeed;
         baseWaitTime = waitTime;
         baseWalkTime = walkTime;
-        left = false;
+        baseAttackTime = attackTime;
     }
 
     // Update is called once per frame
@@ -30,8 +28,10 @@ public class EnemyMovement : MonoBehaviour
     {
         if (moving)
             Movement();
-        else
+        else if (!moving)
             Waiting();
+        else if (attack)
+            return;
 
         if (timeAlt)
             Resetting();
@@ -41,13 +41,13 @@ public class EnemyMovement : MonoBehaviour
     {
         if (!left)
         {
-            t.rotation = new Quaternion(0, 0, 0, 0);
-            t.position = new Vector2(t.position.x + moveSpeed * Time.deltaTime, t.position.y);
+            transform.rotation = new Quaternion(0, 0, 0, 0);
+            transform.position = new Vector2(transform.position.x + moveSpeed * Time.deltaTime, transform.position.y);
         }
         else
         {
-            t.rotation = new Quaternion(0, 180, 0, 0);
-            t.position = new Vector2(t.position.x - moveSpeed * Time.deltaTime, t.position.y);
+            transform.rotation = new Quaternion(0, 180, 0, 0);
+            transform.position = new Vector2(transform.position.x - moveSpeed * Time.deltaTime, transform.position.y);
         }
 
         if (walkTime > 0)
@@ -107,6 +107,28 @@ public class EnemyMovement : MonoBehaviour
         moveSpeed *= spdMultiplier;
         waitModifier = spdMultiplier;
         anim.SetFloat("animMultiplier", spdMultiplier);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Civilian")
+            EnemyAttack();
+    }
+
+    private void EnemyAttack()
+    {
+        attack = true;
+        moving = false;
+        walkTime = baseWalkTime;
+        anim.SetTrigger("attack");
+
+        if (attackTime > 0)
+            attackTime -= Time.deltaTime * waitModifier;
+        else if (attackTime <= 0)
+        {
+            attackTime = baseAttackTime;
+            attack = false;
+        }
     }
 
 }
