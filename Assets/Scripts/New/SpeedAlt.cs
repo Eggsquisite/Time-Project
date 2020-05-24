@@ -9,7 +9,7 @@ public class SpeedAlt : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Character")
+        if (collision.tag == "Civilian")
         {
             var charMovement = collision.GetComponent<CivMovement>();
 
@@ -25,7 +25,7 @@ public class SpeedAlt : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Character")
+        if (collision.tag == "Civilian")
         {
             var charMovement = collision.GetComponent<CivMovement>();
 
