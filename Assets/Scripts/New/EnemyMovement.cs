@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] Animator anim;
+    [SerializeField] Collider2D attackColl;
     [SerializeField] float moveSpeed = 2f;
     [SerializeField] float walkTime = 2f;
     [SerializeField] float waitTime = 1f;
@@ -26,12 +27,21 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (moving)
+        if (moving && !attack)
             Movement();
-        else if (!moving)
+        else if (!moving && !attack)
             Waiting();
         else if (attack)
-            return;
+        {
+            if (attackTime > 0)
+                attackTime -= Time.deltaTime;
+            else if (attackTime <= 0)
+            {
+                attackTime = baseAttackTime;
+                attack = false;
+            }
+        }
+            
 
         if (timeAlt)
             Resetting();
@@ -39,12 +49,12 @@ public class EnemyMovement : MonoBehaviour
 
     private void Movement()
     {
-        if (!left)
+        if (!left && !attack)
         {
             transform.rotation = new Quaternion(0, 0, 0, 0);
             transform.position = new Vector2(transform.position.x + moveSpeed * Time.deltaTime, transform.position.y);
         }
-        else
+        else if (left && !attack)
         {
             transform.rotation = new Quaternion(0, 180, 0, 0);
             transform.position = new Vector2(transform.position.x - moveSpeed * Time.deltaTime, transform.position.y);
@@ -112,23 +122,11 @@ public class EnemyMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Civilian")
-            EnemyAttack();
-    }
-
-    private void EnemyAttack()
-    {
-        attack = true;
-        moving = false;
-        walkTime = baseWalkTime;
-        anim.SetTrigger("attack");
-
-        if (attackTime > 0)
-            attackTime -= Time.deltaTime * waitModifier;
-        else if (attackTime <= 0)
         {
-            attackTime = baseAttackTime;
-            attack = false;
+            attack = true;
+            moving = false;
+            walkTime = baseWalkTime;
+            anim.SetTrigger("attack");
         }
     }
-
 }
