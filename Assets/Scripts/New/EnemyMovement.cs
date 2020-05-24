@@ -127,6 +127,7 @@ public class EnemyMovement : MonoBehaviour
             moving = false;
             walkTime = baseWalkTime;
             anim.SetTrigger("attack");
+            anim.SetBool("moving", false);
         }
     }
 }
