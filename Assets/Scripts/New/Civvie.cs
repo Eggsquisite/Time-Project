@@ -4,20 +4,62 @@ using UnityEngine;
 
 public class Civvie : MonoBehaviour
 {
-    [SerializeField] int health = 1;
+    [Header("Components")]
     [SerializeField] GameObject tombstone;
     [SerializeField] SpriteRenderer sprite;
+    [SerializeField] Collider2D coll;
+
+    [Header("Civvie Stats")]
+    [SerializeField] int health = 1;
+    [SerializeField] float maxTime = 2f;
+    [SerializeField] float timeInterval = 0.1f;
+
+
+    private bool enduring;
+    private float baseMaxTime, baseTimeInterval;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        baseMaxTime = maxTime;
+        baseTimeInterval = timeInterval;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (enduring)
+            Endurance();
+    }
+
+    private void Endurance()
+    {
+        //var tmpMaxTime = maxTime;
+        //var tmpTimeInterval = timeInterval;
+
+        if (maxTime > 0)
+        {
+            maxTime -= Time.deltaTime;
+
+            if (timeInterval > 0)
+            {
+                timeInterval -= Time.deltaTime;
+            }
+            else if (timeInterval <= 0)
+            {
+                sprite.enabled = !sprite.enabled;
+                timeInterval = baseTimeInterval;
+            }
+        }
+        else if (maxTime <= 0)
+        {
+            coll.enabled = true;
+            sprite.enabled = true;
+            enduring = false;
+
+            maxTime = baseMaxTime;
+            timeInterval = baseTimeInterval;
+        }
     }
 
     private void Dead()
@@ -28,11 +70,6 @@ public class Civvie : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
-    private void Ed()
-    { 
-        
-    }
-
     public void Hurt(int dmg)
     {
         health -= dmg;
@@ -41,6 +78,10 @@ public class Civvie : MonoBehaviour
         if (health <= 0)
             Dead();
         else
-            Ed();
+        {
+            // Turn off main collider
+            coll.enabled = false;
+            enduring = true;
+        }
     }
 }

@@ -219,47 +219,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 261011493}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &392964095 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8354021321478898889, guid: d00873dbf50a9634e9adc7b9ef9cf0ab,
-    type: 3}
-  m_PrefabInstance: {fileID: 8354021321447406102}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &392964096 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1042513632, guid: d00873dbf50a9634e9adc7b9ef9cf0ab,
-    type: 3}
-  m_PrefabInstance: {fileID: 8354021321447406102}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 392964095}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddd27e135729c9f4da893b7eb90e9b89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &392964097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 392964095}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8a73abf84a04904ea79386c82b65206, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 1
-  tombstone: {fileID: 404846740641970876, guid: 2578e3021cf6c3445abbefd8165f26f4,
-    type: 3}
-  sprite: {fileID: 392964100}
-  civMovement: {fileID: 392964096}
---- !u!212 &392964100 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 8354021321478898934, guid: d00873dbf50a9634e9adc7b9ef9cf0ab,
-    type: 3}
-  m_PrefabInstance: {fileID: 8354021321447406102}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &392964101 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8354021321478898935, guid: d00873dbf50a9634e9adc7b9ef9cf0ab,
