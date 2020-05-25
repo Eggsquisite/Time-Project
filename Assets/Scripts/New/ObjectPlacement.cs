@@ -4,23 +4,24 @@ using UnityEngine;
 
 public class ObjectPlacement : MonoBehaviour
 {
-    [SerializeField] GameObject selectObj = null;
+    //[SerializeField] GameObject selectObj = null;
+    private GameObject selectObj;
     [SerializeField] GameObject objPosition = null;
     [SerializeField] GameObject manaBar = null;
 
     private ManaBar mb;
     private GameObject tempObj;
     private GameObject[] allObjs;
+    private SpriteRenderer[] spriteObjs;
     private Color tmp;
     private bool ready, placed, useMana, manaReady;
-    private SpriteRenderer[] spriteObjs;
     private int index;
 
     private void Start()
     {
         manaReady = true;
         mb = manaBar.GetComponent<ManaBar>();
-        allObjs = new GameObject[2];
+        allObjs = new GameObject[1];
     }
 
     // Update is called once per frame

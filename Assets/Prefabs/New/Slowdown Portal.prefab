@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1977752007
+--- !u!1 &2240606351965935284
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1977752008}
-  - component: {fileID: 1977752009}
+  - component: {fileID: 2240606351965935291}
+  - component: {fileID: 2240606351965935290}
   m_Layer: 0
   m_Name: Portal2
   m_TagString: Untagged
@@ -17,27 +17,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1977752008
+--- !u!4 &2240606351965935291
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1977752007}
+  m_GameObject: {fileID: 2240606351965935284}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4358188507456670504}
+  m_Father: {fileID: 2549985993632433243}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1977752009
+--- !u!212 &2240606351965935290
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1977752007}
+  m_GameObject: {fileID: 2240606351965935284}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -69,7 +69,7 @@ SpriteRenderer:
   m_SortingLayerID: 974705335
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4498976185756593916, guid: 9d37107852126b342b6dd8189ce0b4c1,
+  m_Sprite: {fileID: 6824205347689087914, guid: 9d37107852126b342b6dd8189ce0b4c1,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.29803923}
   m_FlipX: 0
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &4358188507456670506
+--- !u!1 &2549985993632433241
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,41 +89,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4358188507456670504}
-  - component: {fileID: 4358188507456670505}
-  - component: {fileID: 4358188507456670678}
-  - component: {fileID: 4358188507456670679}
-  - component: {fileID: 145559939}
-  - component: {fileID: 145559938}
+  - component: {fileID: 2549985993632433243}
+  - component: {fileID: 2549985993632433242}
+  - component: {fileID: 2549985993632433317}
+  - component: {fileID: 2549985993632433316}
+  - component: {fileID: 2240606353253392112}
+  - component: {fileID: 2240606353253392113}
   m_Layer: 0
-  m_Name: SpeedPortal
+  m_Name: Slowdown Portal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4358188507456670504
+--- !u!4 &2549985993632433243
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4358188507456670506}
+  m_GameObject: {fileID: 2549985993632433241}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.04, y: -0.59, z: 0}
+  m_LocalPosition: {x: 3.06, y: 17.210022, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
-  - {fileID: 1977752008}
+  - {fileID: 2240606351965935291}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4358188507456670505
+--- !u!212 &2549985993632433242
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4358188507456670506}
+  m_GameObject: {fileID: 2549985993632433241}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -155,7 +155,7 @@ SpriteRenderer:
   m_SortingLayerID: -1478072997
   m_SortingLayer: 5
   m_SortingOrder: 30
-  m_Sprite: {fileID: -3326708301585424975, guid: 9d37107852126b342b6dd8189ce0b4c1,
+  m_Sprite: {fileID: -2640472230798336581, guid: 9d37107852126b342b6dd8189ce0b4c1,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -167,13 +167,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &4358188507456670678
+--- !u!70 &2549985993632433317
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4358188507456670506}
+  m_GameObject: {fileID: 2549985993632433241}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -183,27 +183,27 @@ CapsuleCollider2D:
   m_Offset: {x: 0.02951479, y: 0.01659143}
   m_Size: {x: 0.989027, y: 1.7404621}
   m_Direction: 0
---- !u!114 &4358188507456670679
+--- !u!114 &2549985993632433316
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4358188507456670506}
+  m_GameObject: {fileID: 2549985993632433241}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36253ede58033a544b788150e552dbbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMultiplier: 2.5
-  timeLength: 1
---- !u!198 &145559939
+  speedMultiplier: 0.5
+  timeLength: 0.5
+--- !u!198 &2240606353253392112
 ParticleSystem:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4358188507456670506}
+  m_GameObject: {fileID: 2549985993632433241}
   serializedVersion: 6
   lengthInSec: 5
   simulationSpeed: 1
@@ -280,7 +280,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 2
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -332,8 +332,8 @@ ParticleSystem:
         m_RotationOrder: 4
     startSpeed:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 1
+      minMaxState: 3
+      scalar: 6
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -387,7 +387,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 0.45842028, b: 1, a: 1}
+      maxColor: {r: 1, g: 0.5465582, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -824,13 +824,13 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 17
+    type: 4
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.1
-    m_Position: {x: 0.05, y: 0, z: 0}
+    m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 1, y: 1, z: 1}
     placementMode: 0
@@ -1030,7 +1030,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 200
+      scalar: 25
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -2183,8 +2183,8 @@ ParticleSystem:
     speedModifier:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 3
-      minScalar: 2
+      scalar: 0.2
+      minScalar: 0.1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4855,14 +4855,14 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!199 &145559938
+--- !u!199 &2240606353253392113
 ParticleSystemRenderer:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4358188507456670506}
+  m_GameObject: {fileID: 2549985993632433241}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
