@@ -18,14 +18,15 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] bool left;
 
     [Header("Skree Stats")]
-    [SerializeField] float groundTime = 3f;
-    [SerializeField] float yMax = 5f;
-    [SerializeField] float yMin = 0f;
+    [SerializeField] float airGrav = -0.1f;
+    [SerializeField] float groundGrav = 0.25f;
+    [SerializeField] float waitGrav = 0.3f;
 
     private Rigidbody2D rb;
     private float waitModifier = 1f;
-    private bool timeAlt, moving, attack, skree;
-    private float baseMoveSpeed, baseWaitTime, baseWalkTime, baseGroundTime, baseAttackTime, maxTimeAlt;
+    private bool timeAlt, moving, attack;
+    private bool skree, halfWay, startFlight;
+    private float baseMoveSpeed, baseWaitTime, baseWalkTime, baseAttackTime, maxTimeAlt;
 
     // Start is called before the first frame update
     void Start()
@@ -62,19 +63,12 @@ public class EnemyMovement : MonoBehaviour
 
         if (timeAlt)
             Resetting();
-
-        if (skree)
-        {
-            float y = Mathf.Clamp(transform.position.y, yMin, yMax);
-            transform.position = new Vector2(transform.position.x, y);
-        }
     }
 
     private void SetBase()
     {
         baseMoveSpeed = moveSpeed;
         baseWaitTime = waitTime;
-        baseGroundTime = groundTime;
         baseWalkTime = walkTime;
         baseAttackTime = attackTime;
     }
@@ -112,22 +106,39 @@ public class EnemyMovement : MonoBehaviour
         if (walkTime > 0 && walkTime >= (baseWalkTime / 2))
         {
             walkTime -= Time.deltaTime * waitModifier;
-            rb.gravityScale = 0.1f;
+
+            if (!startFlight)
+                StartFlight();
         }
         else if (walkTime > 0 && walkTime < (baseWalkTime / 2))
         {
             walkTime -= Time.deltaTime * waitModifier;
-            rb.gravityScale = -0.25f;
-            Debug.Log("halfway");
+
+            if (!halfWay)
+                FlightHalfWay();
         }
         else if (walkTime <= 0)
         {
             walkTime = baseWalkTime;
-            Debug.Log("Zero grav");
-            anim.SetBool("moving", false);
             moving = false;
-            rb.gravityScale = 0.3f;
+            anim.SetBool("moving", false);
+
+            halfWay = false;
+            startFlight = false;
+            rb.gravityScale = waitGrav;
         }
+    }
+
+    private void FlightHalfWay()
+    {
+        halfWay = true;
+        rb.gravityScale = airGrav;
+    }
+
+    private void StartFlight()
+    {
+        startFlight = true;
+        rb.gravityScale = groundGrav;
     }
 
     private void Waiting()
