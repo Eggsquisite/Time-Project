@@ -8,17 +8,17 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] Animator anim;
     [SerializeField] Collider2D attackTrig;
 
-    [Header("Enemy Stats")]
-    [SerializeField] int dmg = 1;
+    //[Header("Enemy Stats")]
 
     [Header("Movement Stats")]
     [SerializeField] float moveSpeed = 2f;
     [SerializeField] float walkTime = 2f;
     [SerializeField] float waitTime = 1f;
     [SerializeField] float attackTime = 1f;
+    [SerializeField] bool left;
 
     private float waitModifier = 1f;
-    private bool timeAlt, moving, left, attack;
+    private bool timeAlt, moving, attack, skree;
     private float baseMoveSpeed, baseWaitTime, baseWalkTime, baseAttackTime, maxTimeAlt;
 
     // Start is called before the first frame update
@@ -128,6 +128,8 @@ public class EnemyMovement : MonoBehaviour
 
     public void SetAttackTrigger(float status)
     {
+        Debug.Log("Setting attack trig" + status);
+
         if (status == 1)
             attackTrig.enabled = true;
         else
