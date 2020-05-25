@@ -90,6 +90,8 @@ public class ObjectPlacement : MonoBehaviour
     public void SetSelected(GameObject obj)
     {
         selectObj = obj;
+        ready = false;
+        placed = false;
     }
 
     public void SetManaReady(bool status)
@@ -99,7 +101,6 @@ public class ObjectPlacement : MonoBehaviour
 
     public void OutOfMana()
     {
-        Debug.Log("OOM");
         for (int i = 0; i < index; i++)
         {
             Destroy(allObjs[i].gameObject);

@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class ManaBar : MonoBehaviour
 {
-    [SerializeField] ObjectPlacement placer;
     [SerializeField] Slider slider;
     [SerializeField] float maxMana = 5f;
     [SerializeField] float manaCd = 1f;
 
+    private ObjectPlacement placer;
     private float baseManaCd;
     private int portalsInUse;
     private bool usingMana, manaRestore, manaEmpty, manaThreshold;
@@ -17,6 +17,7 @@ public class ManaBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        placer = Camera.main.GetComponent<ObjectPlacement>();
         baseManaCd = manaCd;
         SetMaxMana(maxMana);
     }
@@ -91,13 +92,9 @@ public class ManaBar : MonoBehaviour
     private void ManaCooldown()
     {
         if (manaCd > 0 && !manaRestore)
-        {
             manaCd -= Time.deltaTime;
-            Debug.Log("Cooling Down mana");
-        }
         else if (manaCd <= 0)
         {
-            Debug.Log("Cooldown done");
             manaCd = baseManaCd;
             manaRestore = true;
         }
