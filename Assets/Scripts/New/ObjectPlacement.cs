@@ -28,15 +28,10 @@ public class ObjectPlacement : MonoBehaviour
                 tempObj.GetComponent<ParticleSystem>().Stop();
                 tempObj.GetComponent<CapsuleCollider2D>().enabled = false;
 
-
                 spriteObjs = tempObj.GetComponentsInChildren<SpriteRenderer>();
-
-
-                tmp = tempObj.GetComponent<SpriteRenderer>().color;
+                tmp = spriteObjs[0].color;
                 tmp.a = 0.3f;
-                tempObj.GetComponent<SpriteRenderer>().color = tmp;
-                tempObj.GetComponentInChildren<SpriteRenderer>().color = tmp;
-                Debug.Log(tempObj.gameObject.name);
+                spriteObjs[0].color = spriteObjs[1].color = tmp;
 
                 ready = true;
             }
@@ -49,8 +44,8 @@ public class ObjectPlacement : MonoBehaviour
             if (Input.GetButtonDown("Fire1") && ready)
             {
                 tmp.a = 1f;
-                tempObj.GetComponent<SpriteRenderer>().color = tmp;
-                tempObj.GetComponentInChildren<SpriteRenderer>().color = tmp;
+                spriteObjs[0].color = spriteObjs[1].color = tmp;
+
                 tempObj.GetComponent<CapsuleCollider2D>().enabled = true;
                 tempObj.GetComponent<ParticleSystem>().Play();
 

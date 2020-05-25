@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class LevelEnd : MonoBehaviour
 {
     [SerializeField] Text lvlOver, loadScene;
+    [SerializeField] Image uiBackground;
     [SerializeField] CivManager civs;
 
     private int numOfCivs;
@@ -36,6 +37,7 @@ public class LevelEnd : MonoBehaviour
 
     private void EnableText(bool status)
     {
+        uiBackground.enabled = status;
         lvlOver.enabled = status;
         loadScene.enabled = status;
     }
