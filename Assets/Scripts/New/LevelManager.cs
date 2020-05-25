@@ -26,22 +26,38 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //ResetProgress();
         scene = SceneManager.GetActiveScene();
     }
 
-    public void SaveLevel()
-    { 
-        
+    public void NewScene()
+    {
+        scene = SceneManager.GetActiveScene();
+        level = scene.buildIndex;
+        SaveLevel();
+        Debug.Log("Furthest lvl: " + PlayerPrefs.GetInt("LevelProgress"));
+        Debug.Log("Current level: " + level);
+    }
+
+    private void SaveLevel()
+    {
+        if (PlayerPrefs.GetInt("LevelProgress") < level)
+            PlayerPrefs.SetInt("LevelProgress", level);
+    }
+
+    public void ResetProgress()
+    {
+        PlayerPrefs.SetInt("LevelProgress", 0);
     }
 
     public void LoadNextLevel()
     {
         level++;
-        SceneManager.LoadScene(level, LoadSceneMode.Single);
+        SceneManager.LoadScene(level);
     }
 
     public void RetryLevel()
     {
-        SceneManager.LoadScene(level, LoadSceneMode.Single);
+        SceneManager.LoadScene(level);
     }
 }
