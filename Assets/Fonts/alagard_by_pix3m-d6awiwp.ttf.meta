@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 472b6406da111734aa84bc377993cd7d
+guid: 550cefbb9d93c1b48814e26a8872b1e0
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Enchanted Land
+  fontName: Alagard
   fontNames:
-  - Enchanted Land
+  - Alagard
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
