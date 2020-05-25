@@ -15,12 +15,14 @@ public class Civvie : MonoBehaviour
     [SerializeField] float timeInterval = 0.1f;
 
     private CivManager civManager;
+    private Transform t;
     private bool enduring;
     private float baseMaxTime, baseTimeInterval;
 
     // Start is called before the first frame update
     void Start()
     {
+        t = Camera.main.transform;
         civManager = FindObjectOfType<CivManager>();
         baseMaxTime = maxTime;
         baseTimeInterval = timeInterval;

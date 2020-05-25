@@ -5,12 +5,22 @@ using UnityEngine;
 public class CamMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 2f;
+
     private Transform t;
+    private bool doubleSpeed = false;
 
     // Start is called before the first frame update
     void Start()
     {
         t = Camera.main.transform;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+            moveSpeed = moveSpeed * 2;
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
+            moveSpeed = moveSpeed / 2;
     }
 
     // Update is called once per frame
