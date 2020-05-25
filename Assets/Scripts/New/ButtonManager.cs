@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviour
 {
-    [SerializeField] List<Button> buttons;
 
+    private Button b;
     private ObjectPlacement placer;
 
     // Start is called before the first frame update
@@ -15,14 +15,13 @@ public class ButtonManager : MonoBehaviour
         placer = Camera.main.GetComponent<ObjectPlacement>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetSelected(GameObject portal, Button button)
     {
-        
-    }
+        if (b != null)
+            b.interactable = true;
 
-    public void SetSelected(GameObject portal)
-    {
         placer.SetSelected(portal);
+        b = button;
+        b.interactable = false;
     }
 }

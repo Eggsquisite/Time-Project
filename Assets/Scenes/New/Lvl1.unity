@@ -446,9 +446,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12cd022705afb884c99a0c3161c0c24d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttons:
-  - {fileID: 622700049}
-  - {fileID: 1798288120}
 --- !u!224 &490006017 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2972863771427206695, guid: 46771aeabcc562d419f7010dcfbcbf35,
@@ -1444,6 +1441,11 @@ PrefabInstance:
       propertyPath: bm
       value: 
       objectReference: {fileID: 398351014}
+    - target: {fileID: 2972863771294479924, guid: 46771aeabcc562d419f7010dcfbcbf35,
+        type: 3}
+      propertyPath: b
+      value: 
+      objectReference: {fileID: 1798288120}
     - target: {fileID: 2972863769878969596, guid: 46771aeabcc562d419f7010dcfbcbf35,
         type: 3}
       propertyPath: m_Sprite
@@ -2097,6 +2099,11 @@ PrefabInstance:
       propertyPath: bm
       value: 
       objectReference: {fileID: 398351014}
+    - target: {fileID: 2972863771294479924, guid: 46771aeabcc562d419f7010dcfbcbf35,
+        type: 3}
+      propertyPath: b
+      value: 
+      objectReference: {fileID: 622700049}
     - target: {fileID: 2972863771294479927, guid: 46771aeabcc562d419f7010dcfbcbf35,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
