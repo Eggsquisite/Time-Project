@@ -863,6 +863,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 890689565030403870}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1435634514 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1435634514, guid: e8757e9db8d2c2e4fb766004da42c948,
+    type: 3}
+  m_PrefabInstance: {fileID: 14954034}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1526265483
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1665,6 +1677,16 @@ PrefabInstance:
       propertyPath: uiBackground
       value: 
       objectReference: {fileID: 723054057}
+    - target: {fileID: 3193606802815319654, guid: ac7a5fd27bfc5d548832b54005b02c21,
+        type: 3}
+      propertyPath: nextScene
+      value: 
+      objectReference: {fileID: 1598773971}
+    - target: {fileID: 3193606802815319654, guid: ac7a5fd27bfc5d548832b54005b02c21,
+        type: 3}
+      propertyPath: retryScene
+      value: 
+      objectReference: {fileID: 1435634514}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac7a5fd27bfc5d548832b54005b02c21, type: 3}
 --- !u!1001 &3693086407853149425

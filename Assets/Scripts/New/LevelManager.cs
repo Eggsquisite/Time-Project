@@ -27,7 +27,6 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         scene = SceneManager.GetActiveScene();
-
     }
 
     public void SaveLevel()
@@ -38,6 +37,11 @@ public class LevelManager : MonoBehaviour
     public void LoadNextLevel()
     {
         level++;
+        SceneManager.LoadScene(level, LoadSceneMode.Single);
+    }
+
+    public void RetryLevel()
+    {
         SceneManager.LoadScene(level, LoadSceneMode.Single);
     }
 }

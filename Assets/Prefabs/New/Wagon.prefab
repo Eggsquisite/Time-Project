@@ -121,5 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lvlOver: {fileID: 0}
-  loadScene: {fileID: 0}
+  nextScene: {fileID: 0}
+  retryScene: {fileID: 0}
+  uiBackground: {fileID: 0}
   civs: {fileID: 0}

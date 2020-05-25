@@ -44,3 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lvlEnd: {fileID: 0}
+  civs: {fileID: 9048009726884518646}

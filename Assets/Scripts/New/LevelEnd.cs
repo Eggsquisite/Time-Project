@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class LevelEnd : MonoBehaviour
 {
-    [SerializeField] Text lvlOver, loadScene;
+    [SerializeField] Text lvlOver, nextScene, retryScene;
     [SerializeField] Image uiBackground;
     [SerializeField] CivManager civs;
 
@@ -18,28 +18,37 @@ public class LevelEnd : MonoBehaviour
         Time.timeScale = 1;
         numOfCivs = civs.GetNumOfCivs();
 
-        EnableText(false);
+        EnableText(false, -1);
     }
 
     private void SuccessText()
     {
-        EnableText(true);
+        EnableText(true, 1);
         lvlOver.text = "All Townsfolk Alive!";
-        loadScene.text = "Next Level";
+        nextScene.text = "Next Level";
     }
 
     public void FailureText()
     {
-        EnableText(true);
+        EnableText(true, 0);
         lvlOver.text = "Townsfolk died!";
-        loadScene.text = "Retry";
+        retryScene.text = "Retry";
     }
 
-    private void EnableText(bool status)
+    private void EnableText(bool status, int success)
     {
         uiBackground.enabled = status;
         lvlOver.enabled = status;
-        loadScene.enabled = status;
+
+        if (success == -1)
+        {
+            nextScene.enabled = status;
+            retryScene.enabled = status;
+        }
+        else if (success == 0)
+            retryScene.enabled = status;
+        else if (success == 1)
+            nextScene.enabled = status;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
