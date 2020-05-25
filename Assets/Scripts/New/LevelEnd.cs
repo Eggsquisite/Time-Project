@@ -6,16 +6,16 @@ using UnityEngine.UI;
 public class LevelEnd : MonoBehaviour
 {
     [SerializeField] Text lvlOver, loadScene;
-    [SerializeField] GameObject civs;
+    [SerializeField] CivManager civs;
 
-    private List<Transform> numOfCivs;
+    private int numOfCivs;
     private float rescued = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 1;
-        numOfCivs = GetNumOfCivs();
+        numOfCivs = civs.GetNumOfCivs();
 
         EnableText(false);
     }
@@ -23,8 +23,15 @@ public class LevelEnd : MonoBehaviour
     private void SuccessText()
     {
         EnableText(true);
-        lvlOver.text = "All Townsfolk Saved!";
+        lvlOver.text = "All Townsfolk Alive!";
         loadScene.text = "Next Level";
+    }
+
+    public void FailureText()
+    {
+        EnableText(true);
+        lvlOver.text = "Townsfolk died!";
+        loadScene.text = "Retry";
     }
 
     private void EnableText(bool status)
@@ -33,24 +40,12 @@ public class LevelEnd : MonoBehaviour
         loadScene.enabled = status;
     }
 
-    private List<Transform> GetNumOfCivs()
-    {
-        var tmp = new List<Transform>();
-
-        foreach (Transform civ in civs.transform)
-        {
-            tmp.Add(civ);
-        }
-
-        return tmp;
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Civilian")
             rescued++;
 
-        if (rescued == numOfCivs.Count)
+        if (rescued == numOfCivs)
             SuccessText();
     }
 

@@ -14,12 +14,14 @@ public class Civvie : MonoBehaviour
     [SerializeField] float maxTime = 2f;
     [SerializeField] float timeInterval = 0.1f;
 
+    private CivManager civManager;
     private bool enduring;
     private float baseMaxTime, baseTimeInterval;
 
     // Start is called before the first frame update
     void Start()
     {
+        civManager = FindObjectOfType<CivManager>();
         baseMaxTime = maxTime;
         baseTimeInterval = timeInterval;
     }
@@ -62,8 +64,10 @@ public class Civvie : MonoBehaviour
     }
 
     private void Fail()
-    { 
-        
+    {
+        // move camera to dead civvie
+
+        civManager.Failure();
     }
 
     private void Dead()

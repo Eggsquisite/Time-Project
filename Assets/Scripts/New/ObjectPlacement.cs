@@ -10,6 +10,7 @@ public class ObjectPlacement : MonoBehaviour
     private Color tmp;
     private bool ready = false;
     private bool placed = false;
+    private SpriteRenderer[] spriteObjs;
 
     // Update is called once per frame
     void Update()
@@ -26,9 +27,16 @@ public class ObjectPlacement : MonoBehaviour
                 tempObj = Instantiate(selectObj, objPosition.transform.position, Quaternion.identity);
                 tempObj.GetComponent<ParticleSystem>().Stop();
                 tempObj.GetComponent<CapsuleCollider2D>().enabled = false;
+
+
+                spriteObjs = tempObj.GetComponentsInChildren<SpriteRenderer>();
+
+
                 tmp = tempObj.GetComponent<SpriteRenderer>().color;
                 tmp.a = 0.3f;
                 tempObj.GetComponent<SpriteRenderer>().color = tmp;
+                tempObj.GetComponentInChildren<SpriteRenderer>().color = tmp;
+                Debug.Log(tempObj.gameObject.name);
 
                 ready = true;
             }
@@ -42,6 +50,7 @@ public class ObjectPlacement : MonoBehaviour
             {
                 tmp.a = 1f;
                 tempObj.GetComponent<SpriteRenderer>().color = tmp;
+                tempObj.GetComponentInChildren<SpriteRenderer>().color = tmp;
                 tempObj.GetComponent<CapsuleCollider2D>().enabled = true;
                 tempObj.GetComponent<ParticleSystem>().Play();
 
@@ -49,6 +58,18 @@ public class ObjectPlacement : MonoBehaviour
                 placed = true;
             }
         }
+    }
+
+    public List<Transform> GetAllSelectObjs(GameObject obj)
+    {
+        var tmp = new List<Transform>();
+
+        foreach (Transform child in obj.transform)
+        {
+            tmp.Add(child);
+        }
+
+        return tmp;
     }
 
     public void SetSelected(GameObject obj)
