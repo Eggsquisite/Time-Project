@@ -21,7 +21,7 @@ public class ObjectPlacement : MonoBehaviour
     {
         manaReady = true;
         mb = manaBar.GetComponent<ManaBar>();
-        allObjs = new GameObject[1];
+        allObjs = new GameObject[2];
     }
 
     // Update is called once per frame
@@ -40,7 +40,7 @@ public class ObjectPlacement : MonoBehaviour
         {
             objPosition.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane));
 
-            if (Input.GetButtonDown("Fire2") && !ready && !placed && manaReady)
+            if (Input.GetButtonDown("Fire2") && !ready && !placed && manaReady && index < 2)
             {
                 tempObj = Instantiate(selectObj, objPosition.transform.position, Quaternion.identity);
                 tempObj.GetComponent<ParticleSystem>().Stop();
@@ -59,7 +59,7 @@ public class ObjectPlacement : MonoBehaviour
                 ready = false;
             }
 
-            if (Input.GetButtonDown("Fire1") && ready)
+            if (Input.GetButtonDown("Fire1") && ready && index < 2)
             {
                 tmp.a = 1f;
                 spriteObjs[0].color = spriteObjs[1].color = tmp;
