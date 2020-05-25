@@ -17,19 +17,29 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] float attackTime = 1f;
     [SerializeField] bool left;
 
+    [Header("Skree Stats")]
+    [SerializeField] float groundTime = 3f;
+    [SerializeField] float yMax = 5f;
+    [SerializeField] float yMin = 0f;
+
+    private Rigidbody2D rb;
     private float waitModifier = 1f;
     private bool timeAlt, moving, attack, skree;
-    private float baseMoveSpeed, baseWaitTime, baseWalkTime, baseAttackTime, maxTimeAlt;
+    private float baseMoveSpeed, baseWaitTime, baseWalkTime, baseGroundTime, baseAttackTime, maxTimeAlt;
 
     // Start is called before the first frame update
     void Start()
     {
         SetAttackTrigger(0);
 
-        baseMoveSpeed = moveSpeed;
-        baseWaitTime = waitTime;
-        baseWalkTime = walkTime;
-        baseAttackTime = attackTime;
+        rb = GetComponent<Rigidbody2D>();
+        SetBase();
+
+        if (name == "Skree")
+        {
+            skree = true;
+            rb.gravityScale = 0f;
+        }
     }
 
     // Update is called once per frame
@@ -52,6 +62,21 @@ public class EnemyMovement : MonoBehaviour
 
         if (timeAlt)
             Resetting();
+
+        if (skree)
+        {
+            float y = Mathf.Clamp(transform.position.y, yMin, yMax);
+            transform.position = new Vector2(transform.position.x, y);
+        }
+    }
+
+    private void SetBase()
+    {
+        baseMoveSpeed = moveSpeed;
+        baseWaitTime = waitTime;
+        baseGroundTime = groundTime;
+        baseWalkTime = walkTime;
+        baseAttackTime = attackTime;
     }
 
     private void Movement()
@@ -67,13 +92,41 @@ public class EnemyMovement : MonoBehaviour
             transform.position = new Vector2(transform.position.x - moveSpeed * Time.deltaTime, transform.position.y);
         }
 
-        if (walkTime > 0)
+        if (skree)
+            Flying();
+        else
+        {
+            if (walkTime > 0)
+                walkTime -= Time.deltaTime * waitModifier;
+            else if (walkTime <= 0)
+            {
+                walkTime = baseWalkTime;
+                anim.SetBool("moving", false);
+                moving = false;
+            }
+        }
+    }
+
+    private void Flying()
+    {
+        if (walkTime > 0 && walkTime >= (baseWalkTime / 2))
+        {
             walkTime -= Time.deltaTime * waitModifier;
+            rb.gravityScale = 0.1f;
+        }
+        else if (walkTime > 0 && walkTime < (baseWalkTime / 2))
+        {
+            walkTime -= Time.deltaTime * waitModifier;
+            rb.gravityScale = -0.25f;
+            Debug.Log("halfway");
+        }
         else if (walkTime <= 0)
         {
             walkTime = baseWalkTime;
+            Debug.Log("Zero grav");
             anim.SetBool("moving", false);
             moving = false;
+            rb.gravityScale = 0.3f;
         }
     }
 
@@ -87,8 +140,6 @@ public class EnemyMovement : MonoBehaviour
             left = !left;
             anim.SetBool("moving", true);
             moving = true;
-
-            //anim
         }
     }
 

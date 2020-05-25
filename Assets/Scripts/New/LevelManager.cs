@@ -52,6 +52,7 @@ public class LevelManager : MonoBehaviour
 
     public void LoadNextLevel()
     {
+        Debug.Log("Loading Level: " + (level + 1));
         SceneManager.LoadScene(level + 1);
     }
 
