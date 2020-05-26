@@ -8,6 +8,7 @@ public class StartMenu : MonoBehaviour
 {
     [SerializeField] Button continueButt;
     [SerializeField] Button nextButt;
+    [SerializeField] Button loadLvlButt;
     [SerializeField] GameObject controls;
     [SerializeField] GameObject controlList;
 
@@ -19,11 +20,13 @@ public class StartMenu : MonoBehaviour
     void Start()
     {
         theList = GetControlList();
+        loadLvlButt.interactable = false;
         controls.SetActive(control);
+
         level = PlayerPrefs.GetInt("LevelProgress");
-        if (level <= 1)
+        if (level < 2)
             continueButt.interactable = false;
-        else if (level > 1)
+        else 
             continueButt.interactable = true;
     }
 
@@ -40,19 +43,19 @@ public class StartMenu : MonoBehaviour
 
     public void NewGame()
     {
-        //SceneManager.LoadScene("Lvl1");
+        SceneManager.LoadScene("Lvl1");
     }
 
     public void Continue()
     {
         Debug.Log(PlayerPrefs.GetInt("LevelProgress"));
         if (level > 1) ;
-            //SceneManager.LoadScene(level);
+            SceneManager.LoadScene(level);
     }
 
-    public void LoadScene()
+    public void LoadLevel()
     { 
-        //SceneManager.LoadScene("LoadScene");
+        
     }
 
     public void Controls()
