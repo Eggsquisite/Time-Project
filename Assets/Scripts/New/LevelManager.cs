@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour
 
     Scene scene;
     private int level = 0;
+    private bool paused;
 
     private void Awake()
     {
@@ -28,11 +29,6 @@ public class LevelManager : MonoBehaviour
     {
         //ResetProgress();
         scene = SceneManager.GetActiveScene();
-    }
-
-    private void Update()
-    {
-        //Debug.Log("Updating current level: " + level);
     }
 
     public void NewScene()

@@ -5,6 +5,7 @@ using UnityEngine;
 public class CamMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 2f;
+    [SerializeField] float timeMultiplier = 2f;
     [SerializeField] bool constantMovement;
 
     private Transform t;
@@ -19,9 +20,9 @@ public class CamMovement : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.LeftShift))
-            moveSpeed = moveSpeed * 2;
+            Time.timeScale = timeMultiplier;
         else if (Input.GetKeyUp(KeyCode.LeftShift))
-            moveSpeed = moveSpeed / 2;
+            Time.timeScale = 1f;
     }
 
     // Update is called once per frame
