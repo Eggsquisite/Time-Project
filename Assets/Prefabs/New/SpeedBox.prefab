@@ -162,7 +162,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   portalObj: {fileID: 0}
+  bm: {fileID: 0}
   b: {fileID: 2972863771294479927}
+  on: 1
 --- !u!114 &2972863771294479927
 MonoBehaviour:
   m_ObjectHideFlags: 0
