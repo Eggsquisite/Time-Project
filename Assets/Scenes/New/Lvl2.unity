@@ -914,10 +914,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pathPrefab: {fileID: 701127698}
-  waitTimes:
-  - 5
-  - 0
   moveSpeed: 2
+  waitTimes:
+  - 0
+  - 1
+  - 1
+  - 0
+  - 0
 --- !u!1 &1001323291
 GameObject:
   m_ObjectHideFlags: 0

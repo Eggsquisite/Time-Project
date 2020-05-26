@@ -5,14 +5,14 @@ using UnityEngine;
 public class FlightPattern : MonoBehaviour
 {
     [SerializeField] GameObject pathPrefab;
-    [SerializeField] List<float> waitTimes;
 
     [Header ("Skree stats")]
     [SerializeField] float moveSpeed = 2f;
+    [SerializeField] List<float> waitTimes;
 
     private List<Transform> waypoints;
     private float waitModifier = 1f;
-    private float baseSpeed, waitTimer;
+    private float waitTimer;
     private int wpIndex = 0;
     private int wtIndex = 0;
     private bool moveReady, waitStart, fly, retrace;
@@ -21,8 +21,6 @@ public class FlightPattern : MonoBehaviour
     void Start()
     {
         // Set position of character to start of path
-        baseSpeed = moveSpeed;
-
         waypoints = GetWaypoints();
         transform.position = waypoints[wpIndex].transform.position;
     }
@@ -48,28 +46,13 @@ public class FlightPattern : MonoBehaviour
             if (moveReady)
                 MoveToNextWaypoint();
 
-            if (waitStart && waitTimer > 0)
-                waitTimer -= Time.deltaTime * waitModifier;
-            else if (waitStart && waitTimer <= 0)
-                UnpauseMovement();
-            
-
-
-
-            /*
-            if (waitTimer > 0.0f && waitStart)
+            if (waitStart)
             {
-                Debug.Log("Fly skree");
-                waitTimer -= Time.deltaTime * waitModifier;
+                if (waitTimer > 0)
+                    waitTimer -= Time.deltaTime * waitModifier;
+                else if (waitTimer <= 0)
+                    UnpauseMovement();
             }
-            else if (waitTimer > 0.0f && waitStart)
-            {
-                waitTimer += Time.deltaTime * waitModifier;
-            }
-            else if (waitTimer <= 0.0f && waitStart == true)
-            {
-                RestartMovement();
-            }*/
         }
     }
 
@@ -83,14 +66,20 @@ public class FlightPattern : MonoBehaviour
 
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, movementThisFrame);
 
+        // If retracing, face left, else face right
+        if (!retrace)
+            transform.rotation = new Quaternion(0, 0, 0, 0);
+        else
+            transform.rotation = new Quaternion(0, 180, 0, 0);
+
         if (transform.position == targetPosition)
             PauseMovement();
     }
 
     private void PauseMovement()
     {
-        waitTimer = 1;
-        //waitTimer = waitTimes[wtIndex];
+        //waitTimer = 1;
+        waitTimer = waitTimes[wtIndex];
         waitStart = true;
 
         // Stop movement
@@ -109,41 +98,39 @@ public class FlightPattern : MonoBehaviour
         // Since waitTime.count is one less than the amount of waypoints.count
         if (wtIndex < waitTimes.Count - 1)
         { 
-            wtIndex++;
+            //wtIndex++;
         }
 
         // Restart movement
         if (!retrace)
         {
-            Debug.Log("wpIndex: " + wpIndex + retrace);
-            Debug.Log("waypoints.Count: " + waypoints.Count);
-
             if (wpIndex < waypoints.Count - 1)
             {
                 wpIndex++;
+                wtIndex++;
                 moveReady = true;
             }
             else if (wpIndex >= waypoints.Count - 1)
             {
-                Debug.Log("Max");
                 wpIndex--;
-                retrace = true;
+                wtIndex--;
+                retrace = !retrace;
                 moveReady = true;
             }
         }
         else
         {
-            Debug.Log("wpIndex: " + wpIndex + retrace);
-
             if (wpIndex == 0)
             {
                 wpIndex++;
-                retrace = false;
+                wtIndex++;
+                retrace = !retrace;
                 moveReady = true;
             }
             else if (wpIndex > 0)
             {
                 wpIndex--;
+                wtIndex--;
                 moveReady = true;
             }
         }
