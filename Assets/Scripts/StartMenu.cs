@@ -8,6 +8,7 @@ public class StartMenu : MonoBehaviour
 {
     [SerializeField] Button continueButt;
     [SerializeField] GameObject controls;
+    [SerializeField] GameObject controlList;
 
     private int level = 0;
     private bool control;
