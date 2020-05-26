@@ -692,7 +692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  timeMultiplier: 1.5
+  timeMultiplier: 2
   constantMovement: 0
 --- !u!114 &4431686347835639735
 MonoBehaviour:

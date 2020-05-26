@@ -203,7 +203,9 @@ public class EnemyMovement : MonoBehaviour
         {
             attack = true;
             moving = false;
-            fp.Attacking(attack, baseAttackTime);
+            if (skree)
+                fp.Attacking(attack, baseAttackTime);
+
             walkTime = baseWalkTime;
             anim.SetTrigger("attack");
             anim.SetBool("moving", false);
