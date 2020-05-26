@@ -22,7 +22,7 @@ public class Attack : MonoBehaviour
         {
             var civ = collision.GetComponent<Civvie>();
 
-            if (civ.name.Contains("Ed"))
+            if (civ.name.Contains("Ed") && civ.GetHealth() > 1)
             {
                 anim.SetTrigger("hit");
                 enemy.Dead();
