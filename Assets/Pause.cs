@@ -6,16 +6,15 @@ using UnityEngine.UI;
 public class Pause : MonoBehaviour
 {
     [SerializeField] GameObject pauseText;
+    [SerializeField] Image image;
 
     private bool paused;
     private Color tmp;
-    private Image image;
 
     // Start is called before the first frame update
     void Start()
     {
         pauseText.SetActive(false);
-        image = GetComponent<Image>();
         tmp = image.color;
     }
 

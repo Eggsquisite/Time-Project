@@ -31,7 +31,7 @@ public class EnemyMovement : MonoBehaviour
         SetAttackTrigger(0);
         SetBase();
 
-        if (name == "Skree")
+        if (name.Contains("Skree"))
         {
             skree = true;
             fp = this.GetComponent<FlightPattern>();
