@@ -61,6 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 1
+  itMe: {fileID: 335580468737020691}
 --- !u!1 &395354542
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,4 +352,5 @@ MonoBehaviour:
   waitTime: 1
   attackTime: 2
   left: 0
+  rezTime: 5
   fp: {fileID: 0}

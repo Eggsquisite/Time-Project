@@ -15,7 +15,10 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] float walkTime = 2f;
     [SerializeField] float waitTime = 1f;
     [SerializeField] float attackTime = 1f;
-    [SerializeField] bool left;
+    [SerializeField] bool right;
+
+    [Header("Skelly Stats")]
+    [SerializeField] float rezTime = 2f;
 
     [Header("Skree Path")]
     [SerializeField] FlightPattern fp = null;
@@ -23,8 +26,9 @@ public class EnemyMovement : MonoBehaviour
     private Collider2D coll;
     private float waitModifier = 1f;
     private bool timeAlt, moving, attack, death;
+    private bool skelly;
     private bool skree, flying;
-    private float baseMoveSpeed, baseWaitTime, baseWalkTime, baseAttackTime, maxTimeAlt;
+    private float baseMoveSpeed, baseWaitTime, baseWalkTime, baseAttackTime, baseRezTime, maxTimeAlt;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +41,10 @@ public class EnemyMovement : MonoBehaviour
         {
             skree = true;
             fp = this.GetComponent<FlightPattern>();
+        }
+        else if (name.Contains("Skelly"))
+        {
+            skelly = true;
         }
     }
 
@@ -68,6 +76,19 @@ public class EnemyMovement : MonoBehaviour
             if (timeAlt)
                 Resetting();
         }
+
+        if (death && skelly)
+        {
+            if (rezTime > 0)
+                rezTime -= Time.deltaTime;
+            else if (rezTime <= 0)
+            {
+                death = false;
+                coll.enabled = true;
+                rezTime = baseRezTime;
+                anim.SetTrigger("rez");
+            }
+        }
     }
 
     private void SetBase()
@@ -76,16 +97,17 @@ public class EnemyMovement : MonoBehaviour
         baseWaitTime = waitTime;
         baseWalkTime = walkTime;
         baseAttackTime = attackTime;
+        baseRezTime = rezTime;
     }
 
     private void Movement()
     {
-        if (!left && !attack)
+        if (!right && !attack)
         {
             transform.rotation = new Quaternion(0, 0, 0, 0);
             transform.position = new Vector2(transform.position.x + moveSpeed * Time.deltaTime, transform.position.y);
         }
-        else if (left && !attack)
+        else if (right && !attack)
         {
             transform.rotation = new Quaternion(0, 180, 0, 0);
             transform.position = new Vector2(transform.position.x - moveSpeed * Time.deltaTime, transform.position.y);
@@ -150,7 +172,7 @@ public class EnemyMovement : MonoBehaviour
         else if (waitTime <= 0)
         {
             waitTime = baseWaitTime;
-            left = !left;
+            right = !right;
             anim.SetBool("moving", true);
             moving = true;
         }
