@@ -6,15 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class StartMenu : MonoBehaviour
 {
-    [SerializeField] Button continueButt;
-    [SerializeField] Button nextButt;
-    [SerializeField] Button loadLvlButt;
-    [SerializeField] GameObject controls;
-    [SerializeField] GameObject controlList;
+    [SerializeField] Button continueButt, nextButt, loadLvlButt;
+    [SerializeField] GameObject menuButtons, titleText, controls, controlList;
 
     private List<Transform> theList;
     private int level, index;
-    private bool control;
+    private bool control, title;
+
+    private void Awake()
+    {
+        title = true;
+        menuButtons.SetActive(false);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +31,18 @@ public class StartMenu : MonoBehaviour
             continueButt.interactable = false;
         else 
             continueButt.interactable = true;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+            Application.Quit();
+        else if (Input.anyKeyDown && title)
+        {
+            title = !title;
+            titleText.SetActive(false);
+            menuButtons.SetActive(true);
+        }
     }
 
     private List<Transform> GetControlList()

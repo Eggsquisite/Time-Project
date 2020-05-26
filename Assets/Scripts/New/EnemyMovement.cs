@@ -45,7 +45,6 @@ public class EnemyMovement : MonoBehaviour
         {
             fp.Fly();
             flying = true;
-            Debug.Log("Skree flight turned on");
         }
         else if (moving && !attack && !flying)
             Movement();
