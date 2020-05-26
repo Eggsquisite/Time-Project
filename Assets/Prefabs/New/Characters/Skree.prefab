@@ -103,7 +103,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -159,10 +159,13 @@ MonoBehaviour:
   anim: {fileID: 8897573610293114906}
   attackTrig: {fileID: 9210618415640205893}
   moveSpeed: 3
-  walkTime: 2
+  walkTime: 5
   waitTime: 1
   attackTime: 2
   left: 1
+  airGrav: -0.1
+  groundGrav: 0.15
+  waitGrav: 0.3
 --- !u!1 &9210618415640205894
 GameObject:
   m_ObjectHideFlags: 0

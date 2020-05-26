@@ -18,6 +18,8 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] bool left;
 
     [Header("Skree Stats")]
+    [SerializeField] FlightPattern fp;
+    [SerializeField] GameObject flightPath;
     [SerializeField] float airGrav = -0.1f;
     [SerializeField] float groundGrav = 0.25f;
     [SerializeField] float waitGrav = 0.3f;
@@ -25,7 +27,7 @@ public class EnemyMovement : MonoBehaviour
     private Rigidbody2D rb;
     private float waitModifier = 1f;
     private bool timeAlt, moving, attack;
-    private bool skree, halfWay, startFlight;
+    private bool skree, flying, halfWay, startFlight;
     private float baseMoveSpeed, baseWaitTime, baseWalkTime, baseAttackTime, maxTimeAlt;
 
     // Start is called before the first frame update
@@ -39,16 +41,22 @@ public class EnemyMovement : MonoBehaviour
         if (name == "Skree")
         {
             skree = true;
-            rb.gravityScale = 0f;
+            fp = this.GetComponent<FlightPattern>();
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (moving && !attack)
+        if (skree && !flying)
+        {
+            fp.Fly();
+            flying = true;
+            Debug.Log("Skree flight turned on");
+        }
+        else if (moving && !attack && !flying)
             Movement();
-        else if (!moving && !attack)
+        else if (!moving && !attack && !flying)
             Waiting();
         else if (attack)
         {
@@ -125,20 +133,20 @@ public class EnemyMovement : MonoBehaviour
 
             halfWay = false;
             startFlight = false;
-            rb.gravityScale = waitGrav;
+            rb.gravityScale = waitGrav * waitModifier;
         }
     }
 
     private void FlightHalfWay()
     {
         halfWay = true;
-        rb.gravityScale = airGrav;
+        rb.gravityScale = airGrav * waitModifier;
     }
 
     private void StartFlight()
     {
         startFlight = true;
-        rb.gravityScale = groundGrav;
+        rb.gravityScale = groundGrav * waitModifier;
     }
 
     private void Waiting()
@@ -168,6 +176,7 @@ public class EnemyMovement : MonoBehaviour
         timeAlt = false;
 
         waitModifier = 1f;
+        fp.WaitMod(waitModifier);
         moveSpeed = baseMoveSpeed;
         anim.SetFloat("animMultiplier", 1f);
     }
@@ -190,8 +199,6 @@ public class EnemyMovement : MonoBehaviour
 
     public void SetAttackTrigger(float status)
     {
-        Debug.Log("Setting attack trig" + status);
-
         if (status == 1)
             attackTrig.enabled = true;
         else

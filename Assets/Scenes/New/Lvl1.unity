@@ -249,6 +249,25 @@ PrefabInstance:
       propertyPath: portalObj
       value: 
       objectReference: {fileID: 1283658496}
+    - target: {fileID: 2972863770281955465, guid: e8757e9db8d2c2e4fb766004da42c948,
+        type: 3}
+      propertyPath: portalObj
+      value: 
+      objectReference: {fileID: 4358188507873337570}
+    - target: {fileID: 2972863770281955465, guid: e8757e9db8d2c2e4fb766004da42c948,
+        type: 3}
+      propertyPath: on
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1435634513, guid: e8757e9db8d2c2e4fb766004da42c948, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3693086407389508830, guid: 425690c4f78130a4bba48dc6a4fa56a4,
+        type: 3}
+    - target: {fileID: 1435634513, guid: e8757e9db8d2c2e4fb766004da42c948, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RetryLevel
+      objectReference: {fileID: 0}
     - target: {fileID: 2972863770281955476, guid: e8757e9db8d2c2e4fb766004da42c948,
         type: 3}
       propertyPath: m_Color.r
@@ -264,15 +283,16 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2972863770281955465, guid: e8757e9db8d2c2e4fb766004da42c948,
+    - target: {fileID: 3121871763304844460, guid: e8757e9db8d2c2e4fb766004da42c948,
         type: 3}
-      propertyPath: portalObj
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 4358188507873337570}
-    - target: {fileID: 2972863770281955465, guid: e8757e9db8d2c2e4fb766004da42c948,
+      objectReference: {fileID: 3693086407389508830, guid: 425690c4f78130a4bba48dc6a4fa56a4,
         type: 3}
-      propertyPath: on
-      value: 0
+    - target: {fileID: 3121871763304844460, guid: e8757e9db8d2c2e4fb766004da42c948,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadNextLevel
       objectReference: {fileID: 0}
     - target: {fileID: 2972863771697601089, guid: e8757e9db8d2c2e4fb766004da42c948,
         type: 3}
@@ -2055,12 +2075,12 @@ PrefabInstance:
     - target: {fileID: 8354021321478898935, guid: d00873dbf50a9634e9adc7b9ef9cf0ab,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -32.770916
+      value: -32.72
       objectReference: {fileID: 0}
     - target: {fileID: 8354021321478898935, guid: d00873dbf50a9634e9adc7b9ef9cf0ab,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.59
+      value: 5.74
       objectReference: {fileID: 0}
     - target: {fileID: 8354021321478898935, guid: d00873dbf50a9634e9adc7b9ef9cf0ab,
         type: 3}
