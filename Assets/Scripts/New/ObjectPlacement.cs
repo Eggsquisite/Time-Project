@@ -21,6 +21,7 @@ public class ObjectPlacement : MonoBehaviour
     {
         manaReady = true;
         mb = manaBar.GetComponent<ManaBar>();
+
         allObjs = new GameObject[2];
     }
 

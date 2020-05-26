@@ -5,6 +5,7 @@ using UnityEngine;
 public class CamMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 2f;
+    [SerializeField] bool constantMovement;
 
     private Transform t;
     private bool doubleSpeed = false;
@@ -26,13 +27,18 @@ public class CamMovement : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-        {
-            t.position = new Vector3(t.position.x - moveSpeed * Time.deltaTime, t.position.y, t.position.z);
-        }
-        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-        {
+        if (constantMovement)
             t.position = new Vector3(t.position.x + moveSpeed * Time.deltaTime, t.position.y, t.position.z);
+        else
+        {
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+            {
+                t.position = new Vector3(t.position.x - moveSpeed * Time.deltaTime, t.position.y, t.position.z);
+            }
+            else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            {
+                t.position = new Vector3(t.position.x + moveSpeed * Time.deltaTime, t.position.y, t.position.z);
+            }
         }
     }
 }
