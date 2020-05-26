@@ -20,14 +20,16 @@ public class EnemyMovement : MonoBehaviour
     [Header("Skree Path")]
     [SerializeField] FlightPattern fp = null;
 
+    private Collider2D coll;
     private float waitModifier = 1f;
-    private bool timeAlt, moving, attack;
+    private bool timeAlt, moving, attack, death;
     private bool skree, flying;
     private float baseMoveSpeed, baseWaitTime, baseWalkTime, baseAttackTime, maxTimeAlt;
 
     // Start is called before the first frame update
     void Start()
     {
+        coll = GetComponent<Collider2D>();
         SetAttackTrigger(0);
         SetBase();
 
@@ -41,28 +43,31 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (skree && !flying)
+        if (!death)
         {
-            fp.Fly();
-            flying = true;
-        }
-        else if (moving && !attack && !flying)
-            Movement();
-        else if (!moving && !attack && !flying)
-            Waiting();
-        else if (attack)
-        {
-            if (attackTime > 0)
-                attackTime -= Time.deltaTime;
-            else if (attackTime <= 0)
+            if (skree && !flying)
             {
-                attackTime = baseAttackTime;
-                attack = false;
+                fp.Fly();
+                flying = true;
             }
-        }
+            else if (moving && !attack && !flying)
+                Movement();
+            else if (!moving && !attack && !flying)
+                Waiting();
+            else if (attack)
+            {
+                if (attackTime > 0)
+                    attackTime -= Time.deltaTime;
+                else if (attackTime <= 0)
+                {
+                    attackTime = baseAttackTime;
+                    attack = false;
+                }
+            }
 
-        if (timeAlt)
-            Resetting();
+            if (timeAlt)
+                Resetting();
+        }
     }
 
     private void SetBase()
@@ -195,6 +200,12 @@ public class EnemyMovement : MonoBehaviour
             attackTrig.enabled = true;
         else
             attackTrig.enabled = false;
+    }
+
+    public void Dead()
+    {
+        death = true;
+        coll.enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

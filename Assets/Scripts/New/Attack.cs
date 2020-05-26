@@ -5,10 +5,30 @@ using UnityEngine;
 public class Attack : MonoBehaviour
 {
     [SerializeField] int dmg;
+    [SerializeField] GameObject itMe;
+
+    Animator anim;
+    EnemyMovement enemy;
+
+    private void Start()
+    {
+        anim = itMe.GetComponent<Animator>();
+        enemy = itMe.GetComponent<EnemyMovement>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Civilian")
-            collision.GetComponent<Civvie>().Hurt(dmg);
+        {
+            var civ = collision.GetComponent<Civvie>();
+
+            if (civ.name.Contains("Ed"))
+            {
+                anim.SetTrigger("hit");
+                enemy.Dead();
+            }
+
+            civ.Hurt(dmg);
+        }
     }
 }

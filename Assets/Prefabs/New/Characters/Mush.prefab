@@ -103,7 +103,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -122,8 +122,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.48385572, y: -0.0581913}
-  m_Size: {x: 2.1721816, y: 3.1620646}
+  m_Offset: {x: 0.090060234, y: -0.44261026}
+  m_Size: {x: 1.4971027, y: 2.3932266}
   m_Direction: 0
 --- !u!95 &8270958740502500008
 Animator:
@@ -160,7 +160,7 @@ MonoBehaviour:
   attackTrig: {fileID: 8529924963767857399}
   moveSpeed: 3
   walkTime: 3
-  waitTime: 1
+  waitTime: 3
   attackTime: 2
   left: 0
   fp: {fileID: 0}
@@ -209,8 +209,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.4199176, y: -0.08104992}
-  m_Size: {x: 4.506179, y: 4.506179}
+  m_Offset: {x: 1.7823434, y: -0.52172565}
+  m_Size: {x: 3.2310305, y: 3.2310305}
   m_Direction: 0
 --- !u!114 &8529924963767857393
 MonoBehaviour:

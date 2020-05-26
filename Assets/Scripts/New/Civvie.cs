@@ -94,4 +94,9 @@ public class Civvie : MonoBehaviour
             enduring = true;
         }
     }
+
+    public int GetHealth()
+    {
+        return health;
+    }
 }
