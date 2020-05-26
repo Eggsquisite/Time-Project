@@ -160,9 +160,10 @@ MonoBehaviour:
   attackTrig: {fileID: 8529924963767857399}
   moveSpeed: 3
   walkTime: 3
-  waitTime: 3
+  waitTime: 1
   attackTime: 2
-  left: 0
+  right: 0
+  rezTime: 0
   fp: {fileID: 0}
 --- !u!1 &8529924963767857396
 GameObject:
@@ -225,6 +226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 1
+  itMe: {fileID: 8270958740502500006}
 --- !u!1 &8529924964011335707
 GameObject:
   m_ObjectHideFlags: 0

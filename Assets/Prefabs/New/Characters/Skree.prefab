@@ -162,7 +162,8 @@ MonoBehaviour:
   walkTime: 5
   waitTime: 1
   attackTime: 2
-  left: 1
+  right: 0
+  rezTime: 2
   fp: {fileID: 969409317}
 --- !u!114 &969409317
 MonoBehaviour:
@@ -180,7 +181,6 @@ MonoBehaviour:
   moveSpeed: 4
   waitTimes:
   - 1
-  - 0
   - 0
   - 1
 --- !u!1 &9210618415640205894
@@ -244,6 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 1
+  itMe: {fileID: 8897573610293114900}
 --- !u!1 &9210618416889794246
 GameObject:
   m_ObjectHideFlags: 0
