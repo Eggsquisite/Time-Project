@@ -18,20 +18,17 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] bool left;
 
     [Header("Skree Path")]
-    [SerializeField] FlightPattern fp;
+    [SerializeField] FlightPattern fp = null;
 
-    private Rigidbody2D rb;
     private float waitModifier = 1f;
     private bool timeAlt, moving, attack;
-    private bool skree, flying, halfWay, startFlight;
+    private bool skree, flying;
     private float baseMoveSpeed, baseWaitTime, baseWalkTime, baseAttackTime, maxTimeAlt;
 
     // Start is called before the first frame update
     void Start()
     {
         SetAttackTrigger(0);
-
-        rb = GetComponent<Rigidbody2D>();
         SetBase();
 
         if (name == "Skree")
@@ -169,7 +166,8 @@ public class EnemyMovement : MonoBehaviour
         timeAlt = false;
 
         waitModifier = 1f;
-        fp.WaitMod(waitModifier);
+        if (fp != null)
+            fp.WaitMod(waitModifier);
         moveSpeed = baseMoveSpeed;
         anim.SetFloat("animMultiplier", 1f);
     }
@@ -187,7 +185,8 @@ public class EnemyMovement : MonoBehaviour
 
         moveSpeed *= spdMultiplier;
         waitModifier = spdMultiplier;
-        fp.WaitMod(waitModifier);
+        if (fp != null)
+            fp.WaitMod(waitModifier);
         anim.SetFloat("animMultiplier", spdMultiplier);
     }
 

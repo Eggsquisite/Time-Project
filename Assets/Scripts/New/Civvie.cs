@@ -84,7 +84,6 @@ public class Civvie : MonoBehaviour
     public void Hurt(int dmg)
     {
         health -= dmg;
-        Debug.Log("Hurt");
 
         if (health <= 0)
             Dead();

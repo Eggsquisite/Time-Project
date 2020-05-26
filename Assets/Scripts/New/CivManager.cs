@@ -6,8 +6,8 @@ public class CivManager : MonoBehaviour
 {
 
     [SerializeField] LevelEnd lvlEnd;
-
     [SerializeField] Transform civs;
+    [SerializeField] float deathTime = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +17,12 @@ public class CivManager : MonoBehaviour
 
     public void Failure()
     {
+        StartCoroutine(Failed());
+    }
+
+    private IEnumerator Failed()
+    { 
+        yield return new WaitForSeconds(deathTime);
         lvlEnd.FailureText();
     }
 
