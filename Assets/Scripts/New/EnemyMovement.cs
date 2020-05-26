@@ -17,12 +17,8 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] float attackTime = 1f;
     [SerializeField] bool left;
 
-    [Header("Skree Stats")]
+    [Header("Skree Path")]
     [SerializeField] FlightPattern fp;
-    [SerializeField] GameObject flightPath;
-    [SerializeField] float airGrav = -0.1f;
-    [SerializeField] float groundGrav = 0.25f;
-    [SerializeField] float waitGrav = 0.3f;
 
     private Rigidbody2D rb;
     private float waitModifier = 1f;
@@ -94,21 +90,17 @@ public class EnemyMovement : MonoBehaviour
             transform.position = new Vector2(transform.position.x - moveSpeed * Time.deltaTime, transform.position.y);
         }
 
-        if (skree)
-            Flying();
-        else
+        if (walkTime > 0)
+            walkTime -= Time.deltaTime * waitModifier;
+        else if (walkTime <= 0)
         {
-            if (walkTime > 0)
-                walkTime -= Time.deltaTime * waitModifier;
-            else if (walkTime <= 0)
-            {
-                walkTime = baseWalkTime;
-                anim.SetBool("moving", false);
-                moving = false;
-            }
+            walkTime = baseWalkTime;
+            anim.SetBool("moving", false);
+            moving = false;
         }
     }
 
+    /*
     private void Flying()
     {
         if (walkTime > 0 && walkTime >= (baseWalkTime / 2))
@@ -148,6 +140,7 @@ public class EnemyMovement : MonoBehaviour
         startFlight = true;
         rb.gravityScale = groundGrav * waitModifier;
     }
+    */
 
     private void Waiting()
     {
@@ -194,6 +187,7 @@ public class EnemyMovement : MonoBehaviour
 
         moveSpeed *= spdMultiplier;
         waitModifier = spdMultiplier;
+        fp.WaitMod(waitModifier);
         anim.SetFloat("animMultiplier", spdMultiplier);
     }
 

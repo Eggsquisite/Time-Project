@@ -13,8 +13,9 @@ public class FlightPattern : MonoBehaviour
     private List<Transform> waypoints;
     private float waitModifier = 1f;
     private float baseSpeed, waitTimer;
-    private int wpIndex, wtIndex;
-    private bool moveReady, waitStart, fly;
+    private int wpIndex = 0;
+    private int wtIndex = 0;
+    private bool moveReady, waitStart, fly, retrace;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +30,10 @@ public class FlightPattern : MonoBehaviour
     public void Fly()
     {
         if (!fly)
+        {
             fly = true;
+            moveReady = true;
+        }
     }
 
     public void WaitMod(float waitMod)
@@ -41,12 +45,18 @@ public class FlightPattern : MonoBehaviour
     {
         if (fly)
         {
-            if (moveReady == true && wpIndex < waypoints.Count)
-            {
+            if (moveReady)
                 MoveToNextWaypoint();
-            }
+
+            if (waitStart && waitTimer > 0)
+                waitTimer -= Time.deltaTime * waitModifier;
+            else if (waitStart && waitTimer <= 0)
+                UnpauseMovement();
+            
 
 
+
+            /*
             if (waitTimer > 0.0f && waitStart)
             {
                 Debug.Log("Fly skree");
@@ -59,7 +69,7 @@ public class FlightPattern : MonoBehaviour
             else if (waitTimer <= 0.0f && waitStart == true)
             {
                 RestartMovement();
-            }
+            }*/
         }
     }
 
@@ -69,21 +79,19 @@ public class FlightPattern : MonoBehaviour
         var targetPosition = waypoints[wpIndex].transform.position;
 
         // Speed move speed independent of frame
-        var movementThisFrame = moveSpeed * Time.deltaTime;
+        var movementThisFrame = moveSpeed * Time.deltaTime * waitModifier;
 
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, movementThisFrame);
 
         if (transform.position == targetPosition)
-        {
-            StopMovement();
-            //StartCoroutine("WaitForNextMove");
-        }
+            PauseMovement();
     }
 
-    private void StopMovement()
+    private void PauseMovement()
     {
-        waitTimer = waitTimes[wtIndex];
-        wpIndex++;
+        waitTimer = 1;
+        //waitTimer = waitTimes[wtIndex];
+        waitStart = true;
 
         // Stop movement
         if (moveReady)
@@ -93,18 +101,52 @@ public class FlightPattern : MonoBehaviour
         }
     }
 
-    private void RestartMovement()
+    private void UnpauseMovement()
     {
         waitStart = false;
         waitTimer = 0f;
 
         // Since waitTime.count is one less than the amount of waypoints.count
         if (wtIndex < waitTimes.Count - 1)
+        { 
             wtIndex++;
+        }
 
         // Restart movement
-        if (wtIndex < waypoints.Count)
-            moveReady = true;
+        if (!retrace)
+        {
+            Debug.Log("wpIndex: " + wpIndex + retrace);
+            Debug.Log("waypoints.Count: " + waypoints.Count);
+
+            if (wpIndex < waypoints.Count - 1)
+            {
+                wpIndex++;
+                moveReady = true;
+            }
+            else if (wpIndex >= waypoints.Count - 1)
+            {
+                Debug.Log("Max");
+                wpIndex--;
+                retrace = true;
+                moveReady = true;
+            }
+        }
+        else
+        {
+            Debug.Log("wpIndex: " + wpIndex + retrace);
+
+            if (wpIndex == 0)
+            {
+                wpIndex++;
+                retrace = false;
+                moveReady = true;
+            }
+            else if (wpIndex > 0)
+            {
+                wpIndex--;
+                moveReady = true;
+            }
+        }
     }
 
     private List<Transform> GetWaypoints()
