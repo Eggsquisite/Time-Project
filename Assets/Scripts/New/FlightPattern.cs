@@ -39,6 +39,12 @@ public class FlightPattern : MonoBehaviour
         waitModifier = waitMod;
     }
 
+    public void Attacking(bool attack, float attackTimer)
+    {
+        if (attack)
+            PauseMovement(attackTimer);
+    }
+
     void Update()
     {
         if (fly)
@@ -76,9 +82,21 @@ public class FlightPattern : MonoBehaviour
             PauseMovement();
     }
 
+    private void PauseMovement(float attackTimer)
+    {
+        waitTimer = attackTimer;
+        waitStart = true;
+
+        // Stop movement
+        if (moveReady)
+        {
+            waitStart = true;
+            moveReady = false;
+        }
+    }
+
     private void PauseMovement()
     {
-        //waitTimer = 1;
         waitTimer = waitTimes[wtIndex];
         waitStart = true;
 
@@ -94,12 +112,6 @@ public class FlightPattern : MonoBehaviour
     {
         waitStart = false;
         waitTimer = 0f;
-
-        // Since waitTime.count is one less than the amount of waypoints.count
-        if (wtIndex < waitTimes.Count - 1)
-        { 
-            //wtIndex++;
-        }
 
         // Restart movement
         if (!retrace)
