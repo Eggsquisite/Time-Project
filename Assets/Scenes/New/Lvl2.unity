@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -866,12 +866,12 @@ PrefabInstance:
     - target: {fileID: 395048694757751302, guid: c0a9dbcefce795f488314d3e3cc2a444,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.59
+      value: -27.92
       objectReference: {fileID: 0}
     - target: {fileID: 395048694757751302, guid: c0a9dbcefce795f488314d3e3cc2a444,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.6299999
+      value: -1.49
       objectReference: {fileID: 0}
     - target: {fileID: 395048694757751302, guid: c0a9dbcefce795f488314d3e3cc2a444,
         type: 3}
@@ -1543,6 +1543,15 @@ PrefabInstance:
       propertyPath: placer
       value: 
       objectReference: {fileID: 1682572460}
+    - target: {fileID: 500222003, guid: e8757e9db8d2c2e4fb766004da42c948, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972863770149359770, guid: e8757e9db8d2c2e4fb766004da42c948,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 324
+      objectReference: {fileID: 0}
     - target: {fileID: 1435634513, guid: e8757e9db8d2c2e4fb766004da42c948, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
