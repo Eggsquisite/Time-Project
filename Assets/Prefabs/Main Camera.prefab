@@ -692,7 +692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  timeMultiplier: 2
+  timeMultiplier: 3
   constantMovement: 0
 --- !u!114 &4431686347835639735
 MonoBehaviour:
@@ -707,4 +707,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objPosition: {fileID: 48737506}
-  manaBar: {fileID: 0}
+  bm: {fileID: 0}

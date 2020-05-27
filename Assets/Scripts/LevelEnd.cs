@@ -16,8 +16,7 @@ public class LevelEnd : MonoBehaviour
     {
         Time.timeScale = 1;
         numOfCivs = civs.GetNumOfCivs();
-
-        //EnableText(false, -1);
+        EnableText(false, -1);
     }
 
     private void SuccessText()

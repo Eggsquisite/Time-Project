@@ -28,14 +28,14 @@ RectTransform:
   m_GameObject: {fileID: 487130075679032738}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4814887, y: 1.5873109, z: 1}
   m_Children: []
   m_Father: {fileID: 2327313726461463958}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -86.5}
+  m_AnchoredPosition: {x: 38.40002, y: -53.302387}
   m_SizeDelta: {x: 400, y: 64.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7985751872063168617
@@ -160,17 +160,17 @@ RectTransform:
   m_GameObject: {fileID: 4800397710699969843}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.11111166, y: 0.11904833, z: 1}
+  m_LocalScale: {x: 0.075, y: 0.075, z: 1}
   m_Children:
-  - {fileID: 2445557189802187908}
   - {fileID: 6420173068854079973}
+  - {fileID: 2445557189802187908}
   m_Father: {fileID: 313670580485387834}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.88, y: 1.2}
-  m_SizeDelta: {x: 1200, y: 99.59}
+  m_AnchoredPosition: {x: 0, y: -5.1}
+  m_SizeDelta: {x: 150, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6597066171374728669
 CanvasRenderer:
@@ -200,7 +200,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 550cefbb9d93c1b48814e26a8872b1e0, type: 3}
-    m_FontSize: 100
+    m_FontSize: 150
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -208,8 +208,8 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 'All Townsfolk Saved!
 
@@ -316,14 +316,14 @@ RectTransform:
   m_GameObject: {fileID: 8234752145296135034}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4814887, y: 1.5873109, z: 1}
   m_Children: []
   m_Father: {fileID: 2327313726461463958}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: -86.5}
+  m_AnchoredPosition: {x: 38.40002, y: -53.302387}
   m_SizeDelta: {x: 400, y: 64.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6285922063994422670

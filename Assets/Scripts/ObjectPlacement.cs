@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class ObjectPlacement : MonoBehaviour
 {
-    //[SerializeField] GameObject selectObj = null;
+    [SerializeField] GameObject selectObj = null;
+   // [SerializeField] GameObject manaBar = null;
     [SerializeField] GameObject objPosition = null;
-    [SerializeField] GameObject manaBar = null;
     [SerializeField] ButtonManager bm;
+    [SerializeField] int portalCount = 5;
 
     private ManaBar mb;
-    private GameObject tempObj, selectObj;
+    private GameObject tempObj;//, selectObj;
     private GameObject[] allObjs;
     private SpriteRenderer[] spriteObjs;
     private Color tmp;
@@ -20,9 +21,11 @@ public class ObjectPlacement : MonoBehaviour
     private void Start()
     {
         manaReady = true;
-        mb = manaBar.GetComponent<ManaBar>();
+        //mb = manaBar.GetComponent<ManaBar>();
 
-        allObjs = new GameObject[2];
+        // Max five scrolls possibly
+        allObjs = new GameObject[portalCount];
+        spriteObjs = new SpriteRenderer[2];
     }
 
     // Update is called once per frame
@@ -33,7 +36,7 @@ public class ObjectPlacement : MonoBehaviour
 
         if (useMana)
         {
-            mb.UseMana(true);
+            //mb.UseMana(true);
             useMana = false;
         }
 
@@ -41,7 +44,7 @@ public class ObjectPlacement : MonoBehaviour
         {
             objPosition.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane));
             
-            if (!ready && !placed && manaReady && index < 2)
+            if (!ready && !placed && /*manaReady &&*/ index < portalCount)
             {
                 tempObj = Instantiate(selectObj, objPosition.transform.position, Quaternion.identity);
                 tempObj.GetComponent<ParticleSystem>().Stop();
@@ -62,7 +65,7 @@ public class ObjectPlacement : MonoBehaviour
                 ready = false;
             }
 
-            if (Input.GetButtonDown("Fire1") && ready && index < 2)
+            if (Input.GetButtonDown("Fire1") && ready && index < portalCount)
             {
                 tmp.a = 1f;
                 spriteObjs[0].color = spriteObjs[1].color = tmp;
@@ -74,7 +77,7 @@ public class ObjectPlacement : MonoBehaviour
                 index++;
                 ready = false;
                 placed = true;
-                useMana = true;
+                //useMana = true;
             }
         }
     }
@@ -93,10 +96,14 @@ public class ObjectPlacement : MonoBehaviour
 
     public void SetSelected(GameObject obj)
     {
+        if (selectObj != null)
+            selectObj = null;
+
         selectObj = obj;
         ready = false;
         placed = false;
     }
+
 
     public void SetManaReady(bool status)
     {

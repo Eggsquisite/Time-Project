@@ -9,7 +9,6 @@ public class Portrait : MonoBehaviour
 
     Transform t;
     private bool findTarget, followTarget;
-    private float lerp = 0.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -25,14 +24,12 @@ public class Portrait : MonoBehaviour
             Input.GetKeyDown(KeyCode.D)         || 
             Input.GetKeyDown(KeyCode.RightArrow))
         {
-            Debug.Log("Stop following");
             findTarget = false;
             followTarget = false;
         }
 
         if (findTarget && civ.position.x < t.position.x + 0.5 && civ.position.x > t.position.x - 0.5)
         {
-            Debug.Log("Start following " + civ.name);
             findTarget = false;
             followTarget = true;
         }
@@ -49,26 +46,11 @@ public class Portrait : MonoBehaviour
         {
             t.position = new Vector3(civ.position.x, t.position.y, t.position.z);
         }
-
-        /*
-        // Speed move speed independent of frame
-        var movementThisFrame = moveSpeed * Time.deltaTime * waitModifier;
-
-        transform.position = Vector2.MoveTowards(transform.position, targetPosition, movementThisFrame);
-
-        // If retracing, face left, else face right
-        if (!retrace)
-            transform.rotation = new Quaternion(0, 0, 0, 0);
-        else
-            transform.rotation = new Quaternion(0, 180, 0, 0);
-
-        if (transform.position == targetPosition)
-            PauseMovement();
-            */
     }
 
     public void FindTarget()
     {
-        findTarget = true;
+        if (civ != null)
+            findTarget = true;
     }
 }

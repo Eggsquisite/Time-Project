@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedMultiplier: 0.33
-  timeLength: 0.5
+  timeLength: 1
 --- !u!198 &2240606353253392112
 ParticleSystem:
   m_ObjectHideFlags: 0

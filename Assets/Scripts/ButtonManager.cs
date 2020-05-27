@@ -14,14 +14,9 @@ public class ButtonManager : MonoBehaviour
         placer = Camera.main.GetComponent<ObjectPlacement>();
     }
 
-    public void SetSelected(GameObject portal, Button button)
+    public void SetSelected(GameObject portal)
     {
-        if (b != null)
-            b.interactable = true;
-
         placer.SetSelected(portal);
-        b = button;
-        b.interactable = false;
     }
 
     public void Reset()

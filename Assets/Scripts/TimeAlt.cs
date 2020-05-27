@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeedAlt : MonoBehaviour
+public class TimeAlt : MonoBehaviour
 {
-    [SerializeField] float speedMultiplier = 2f;
+    [SerializeField] float timeMultiplier = 2f;
     [SerializeField] float timeLength = 1f;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -13,13 +13,13 @@ public class SpeedAlt : MonoBehaviour
         {
             var charMovement = collision.GetComponent<CivMovement>();
 
-            charMovement.InPortal(speedMultiplier);
+            charMovement.InPortal(timeMultiplier);
         }
         else if (collision.tag == "Enemy")
         {
             var enemyMovement = collision.GetComponent<EnemyMovement>();
 
-            enemyMovement.InPortal(speedMultiplier);
+            enemyMovement.InPortal(timeMultiplier);
         }
     }
 
