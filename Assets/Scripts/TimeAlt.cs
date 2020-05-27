@@ -7,7 +7,7 @@ public class TimeAlt : MonoBehaviour
     [SerializeField] float timeMultiplier = 2f;
     [SerializeField] float timeLength = 1f;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "Civilian")
         {
