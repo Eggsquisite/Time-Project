@@ -17,7 +17,7 @@ public class PortalSelect : MonoBehaviour
 
     public void SetSelected()
     {
-        bm.SetSelected(portalPrefab);
+        bm.SetSelected(portalPrefab, b);
         b.interactable = !on;
     }
 }
