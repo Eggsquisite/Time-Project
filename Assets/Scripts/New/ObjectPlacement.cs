@@ -5,9 +5,10 @@ using UnityEngine;
 public class ObjectPlacement : MonoBehaviour
 {
     //[SerializeField] GameObject selectObj = null;
-    private GameObject selectObj;
+    public GameObject selectObj;
     [SerializeField] GameObject objPosition = null;
     [SerializeField] GameObject manaBar = null;
+    [SerializeField] ButtonManager bm;
 
     private ManaBar mb;
     private GameObject tempObj;
@@ -40,8 +41,8 @@ public class ObjectPlacement : MonoBehaviour
         if (selectObj != null)
         {
             objPosition.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane));
-
-            if (Input.GetButtonDown("Fire2") && !ready && !placed && manaReady && index < 2)
+            
+            if (!ready && !placed && manaReady && index < 2)
             {
                 tempObj = Instantiate(selectObj, objPosition.transform.position, Quaternion.identity);
                 tempObj.GetComponent<ParticleSystem>().Stop();
@@ -57,6 +58,8 @@ public class ObjectPlacement : MonoBehaviour
             else if (Input.GetButtonDown("Fire2") && ready && !placed)
             {
                 Destroy(tempObj);
+                selectObj = null;
+                bm.Reset();
                 ready = false;
             }
 
@@ -109,6 +112,7 @@ public class ObjectPlacement : MonoBehaviour
         }
 
         index = 0;
+        //bm.Reset();
         placed = false;
         manaReady = false;
     }

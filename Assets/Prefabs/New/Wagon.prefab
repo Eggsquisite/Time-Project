@@ -120,8 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75932113c9492fc49a258eebea61b7cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lvlOver: {fileID: 0}
-  nextScene: {fileID: 0}
-  retryScene: {fileID: 0}
   uiBackground: {fileID: 0}
+  lvlOver: {fileID: 0}
+  nextLvl: {fileID: 0}
+  retryLvl: {fileID: 0}
   civs: {fileID: 0}

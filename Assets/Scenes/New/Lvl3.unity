@@ -1687,7 +1687,7 @@ PrefabInstance:
     - target: {fileID: 3121871764610409651, guid: e8757e9db8d2c2e4fb766004da42c948,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3121871764610409651, guid: e8757e9db8d2c2e4fb766004da42c948,
         type: 3}
@@ -1775,7 +1775,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: e8757e9db8d2c2e4fb766004da42c948, type: 3}
 --- !u!114 &1977919134 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3121871763304844459, guid: e8757e9db8d2c2e4fb766004da42c948,
+  m_CorrespondingSourceObject: {fileID: 2609682938536673011, guid: e8757e9db8d2c2e4fb766004da42c948,
     type: 3}
   m_PrefabInstance: {fileID: 1977919133}
   m_PrefabAsset: {fileID: 0}
@@ -1787,7 +1787,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!114 &1977919135 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3121871764269092009, guid: e8757e9db8d2c2e4fb766004da42c948,
+  m_CorrespondingSourceObject: {fileID: 7412057654706191182, guid: e8757e9db8d2c2e4fb766004da42c948,
     type: 3}
   m_PrefabInstance: {fileID: 1977919133}
   m_PrefabAsset: {fileID: 0}
@@ -1811,7 +1811,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!114 &1977919137 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1435634514, guid: e8757e9db8d2c2e4fb766004da42c948,
+  m_CorrespondingSourceObject: {fileID: 8210912084297052571, guid: e8757e9db8d2c2e4fb766004da42c948,
     type: 3}
   m_PrefabInstance: {fileID: 1977919133}
   m_PrefabAsset: {fileID: 0}
@@ -1998,17 +1998,17 @@ PrefabInstance:
         type: 3}
       propertyPath: lvlOver
       value: 
-      objectReference: {fileID: 1977919135}
+      objectReference: {fileID: 1977919137}
     - target: {fileID: 3193606802815319654, guid: ac7a5fd27bfc5d548832b54005b02c21,
         type: 3}
       propertyPath: nextScene
       value: 
-      objectReference: {fileID: 1977919134}
+      objectReference: {fileID: 1977919135}
     - target: {fileID: 3193606802815319654, guid: ac7a5fd27bfc5d548832b54005b02c21,
         type: 3}
       propertyPath: retryScene
       value: 
-      objectReference: {fileID: 1977919137}
+      objectReference: {fileID: 1977919134}
     - target: {fileID: 3193606802815319654, guid: ac7a5fd27bfc5d548832b54005b02c21,
         type: 3}
       propertyPath: uiBackground
@@ -2057,7 +2057,7 @@ PrefabInstance:
     - target: {fileID: 3193606802815319652, guid: ac7a5fd27bfc5d548832b54005b02c21,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3193606802815319652, guid: ac7a5fd27bfc5d548832b54005b02c21,
         type: 3}
@@ -2543,7 +2543,8 @@ MonoBehaviour:
   walkTime: 5
   waitTime: 1
   attackTime: 2
-  left: 1
+  right: 0
+  rezTime: 2
   fp: {fileID: 934517865}
 --- !u!1 &8897573610388105048
 GameObject:
@@ -2649,7 +2650,8 @@ MonoBehaviour:
   walkTime: 5
   waitTime: 1
   attackTime: 2
-  left: 1
+  right: 0
+  rezTime: 2
   fp: {fileID: 1100436082}
 --- !u!95 &8897573611229309261
 Animator:
@@ -2883,6 +2885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 1
+  itMe: {fileID: 0}
 --- !u!1 &9210618416308194065
 GameObject:
   m_ObjectHideFlags: 0
@@ -2944,6 +2947,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 1
+  itMe: {fileID: 0}
 --- !u!114 &9210618416985575816
 MonoBehaviour:
   m_ObjectHideFlags: 0

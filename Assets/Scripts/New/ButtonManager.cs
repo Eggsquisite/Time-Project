@@ -24,4 +24,9 @@ public class ButtonManager : MonoBehaviour
         b = button;
         b.interactable = false;
     }
+
+    public void Reset()
+    {
+        b.interactable = true;
+    }
 }
