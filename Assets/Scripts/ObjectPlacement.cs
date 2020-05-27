@@ -10,8 +10,7 @@ public class ObjectPlacement : MonoBehaviour
     [SerializeField] ButtonManager bm;
 
     private ManaBar mb;
-    public GameObject selectObj;
-    private GameObject tempObj;
+    private GameObject tempObj, selectObj;
     private GameObject[] allObjs;
     private SpriteRenderer[] spriteObjs;
     private Color tmp;
@@ -110,10 +109,12 @@ public class ObjectPlacement : MonoBehaviour
         {
             Destroy(allObjs[i].gameObject);
         }
-
         index = 0;
-        //bm.Reset();
+        ready = false;
         placed = false;
         manaReady = false;
+
+        if (tempObj != null)
+            Destroy(tempObj);
     }
 }

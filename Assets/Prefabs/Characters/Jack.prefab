@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1624655711}
   - component: {fileID: 1624655712}
   m_Layer: 8
-  m_Name: Point Light 2D
+  m_Name: Personal Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddd27e135729c9f4da893b7eb90e9b89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 1.25
 --- !u!114 &8544468208187496176
 MonoBehaviour:
   m_ObjectHideFlags: 0

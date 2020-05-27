@@ -273,8 +273,24 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7498589386926872757, guid: e8757e9db8d2c2e4fb766004da42c948,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498589386926872757, guid: e8757e9db8d2c2e4fb766004da42c948,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8757e9db8d2c2e4fb766004da42c948, type: 3}
+--- !u!1 &246430251 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7498589387104417231, guid: e8757e9db8d2c2e4fb766004da42c948,
+    type: 3}
+  m_PrefabInstance: {fileID: 246430250}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &261011493
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -800,10 +816,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1624655710, guid: c0a9dbcefce795f488314d3e3cc2a444, type: 3}
-      propertyPath: m_Name
-      value: Personal Light
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0a9dbcefce795f488314d3e3cc2a444, type: 3}
 --- !u!4 &1241371821 stripped
@@ -1146,12 +1158,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2072125645}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2106146749 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 53273346, guid: e8757e9db8d2c2e4fb766004da42c948,
-    type: 3}
-  m_PrefabInstance: {fileID: 246430250}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &335580469147658406
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1167,7 +1173,7 @@ PrefabInstance:
     - target: {fileID: 335580468737020703, guid: 367054ac5c825e94ba2c715f3180f347,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.16
+      value: 4.67
       objectReference: {fileID: 0}
     - target: {fileID: 335580468737020703, guid: 367054ac5c825e94ba2c715f3180f347,
         type: 3}
@@ -1222,7 +1228,7 @@ PrefabInstance:
     - target: {fileID: 335580468737020700, guid: 367054ac5c825e94ba2c715f3180f347,
         type: 3}
       propertyPath: walkTime
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 335580468737020700, guid: 367054ac5c825e94ba2c715f3180f347,
         type: 3}
@@ -1232,7 +1238,7 @@ PrefabInstance:
     - target: {fileID: 335580468737020700, guid: 367054ac5c825e94ba2c715f3180f347,
         type: 3}
       propertyPath: moveSpeed
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 367054ac5c825e94ba2c715f3180f347, type: 3}
@@ -1463,7 +1469,7 @@ PrefabInstance:
     - target: {fileID: 4575178916551320763, guid: 8b75dbbc05488d74faae8187265ed1c3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -10.61
       objectReference: {fileID: 0}
     - target: {fileID: 4575178916551320763, guid: 8b75dbbc05488d74faae8187265ed1c3,
         type: 3}
@@ -1524,7 +1530,7 @@ PrefabInstance:
         type: 3}
       propertyPath: manaBar
       value: 
-      objectReference: {fileID: 2106146749}
+      objectReference: {fileID: 246430251}
     - target: {fileID: 4431686347835639735, guid: 8b75dbbc05488d74faae8187265ed1c3,
         type: 3}
       propertyPath: bm

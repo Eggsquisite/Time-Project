@@ -35,8 +35,7 @@ public class SpeedAlt : MonoBehaviour
         {
             var enemyMovement = collision.GetComponent<EnemyMovement>();
 
-            // Enemy doesn't stay sped up as long as civilians do
-            enemyMovement.OutPortal(timeLength / 2);
+            enemyMovement.OutPortal(timeLength);
         }
     }
 }

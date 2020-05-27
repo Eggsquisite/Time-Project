@@ -9,7 +9,6 @@ public class CamMovement : MonoBehaviour
     [SerializeField] bool constantMovement;
 
     private Transform t;
-    private bool doubleSpeed = false;
 
     // Start is called before the first frame update
     void Start()

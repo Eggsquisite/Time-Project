@@ -17,20 +17,18 @@ public class LevelEnd : MonoBehaviour
         Time.timeScale = 1;
         numOfCivs = civs.GetNumOfCivs();
 
-        EnableText(false, -1);
+        //EnableText(false, -1);
     }
 
     private void SuccessText()
     {
         lvlOver.GetComponent<Text>().text = "All Townsfolk Alive!";
-        //nextLvl.GetComponent<Text>().text = "Next Level";
         EnableText(true, 1);
     }
 
     public void FailureText()
     {
         lvlOver.GetComponent<Text>().text = "Townsfolk died!";
-        //retryLvl.GetComponent<Text>().text = "Retry";
         EnableText(true, 0);
     }
 
