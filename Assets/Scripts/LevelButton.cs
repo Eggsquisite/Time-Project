@@ -20,4 +20,10 @@ public class LevelButton : MonoBehaviour
     {
         lm.RetryLevel();
     }
+
+    public void QuitGame()
+    {
+        lm.SaveLevel();
+        Application.Quit();
+    }
 }

@@ -123,48 +123,6 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    /*
-    private void Flying()
-    {
-        if (walkTime > 0 && walkTime >= (baseWalkTime / 2))
-        {
-            walkTime -= Time.deltaTime * waitModifier;
-
-            if (!startFlight)
-                StartFlight();
-        }
-        else if (walkTime > 0 && walkTime < (baseWalkTime / 2))
-        {
-            walkTime -= Time.deltaTime * waitModifier;
-
-            if (!halfWay)
-                FlightHalfWay();
-        }
-        else if (walkTime <= 0)
-        {
-            walkTime = baseWalkTime;
-            moving = false;
-            anim.SetBool("moving", false);
-
-            halfWay = false;
-            startFlight = false;
-            rb.gravityScale = waitGrav * waitModifier;
-        }
-    }
-
-    private void FlightHalfWay()
-    {
-        halfWay = true;
-        rb.gravityScale = airGrav * waitModifier;
-    }
-
-    private void StartFlight()
-    {
-        startFlight = true;
-        rb.gravityScale = groundGrav * waitModifier;
-    }
-    */
-
     private void Waiting()
     {
         if (waitTime > 0)

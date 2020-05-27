@@ -64,7 +64,7 @@ public class StartMenu : MonoBehaviour
     public void Continue()
     {
         Debug.Log(PlayerPrefs.GetInt("LevelProgress"));
-        if (level > 1) ;
+        if (level > 1) 
             SceneManager.LoadScene(level);
     }
 

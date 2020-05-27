@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Pause : MonoBehaviour
 {
-    [SerializeField] GameObject pauseText;
+    [SerializeField] GameObject pauseText, uiBackground;
     [SerializeField] Image image;
 
     private bool paused;
@@ -20,7 +20,7 @@ public class Pause : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !paused)
+        if (Input.GetKeyDown(KeyCode.Escape) && !uiBackground.activeSelf && !paused )
             Paused();
         else if (Input.GetKeyDown(KeyCode.Escape) && paused)
             Unpause();
@@ -36,7 +36,7 @@ public class Pause : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    private void Unpause()
+    public void Unpause()
     {
         paused = false;
         pauseText.SetActive(false);

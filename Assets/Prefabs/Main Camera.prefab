@@ -692,6 +692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
+  pauseMovement: 0.02
   timeMultiplier: 3
   constantMovement: 0
 --- !u!114 &4431686347835639735
@@ -706,5 +707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc335399b0d3d5241849ad9b5b16b97b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectObj: {fileID: 0}
   objPosition: {fileID: 48737506}
   bm: {fileID: 0}
+  portalCount: 5

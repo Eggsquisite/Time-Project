@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class LevelEnd : MonoBehaviour
 {
-    [SerializeField] GameObject uiBackground, lvlOver, nextLvl, retryLvl;
+    [SerializeField] GameObject uiBackground, lvlOver, retryLvl, nextLvl;
     [SerializeField] CivManager civs;
 
     private int numOfCivs;

@@ -7,9 +7,8 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; }
 
-    Scene scene;
+    private Scene scene;
     private int level = 0;
-    private bool paused;
 
     private void Awake()
     {
@@ -40,7 +39,7 @@ public class LevelManager : MonoBehaviour
         Debug.Log("Current level: " + level);
     }
 
-    private void SaveLevel()
+    public void SaveLevel()
     {
         if (PlayerPrefs.GetInt("LevelProgress") < level)
             PlayerPrefs.SetInt("LevelProgress", level);
