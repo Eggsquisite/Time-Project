@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class PortalSelect : MonoBehaviour
 {
-    [SerializeField] GameObject portalPrefab;
-    [SerializeField] ButtonManager bm;
-    [SerializeField] Button b;
+    [SerializeField] GameObject portalPrefab = null;
+    [SerializeField] ButtonManager bm = null;
+    [SerializeField] Button b = null;
     [SerializeField] bool on = true;
 
     private void Start()

@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class Pause : MonoBehaviour
 {
-    [SerializeField] GameObject pauseText, uiBackground;
-    [SerializeField] Image image;
+    [SerializeField] GameObject pauseText = null; 
+    [SerializeField] GameObject uiBackground = null;
+    [SerializeField] Image image = null;
 
     private bool paused;
     private Color tmp;
@@ -24,7 +25,7 @@ public class Pause : MonoBehaviour
             Paused();
         else if (Input.GetKeyDown(KeyCode.Escape) && paused)
             Unpause();
-    }
+    } 
 
     private void Paused()
     {

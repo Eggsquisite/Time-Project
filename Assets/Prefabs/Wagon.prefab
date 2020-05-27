@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3193606802815319652}
   - component: {fileID: 3193606802815319653}
   - component: {fileID: 3193606802815319655}
-  - component: {fileID: 3193606802815319654}
+  - component: {fileID: 2102326412}
   m_Layer: 0
   m_Name: Wagon
   m_TagString: Untagged
@@ -108,7 +108,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.354046, y: 4.6875}
   m_EdgeRadius: 0
---- !u!114 &3193606802815319654
+--- !u!114 &2102326412
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,13 +117,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 3193606802815319650}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75932113c9492fc49a258eebea61b7cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 06ff17c0a383dca41b7f399ad7f27994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
-  uiBackground: {fileID: 6578084262040002238, guid: 0c7a1d7212cf8e449803ea15abac3108,
-    type: 3}
-  lvlOver: {fileID: 0}
-  nextLvl: {fileID: 0}
-  retryLvl: {fileID: 0}
+  lvlEnd: {fileID: 0}
   civs: {fileID: 0}

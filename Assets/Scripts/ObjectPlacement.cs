@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class ObjectPlacement : MonoBehaviour
 {
-    [SerializeField] GameObject selectObj = null;
-   // [SerializeField] GameObject manaBar = null;
+    //[SerializeField] GameObject selectObj = null;
+    //[SerializeField] GameObject manaBar = null;
     [SerializeField] GameObject objPosition = null;
-    [SerializeField] ButtonManager bm;
+    [SerializeField] ButtonManager bm = null;
     [SerializeField] int portalCount = 5;
 
     private ManaBar mb;
-    private GameObject tempObj;//, selectObj;
+    private GameObject tempObj, selectObj;
     private GameObject[] allObjs;
     private SpriteRenderer[] spriteObjs;
     private Color tmp;

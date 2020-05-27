@@ -5,15 +5,9 @@ using UnityEngine;
 public class CivManager : MonoBehaviour
 {
 
-    [SerializeField] LevelEnd lvlEnd;
-    [SerializeField] Transform civs;
+    [SerializeField] LevelEnd lvlEnd = null;
+    [SerializeField] Transform civs = null;
     [SerializeField] float deathTime = 1f;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     public void Failure()
     {

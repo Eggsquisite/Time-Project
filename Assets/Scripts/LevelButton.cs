@@ -23,7 +23,7 @@ public class LevelButton : MonoBehaviour
 
     public void QuitGame()
     {
-        lm.SaveLevel();
+        //lm.SaveLevel();
         Application.Quit();
     }
 }
