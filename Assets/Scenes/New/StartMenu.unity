@@ -1251,7 +1251,7 @@ MonoBehaviour:
   loadLvlButt: {fileID: 471406825}
   menuButtons: {fileID: 1496047847}
   titleText: {fileID: 1224387018}
-  controls: {fileID: 0}
+  controls: {fileID: 1205698351}
   controlList: {fileID: 92675712}
 --- !u!4 &812257637
 Transform:

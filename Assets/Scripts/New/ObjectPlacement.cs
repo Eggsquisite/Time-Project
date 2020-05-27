@@ -5,12 +5,12 @@ using UnityEngine;
 public class ObjectPlacement : MonoBehaviour
 {
     //[SerializeField] GameObject selectObj = null;
-    public GameObject selectObj;
     [SerializeField] GameObject objPosition = null;
     [SerializeField] GameObject manaBar = null;
     [SerializeField] ButtonManager bm;
 
     private ManaBar mb;
+    public GameObject selectObj;
     private GameObject tempObj;
     private GameObject[] allObjs;
     private SpriteRenderer[] spriteObjs;

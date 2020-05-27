@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviour
 {
-
     private Button b;
     private ObjectPlacement placer;
 

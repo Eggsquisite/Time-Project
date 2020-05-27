@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PortalSelect : MonoBehaviour
 {
-    [SerializeField] GameObject portalObj;
+    [SerializeField] GameObject portalPrefab;
     [SerializeField] ButtonManager bm;
     [SerializeField] Button b;
     [SerializeField] bool on = true;
@@ -17,6 +17,6 @@ public class PortalSelect : MonoBehaviour
 
     public void SetSelected()
     {
-        bm.SetSelected(portalObj, b);
+        bm.SetSelected(portalPrefab, b);
     }
 }
