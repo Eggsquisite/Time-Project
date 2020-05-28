@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   portalLength: 3
-  gravMultiplier: -0.15
+  gravMultiplier: -0.1
   portalSound: {fileID: 8300000, guid: 7743889c22ea9472a895ecd63b2bb221, type: 3}
 --- !u!198 &1669878225005944279
 ParticleSystem:
@@ -386,8 +386,8 @@ ParticleSystem:
         m_RotationOrder: 4
     startColor:
       serializedVersion: 2
-      minMaxState: 0
-      minColor: {r: 1, g: 1, b: 1, a: 1}
+      minMaxState: 2
+      minColor: {r: 0.81619716, g: 0.8396226, b: 0.25743148, a: 1}
       maxColor: {r: 1, g: 0.5469046, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2

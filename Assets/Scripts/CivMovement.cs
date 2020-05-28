@@ -63,8 +63,10 @@ public class CivMovement : MonoBehaviour
             waitModifier -= Time.deltaTime;
         else if (waitModifier <= 1)
         { 
+            if (!gravAlt)
+                rb.gravityScale = baseGrav;
+
             waitModifier = 1f;
-            rb.gravityScale = baseGrav;
             restoreTime = false;
         }
     }
@@ -75,6 +77,7 @@ public class CivMovement : MonoBehaviour
             maxGravAlt -= Time.deltaTime;
         else if (maxGravAlt <= 0)
         {
+            Debug.Log("Restoring Grav");
             maxGravAlt = 0;
             gravAlt = false;
             //restoreGrav = true;
@@ -98,7 +101,11 @@ public class CivMovement : MonoBehaviour
     {
         if (waitModifier != spdMultiplier)
             waitModifier = spdMultiplier;
+
+        if (gravAlt)
+            rb.gravityScale *= waitModifier;
         
+
         timeAlt = true;
         maxTimeAlt = timeLength;
         anim.SetFloat("animMultiplier", spdMultiplier);
@@ -106,11 +113,11 @@ public class CivMovement : MonoBehaviour
 
     public void GravPortal(float grav, float gravLength)
     {
-        rb.gravityScale = grav;
+        rb.gravityScale = grav * waitModifier;
 
-        maxGravAlt = gravLength;
         gravAlt = true;
         feet.enabled = false;
+        maxGravAlt = gravLength;
     }
 
 

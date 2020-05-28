@@ -186,7 +186,7 @@ public class EnemyMovement : MonoBehaviour
     private void GravWait()
     {
         if (maxGravAlt > 0)
-            maxGravAlt -= Time.deltaTime;
+            maxGravAlt -= Time.deltaTime * waitModifier;
         else if (maxGravAlt <= 0)
         {
             maxGravAlt = 0;
@@ -227,11 +227,11 @@ public class EnemyMovement : MonoBehaviour
     public void GravPortal(float grav, float gravLength)
     {
         if (!skree)
-            rb.gravityScale = grav;
+            rb.gravityScale = grav * waitModifier;
 
-        maxGravAlt = gravLength;
         gravAlt = true;
         feet.enabled = false;
+        maxGravAlt = gravLength;
     }
 
 
