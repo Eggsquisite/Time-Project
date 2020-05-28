@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class EnemyMovement : MonoBehaviour
 {
     [Header("Components")]
-    [SerializeField] Animator anim;
-    [SerializeField] Collider2D attackTrig;
+    [SerializeField] Animator anim = null;
+    [SerializeField] Collider2D attackTrig = null;
+    [SerializeField] AudioClip attackSound = null;
+    [SerializeField] AudioClip deathSound = null;
 
     //[Header("Enemy Stats")]
 
@@ -24,6 +27,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] FlightPattern fp = null;
 
     private Collider2D coll;
+    private AudioSource audioSource;
     private float waitModifier = 1f;
     private bool timeAlt, moving, attack, death;
     private bool skelly;
@@ -34,6 +38,7 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         coll = GetComponent<Collider2D>();
+        audioSource = Camera.main.GetComponent<AudioSource>();
         SetAttackTrigger(0);
         SetBase();
 
@@ -181,12 +186,23 @@ public class EnemyMovement : MonoBehaviour
         else
             attackTrig.enabled = false;
     }
+    private void AttackSound()
+    {
+        audioSource.PlayOneShot(attackSound);
+    }
 
     public void Dead()
     {
+        //audioSource.PlayOneShot(deathSound);
         death = true;
         coll.enabled = false;
     }
+
+    private void DeathSound()
+    {
+        audioSource.PlayOneShot(deathSound);
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

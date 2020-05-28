@@ -18,7 +18,7 @@ public class CivMovement : MonoBehaviour
     {
         t = GetComponent<Transform>();
         anim = GetComponent<Animator>();
-        anim.SetBool("moving", true);
+        //anim.SetBool("moving", true);
     }
 
     // Update is called once per frame

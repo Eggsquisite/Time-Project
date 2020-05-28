@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class FlightPattern : MonoBehaviour
 {
-    [SerializeField] GameObject pathPrefab;
+    [SerializeField] GameObject pathPrefab = null;
 
     [Header ("Skree stats")]
     [SerializeField] float moveSpeed = 2f;
-    [SerializeField] List<float> waitTimes;
+    [SerializeField] List<float> waitTimes = null;
 
     private List<Transform> waypoints;
     private float waitModifier = 1f;

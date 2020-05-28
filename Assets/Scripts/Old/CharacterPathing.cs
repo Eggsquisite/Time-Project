@@ -6,8 +6,8 @@ public class CharacterPathing : MonoBehaviour
 {
     // Keep movespeed same so player can predict movement, only having to learn the pauses
     [SerializeField] float moveSpeed = 2f;
-    [SerializeField] GameObject pathPrefab;
-    [SerializeField] List<float> waitTimes;
+    [SerializeField] GameObject pathPrefab = null;
+    [SerializeField] List<float> waitTimes = null;
 
     Animator anim;
     Timer timer;

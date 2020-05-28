@@ -213,6 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.75
+  waitTime: 2
 --- !u!114 &392964097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,6 +230,7 @@ MonoBehaviour:
     type: 3}
   sprite: {fileID: 8354021321478898934}
   coll: {fileID: 2197030490149794045}
+  deathSound: {fileID: 8300000, guid: 3435cccef32974b4b8b1c80dacf2b9fe, type: 3}
   health: 2
   maxTime: 2
   timeInterval: 0.1

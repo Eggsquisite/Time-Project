@@ -263,7 +263,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -467463187
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 4723107735738678597, guid: 1018b0ba13578bf459bd254ae1a2be99,
     type: 3}
@@ -347,10 +347,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 335580468737020701}
   attackTrig: {fileID: 87028034}
+  attackSound: {fileID: 8300000, guid: 1b905a03fd0dfb34ab986c944415f53e, type: 3}
+  deathSound: {fileID: 8300000, guid: 7fbcba2f45f6ef74ab071ee1ae733031, type: 3}
   moveSpeed: 3
   walkTime: 3
   waitTime: 1
   attackTime: 2
-  left: 0
+  right: 0
   rezTime: 5
   fp: {fileID: 0}

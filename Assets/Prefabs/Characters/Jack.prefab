@@ -243,6 +243,7 @@ MonoBehaviour:
     type: 3}
   sprite: {fileID: 395048694757751303}
   coll: {fileID: 7559686732079877644}
+  deathSound: {fileID: 8300000, guid: 18011ded6f2d4854caed95671894c229, type: 3}
   health: 1
   maxTime: 2
   timeInterval: 0.1

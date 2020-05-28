@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MouseTracking : MonoBehaviour
 {
-    [SerializeField] GameObject target;
+    [SerializeField] GameObject target = null;
 
     private bool ready = false;
     private bool placed = false;

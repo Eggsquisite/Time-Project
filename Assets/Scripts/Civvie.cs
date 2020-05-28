@@ -5,9 +5,10 @@ using UnityEngine;
 public class Civvie : MonoBehaviour
 {
     [Header("Components")]
-    [SerializeField] GameObject tombstone;
-    [SerializeField] SpriteRenderer sprite;
-    [SerializeField] Collider2D coll;
+    [SerializeField] GameObject tombstone = null;
+    [SerializeField] SpriteRenderer sprite = null;
+    [SerializeField] Collider2D coll = null;
+    [SerializeField] AudioClip deathSound = null;
 
     [Header("Civvie Stats")]
     [SerializeField] int health = 1;
@@ -16,6 +17,7 @@ public class Civvie : MonoBehaviour
 
     private CivManager civManager;
     private Transform t;
+    private AudioSource audioSource;
     private bool enduring;
     private float baseMaxTime, baseTimeInterval;
 
@@ -23,6 +25,7 @@ public class Civvie : MonoBehaviour
     void Start()
     {
         t = Camera.main.transform;
+        audioSource = Camera.main.GetComponent<AudioSource>();
         civManager = FindObjectOfType<CivManager>();
         baseMaxTime = maxTime;
         baseTimeInterval = timeInterval;
@@ -75,7 +78,6 @@ public class Civvie : MonoBehaviour
     private void Dead()
     {
         // Play sound
-
         Fail();
         Instantiate(tombstone, transform.position, Quaternion.identity);
         this.gameObject.SetActive(false);
@@ -84,6 +86,7 @@ public class Civvie : MonoBehaviour
     public void Hurt(int dmg)
     {
         health -= dmg;
+        audioSource.PlayOneShot(deathSound);
 
         if (health <= 0)
             Dead();

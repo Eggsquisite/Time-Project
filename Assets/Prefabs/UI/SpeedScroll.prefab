@@ -63,7 +63,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 89cb798a8c7099a4d839e5307e798569, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0c044b84e440f5e4ca639cdf2afa3566, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -162,8 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 711855217a68b394fb35d89291d9d07f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portalPrefab: {fileID: 4358188507456670506, guid: a32c231007a1f7148ac06946f9bd7217,
-    type: 3}
+  portalPrefab: {fileID: 3510950909073029630}
   bm: {fileID: 0}
   b: {fileID: 1729139111699623083}
   on: 1

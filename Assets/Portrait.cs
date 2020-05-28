@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Portrait : MonoBehaviour
 {
-    [SerializeField] Transform civ;
+    [SerializeField] Transform civ = null;
     [SerializeField] float moveSpeed = 10f;
 
     Transform t;

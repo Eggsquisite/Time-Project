@@ -8,10 +8,12 @@ public class ObjectPlacement : MonoBehaviour
     //[SerializeField] GameObject manaBar = null;
     [SerializeField] GameObject objPosition = null;
     [SerializeField] ButtonManager bm = null;
+    [SerializeField] AudioClip scrollSelect = null;
     [SerializeField] float slowTime = 0.5f;
     [SerializeField] int portalCount = 5;
 
     private ManaBar mb;
+    private AudioSource audioSource;
     private GameObject tempObj, selectObj;
     private GameObject[] allObjs;
     private SpriteRenderer[] spriteObjs;
@@ -21,12 +23,16 @@ public class ObjectPlacement : MonoBehaviour
 
     private void Start()
     {
-        manaReady = true;
+        //manaReady = true;
         //mb = manaBar.GetComponent<ManaBar>();
+
+        audioSource = Camera.main.GetComponent<AudioSource>();
 
         // Max five scrolls possibly
         allObjs = new GameObject[portalCount];
         spriteObjs = new SpriteRenderer[2];
+        if (bm == null)
+            bm = FindObjectOfType<ButtonManager>();
     }
 
     // Update is called once per frame
@@ -47,6 +53,7 @@ public class ObjectPlacement : MonoBehaviour
             
             if (!ready && !placed && /*manaReady &&*/ index < portalCount)
             {
+                //audioSource.PlayOneShot(scrollSelect);
                 tempObj = Instantiate(selectObj, objPosition.transform.position, Quaternion.identity);
                 tempObj.GetComponent<ParticleSystem>().Stop();
                 tempObj.GetComponent<CapsuleCollider2D>().enabled = false;
