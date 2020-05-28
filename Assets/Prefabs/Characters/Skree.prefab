@@ -312,8 +312,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.48681235, y: -0.26138216}
-  m_Size: {x: 1.0264659, y: 1.6500982}
+  m_Offset: {x: 0.32050037, y: -0.13070828}
+  m_Size: {x: 0.69384193, y: 1.3887504}
   m_Direction: 0
 --- !u!95 &7350821494986043296
 Animator:
@@ -350,6 +350,7 @@ MonoBehaviour:
   attackTrig: {fileID: 7109888159612931583}
   attackSound: {fileID: 8300000, guid: 567313ccddc029e44824fcd19947caf9, type: 3}
   deathSound: {fileID: 8300000, guid: b524432a6770868428c2ea0e21adec11, type: 3}
+  feet: {fileID: 1366064676}
   moveSpeed: 3
   walkTime: 5
   waitTime: 1
@@ -372,7 +373,7 @@ MonoBehaviour:
   pathPrefab: {fileID: 0}
   moveSpeed: 4
   waitTimes:
-  - 2
+  - 0.5
   - 0
   - 0
-  - 1
+  - 0.5

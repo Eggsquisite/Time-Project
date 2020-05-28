@@ -13,7 +13,7 @@ public class CivMovement : MonoBehaviour
     private Rigidbody2D rb;
     private float waitModifier = 1f;
     private float maxTimeAlt, maxGravAlt, baseGrav;
-    private bool timeAlt, gravAlt, restoreTime;
+    private bool timeAlt, gravAlt, restoreTime, restoreGrav;
 
     // Start is called before the first frame update
     void Start()
@@ -33,12 +33,13 @@ public class CivMovement : MonoBehaviour
 
         if (timeAlt)
             TimeWait();
-
-        if (restoreTime)
+        else if (restoreTime)
             RestoreTime();
 
         if (gravAlt)
-            ResetGrav();
+            GravWait();
+        else if (restoreGrav)
+            RestoreGrav();
     }
 
 
@@ -68,10 +69,29 @@ public class CivMovement : MonoBehaviour
         }
     }
 
-    public void OutPortal(float timeLength)
+    private void GravWait()
     {
-        maxTimeAlt = timeLength;
-        timeAlt = true;
+        if (maxGravAlt > 0)
+            maxGravAlt -= Time.deltaTime;
+        else if (maxGravAlt <= 0)
+        {
+            maxGravAlt = 0;
+            gravAlt = false;
+            //restoreGrav = true;
+            feet.enabled = true;
+            rb.gravityScale = baseGrav;
+        }
+    }
+
+    private void RestoreGrav()
+    {
+        /*if (rb.gravityScale < baseGrav)
+            rb.gravityScale += Time.deltaTime;
+        else if (rb.gravityScale >= baseGrav)
+        {
+            rb.gravityScale = baseGrav;
+            restoreGrav = false;
+        }*/
     }
 
     public void TimePortal(float spdMultiplier, float timeLength)
@@ -93,17 +113,6 @@ public class CivMovement : MonoBehaviour
         feet.enabled = false;
     }
 
-    private void ResetGrav()
-    {
-        if (maxGravAlt > 0)
-            maxGravAlt -= Time.deltaTime;
-        else if (maxGravAlt <= 0)
-        {
-            gravAlt = false;
-            rb.gravityScale = baseGrav;
-            feet.enabled = true;
-        }
-    }
 
     public void OnElevator()
     {

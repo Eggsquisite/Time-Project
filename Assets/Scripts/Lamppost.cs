@@ -7,6 +7,7 @@ public class Lamppost : MonoBehaviour
 
     [SerializeField] LevelEnd lvlEnd = null;
     [SerializeField] CivManager civs = null;
+    [SerializeField] Animator light = null;
 
     private int numOfCivs;
     private float rescued = 0;
@@ -17,12 +18,18 @@ public class Lamppost : MonoBehaviour
         numOfCivs = civs.GetNumOfCivs();
     }
 
+    private void Success()
+    {
+        light.SetBool("lvlSuccess", true);
+        lvlEnd.SuccessText();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Civilian")
             rescued++;
 
         if (rescued == numOfCivs)
-            lvlEnd.SuccessText();
+            Success();
     }
 }

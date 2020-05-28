@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 3193606802815319655}
   - component: {fileID: 2102326412}
   m_Layer: 0
-  m_Name: Lamppost
+  m_Name: End Lamppost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -214,3 +214,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lvlEnd: {fileID: 0}
   civs: {fileID: 0}
+  light: {fileID: 839239934}

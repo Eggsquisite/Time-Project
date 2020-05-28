@@ -31,10 +31,11 @@ public class EnemyMovement : MonoBehaviour
     private AudioSource audioSource;
     private Rigidbody2D rb;
     private float waitModifier = 1f;
-    private bool timeAlt, gravAlt, moving, attack, death;
+    private bool timeAlt, gravAlt, restoreTime, restoreGrav, moving, attack, death;
     private bool skelly;
     private bool skree, flying;
-    private float baseMoveSpeed, baseWaitTime, baseWalkTime, baseAttackTime, baseRezTime, maxTimeAlt, maxGravAlt;
+    private float baseMoveSpeed, baseWaitTime, baseWalkTime, baseAttackTime, baseRezTime, baseGrav; 
+    private float maxTimeAlt, maxGravAlt;
 
     // Start is called before the first frame update
     void Start()
@@ -82,10 +83,14 @@ public class EnemyMovement : MonoBehaviour
             }
 
             if (timeAlt)
-                ResetTime();
+                TimeWait();
+            else if (restoreTime)
+                RestoreTime();
 
             if (gravAlt)
-                ResetGrav();
+                GravWait();
+            else if (restoreGrav)
+                RestoreGrav();
         }
 
         if (death && skelly)
@@ -109,6 +114,7 @@ public class EnemyMovement : MonoBehaviour
         baseWalkTime = walkTime;
         baseAttackTime = attackTime;
         baseRezTime = rezTime;
+        baseGrav = rb.gravityScale;
     }
 
     private void Movement()
@@ -116,12 +122,12 @@ public class EnemyMovement : MonoBehaviour
         if (!right && !attack)
         {
             transform.rotation = new Quaternion(0, 0, 0, 0);
-            transform.position = new Vector2(transform.position.x + moveSpeed * Time.deltaTime, transform.position.y);
+            transform.position = new Vector2(transform.position.x + moveSpeed * Time.deltaTime * waitModifier, transform.position.y);
         }
         else if (right && !attack)
         {
             transform.rotation = new Quaternion(0, 180, 0, 0);
-            transform.position = new Vector2(transform.position.x - moveSpeed * Time.deltaTime, transform.position.y);
+            transform.position = new Vector2(transform.position.x - moveSpeed * Time.deltaTime * waitModifier, transform.position.y);
         }
 
         if (walkTime > 0)
@@ -140,38 +146,67 @@ public class EnemyMovement : MonoBehaviour
             waitTime -= Time.deltaTime * waitModifier;
         else if (waitTime <= 0)
         {
-            waitTime = baseWaitTime;
             right = !right;
+            waitTime = baseWaitTime;
             anim.SetBool("moving", true);
             moving = true;
         }
     }
 
-    private void ResetTime()
+    private void TimeWait()
     {
         if (maxTimeAlt > 0)
             maxTimeAlt -= Time.deltaTime;
         else if (maxTimeAlt <= 0)
-            ResetMoveSpeed();
+        {
+            maxTimeAlt = 0;
+            timeAlt = false;
+            restoreTime = true;
+        }
     }
 
-    private void ResetMoveSpeed()
+    private void RestoreTime()
     {
-        maxTimeAlt = 0;
-        timeAlt = false;
+        anim.SetFloat("animMultiplier", waitModifier);
 
-        waitModifier = 1f;
-        moveSpeed = baseMoveSpeed;
-        anim.SetFloat("animMultiplier", 1f);
-
-        if (fp != null)
-            fp.WaitMod(waitModifier);
+        if (waitModifier > 1)
+        {
+            waitModifier -= Time.deltaTime;
+            if (fp != null)
+                fp.WaitMod(waitModifier);
+        }
+        else if (waitModifier <= 1)
+        {
+            waitModifier = 1f;
+            restoreTime = false;
+            rb.gravityScale = baseGrav;
+        }
     }
 
-    public void OutPortal(float timeLength)
+    private void GravWait()
     {
-        maxTimeAlt = timeLength;
-        timeAlt = true;
+        if (maxGravAlt > 0)
+            maxGravAlt -= Time.deltaTime;
+        else if (maxGravAlt <= 0)
+        {
+            maxGravAlt = 0;
+            gravAlt = false;
+            //restoreGrav = true;
+            feet.enabled = true;
+            rb.gravityScale = baseGrav;
+        }
+    }
+
+    private void RestoreGrav()
+    {
+        /*
+        if (rb.gravityScale < baseGrav)
+            rb.gravityScale += Time.deltaTime;
+        else if (rb.gravityScale >= baseGrav)
+        {
+            rb.gravityScale = baseGrav;
+            restoreGrav = false;
+        } */
     }
 
     public void TimePortal(float spdMultiplier, float timeLength)
@@ -179,7 +214,9 @@ public class EnemyMovement : MonoBehaviour
         if (moveSpeed != baseMoveSpeed)
             moveSpeed = baseMoveSpeed;
 
-        moveSpeed *= spdMultiplier;
+        timeAlt = true;
+        maxTimeAlt = timeLength;
+
         waitModifier = spdMultiplier;
         anim.SetFloat("animMultiplier", spdMultiplier);
 
@@ -197,18 +234,6 @@ public class EnemyMovement : MonoBehaviour
         feet.enabled = false;
     }
 
-    private void ResetGrav()
-    {
-        if (maxGravAlt > 0)
-            maxGravAlt -= Time.deltaTime;
-        else if (maxGravAlt <= 0)
-        {
-            gravAlt = false;
-            feet.enabled = true;
-            if (!skree) 
-                rb.gravityScale = 1f;
-        }
-    }
 
     public void SetAttackTrigger(float status)
     {

@@ -32,24 +32,4 @@ public class AltTime : MonoBehaviour
             collision.GetComponent<Elevator>().SetWaitMod(timeMultiplier);
         }
     }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "Civilian")
-        {
-            var charMovement = collision.GetComponent<CivMovement>();
-
-            //charMovement.OutPortal(timeLength);
-        }
-        else if (collision.tag == "Enemy")
-        {
-            var enemyMovement = collision.GetComponent<EnemyMovement>();
-
-            enemyMovement.OutPortal(timeLength);
-        }
-        else if (collision.GetComponent<Elevator>())
-        {
-            collision.GetComponent<Elevator>().ResetWaitMod();
-        }
-    }
 }
