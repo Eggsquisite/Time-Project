@@ -5,11 +5,12 @@ using UnityEngine;
 public class CivMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 2f;
+    [SerializeField] float waitTime = 2f;
 
     private Transform t;
     private Animator anim;
     private float waitModifier = 1f;
-    private float baseMoveSpeed, maxTimeAlt;
+    private float maxTimeAlt;
     private bool timeAlt;
 
     // Start is called before the first frame update
@@ -17,13 +18,12 @@ public class CivMovement : MonoBehaviour
     {
         t = GetComponent<Transform>();
         anim = GetComponent<Animator>();
-        baseMoveSpeed = moveSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        t.position = new Vector2(t.position.x + moveSpeed * Time.deltaTime, t.position.y);
+        t.position = new Vector2(t.position.x + moveSpeed * Time.deltaTime * waitModifier, t.position.y);
 
         if (timeAlt)
             Resetting();
@@ -44,7 +44,6 @@ public class CivMovement : MonoBehaviour
         timeAlt = false;
 
         waitModifier = 1f;
-        moveSpeed = baseMoveSpeed;
         anim.SetFloat("animMultiplier", 1f);
     }
 
@@ -56,11 +55,9 @@ public class CivMovement : MonoBehaviour
 
     public void InPortal(float spdMultiplier)
     {
-        if (moveSpeed != baseMoveSpeed)
-            moveSpeed = baseMoveSpeed;
+        if (waitModifier != spdMultiplier)
+            waitModifier = spdMultiplier;
 
-        moveSpeed *= spdMultiplier;
-        waitModifier = spdMultiplier;
         anim.SetFloat("animMultiplier", spdMultiplier);
     }
 }

@@ -19,8 +19,8 @@ TagManager:
   - Civilian
   - Enemy
   - Tombstone
-  - 
-  - 
+  - Feet
+  - Obstacles
   - 
   - 
   - 
@@ -52,6 +52,9 @@ TagManager:
     locked: 0
   - name: Civilian
     uniqueID: 974705335
+    locked: 0
+  - name: Obstacles
+    uniqueID: 1974386925
     locked: 0
   - name: Enemy
     uniqueID: 3827504109
