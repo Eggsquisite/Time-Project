@@ -85,10 +85,10 @@ public class ObjectPlacement : MonoBehaviour
                 tmp.a = 1f;
                 spriteObjs[0].color = spriteObjs[1].color = tmp;
 
-                if (tempObj.GetComponent<TimeAlt>() != null)
-                    audioSource.PlayOneShot(tempObj.GetComponent<TimeAlt>().GetPortalSound());
-                else if (tempObj.GetComponent<GravAlt>() != null)
-                    audioSource.PlayOneShot(tempObj.GetComponent<GravAlt>().GetPortalSound());
+                if (tempObj.GetComponent<AltTime>() != null)
+                    audioSource.PlayOneShot(tempObj.GetComponent<AltTime>().GetPortalSound());
+                else if (tempObj.GetComponent<AltGrav>() != null)
+                    audioSource.PlayOneShot(tempObj.GetComponent<AltGrav>().GetPortalSound());
 
                 tempObj.GetComponent<CapsuleCollider2D>().enabled = true;
                 tempObj.GetComponent<ParticleSystem>().Play();

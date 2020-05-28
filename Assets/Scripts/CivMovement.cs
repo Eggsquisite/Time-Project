@@ -12,8 +12,8 @@ public class CivMovement : MonoBehaviour
     private Animator anim;
     private Rigidbody2D rb;
     private float waitModifier = 1f;
-    private float maxTimeAlt, maxGravAlt;
-    private bool timeAlt, gravAlt;
+    private float maxTimeAlt, maxGravAlt, baseGrav;
+    private bool timeAlt, gravAlt, restoreTime;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +21,7 @@ public class CivMovement : MonoBehaviour
         t = GetComponent<Transform>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        baseGrav = rb.gravityScale;
         //anim.SetBool("moving", true);
     }
 
@@ -31,29 +32,40 @@ public class CivMovement : MonoBehaviour
         t.position = new Vector2(t.position.x + moveSpeed * Time.deltaTime * waitModifier, t.position.y);
 
         if (timeAlt)
-            ResetTime();
+            TimeWait();
+
+        if (restoreTime)
+            RestoreTime();
 
         if (gravAlt)
             ResetGrav();
     }
 
 
-    private void ResetTime()
+    private void TimeWait()
     {
         if (maxTimeAlt > 0)
             maxTimeAlt -= Time.deltaTime;
         else if (maxTimeAlt <= 0)
-            ResetMoveSpeed();
+        {
+            maxTimeAlt = 0;
+            timeAlt = false;
+            restoreTime = true;
+        }
     }
 
-    private void ResetMoveSpeed()
+    private void RestoreTime()
     {
-        maxTimeAlt = 0;
-        timeAlt = false;
-
-        rb.gravityScale = 1f;
-        waitModifier = 1f;
-        anim.SetFloat("animMultiplier", 1f);
+        anim.SetFloat("animMultiplier", waitModifier);
+        
+        if (waitModifier > 1)
+            waitModifier -= Time.deltaTime;
+        else if (waitModifier <= 1)
+        { 
+            waitModifier = 1f;
+            rb.gravityScale = baseGrav;
+            restoreTime = false;
+        }
     }
 
     public void OutPortal(float timeLength)
@@ -62,11 +74,13 @@ public class CivMovement : MonoBehaviour
         timeAlt = true;
     }
 
-    public void InPortal(float spdMultiplier)
+    public void TimePortal(float spdMultiplier, float timeLength)
     {
         if (waitModifier != spdMultiplier)
             waitModifier = spdMultiplier;
-
+        
+        timeAlt = true;
+        maxTimeAlt = timeLength;
         anim.SetFloat("animMultiplier", spdMultiplier);
     }
 
@@ -86,7 +100,7 @@ public class CivMovement : MonoBehaviour
         else if (maxGravAlt <= 0)
         {
             gravAlt = false;
-            rb.gravityScale = 1f;
+            rb.gravityScale = baseGrav;
             feet.enabled = true;
         }
     }

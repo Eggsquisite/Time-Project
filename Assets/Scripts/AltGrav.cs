@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GravAlt : MonoBehaviour
+public class AltGrav : MonoBehaviour
 {
     [SerializeField] float portalLength = 1f;
     [SerializeField] float gravMultiplier = -1f;

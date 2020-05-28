@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimeAlt : MonoBehaviour
+public class AltTime : MonoBehaviour
 {
     [SerializeField] float timeMultiplier = 2f;
-    [SerializeField] float portalLength = 1f;
+    [SerializeField] float timeLength = 1f;
     [SerializeField] AudioClip portalSound = null;
 
     public AudioClip GetPortalSound()
@@ -19,13 +19,13 @@ public class TimeAlt : MonoBehaviour
         {
             var charMovement = collision.GetComponent<CivMovement>();
 
-            charMovement.InPortal(timeMultiplier);
+            charMovement.TimePortal(timeMultiplier, timeLength);
         }
         else if (collision.tag == "Enemy")
         {
             var enemyMovement = collision.GetComponent<EnemyMovement>();
 
-            enemyMovement.InPortal(timeMultiplier);
+            enemyMovement.TimePortal(timeMultiplier, timeLength);
         }
         else if (collision.GetComponent<Elevator>())
         {
@@ -39,13 +39,13 @@ public class TimeAlt : MonoBehaviour
         {
             var charMovement = collision.GetComponent<CivMovement>();
 
-            charMovement.OutPortal(portalLength);
+            //charMovement.OutPortal(timeLength);
         }
         else if (collision.tag == "Enemy")
         {
             var enemyMovement = collision.GetComponent<EnemyMovement>();
 
-            enemyMovement.OutPortal(portalLength);
+            enemyMovement.OutPortal(timeLength);
         }
         else if (collision.GetComponent<Elevator>())
         {

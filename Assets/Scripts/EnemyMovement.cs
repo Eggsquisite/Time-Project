@@ -174,7 +174,7 @@ public class EnemyMovement : MonoBehaviour
         timeAlt = true;
     }
 
-    public void InPortal(float spdMultiplier)
+    public void TimePortal(float spdMultiplier, float timeLength)
     {
         if (moveSpeed != baseMoveSpeed)
             moveSpeed = baseMoveSpeed;
