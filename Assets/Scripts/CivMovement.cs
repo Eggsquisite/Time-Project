@@ -73,8 +73,8 @@ public class CivMovement : MonoBehaviour
 
     private void GravWait()
     {
-        if (maxGravAlt > 0)
-            maxGravAlt -= Time.deltaTime;
+        if (maxGravAlt > 0 && !timeAlt)
+            maxGravAlt -= Time.deltaTime * waitModifier;
         else if (maxGravAlt <= 0)
         {
             Debug.Log("Restoring Grav");
@@ -103,7 +103,7 @@ public class CivMovement : MonoBehaviour
             waitModifier = spdMultiplier;
 
         if (gravAlt)
-            rb.gravityScale *= waitModifier;
+            rb.gravityScale *= waitModifier * 2;
         
 
         timeAlt = true;
