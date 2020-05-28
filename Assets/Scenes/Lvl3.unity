@@ -1065,12 +1065,6 @@ PrefabInstance:
       propertyPath: civ
       value: 
       objectReference: {fileID: 1199091283}
-    - target: {fileID: 8404339646094901420, guid: e8757e9db8d2c2e4fb766004da42c948,
-        type: 3}
-      propertyPath: portalPrefab
-      value: 
-      objectReference: {fileID: 3123242212510107518, guid: ac27553724c2463428a66ff8edde9fdd,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8757e9db8d2c2e4fb766004da42c948, type: 3}
 --- !u!1 &2005221484
@@ -1991,7 +1985,7 @@ PrefabInstance:
     - target: {fileID: 8378160575303027645, guid: 4acfc2f628375b84ca95da5b28b20eed,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -31.84
+      value: -31.13
       objectReference: {fileID: 0}
     - target: {fileID: 8378160575303027645, guid: 4acfc2f628375b84ca95da5b28b20eed,
         type: 3}

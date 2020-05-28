@@ -66,9 +66,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 974705335
-  m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingLayerID: -1478072997
+  m_SortingLayer: 6
+  m_SortingOrder: 30
   m_Sprite: {fileID: 21300000, guid: 014145ed4c14554468953b56ca44a5dd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -178,8 +178,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.02951479, y: 0.01659143}
-  m_Size: {x: 0.989027, y: 1.7404621}
+  m_Offset: {x: 0.02342844, y: 0.01659143}
+  m_Size: {x: 0.39260292, y: 1.7404621}
   m_Direction: 0
 --- !u!114 &7691061423151384751
 MonoBehaviour:
@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeMultiplier: 0.25
-  timeLength: 1
+  portalLength: 1
   portalSound: {fileID: 8300000, guid: ceede7a829d41470a86526620500b878, type: 3}
 --- !u!198 &6253044427521921787
 ParticleSystem:
@@ -4891,9 +4891,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 974705335
-  m_SortingLayer: 3
-  m_SortingOrder: 10
+  m_SortingLayerID: -1478072997
+  m_SortingLayer: 6
+  m_SortingOrder: 30
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0

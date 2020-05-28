@@ -60,13 +60,17 @@ public class ObjectPlacement : MonoBehaviour
                 tmp = spriteObjs[0].color;
                 tmp.a = 0.3f;
                 spriteObjs[0].color = spriteObjs[1].color = tmp;
-                Time.timeScale = slowTime;
+
+                if (Time.timeScale > 0)
+                    Time.timeScale = slowTime;
 
                 ready = true;
             }
             else if (Input.GetButtonDown("Fire2") && ready && !placed)
             {
-                Time.timeScale = 1f;
+                if (Time.timeScale > 0)
+                    Time.timeScale = 1f;
+
                 Destroy(tempObj);
                 selectObj = null;
                 bm.Reset();
@@ -75,7 +79,9 @@ public class ObjectPlacement : MonoBehaviour
 
             if (Input.GetButtonDown("Fire1") && ready && index < portalCount)
             {
-                Time.timeScale = 1f;
+                if (Time.timeScale > 0)
+                    Time.timeScale = 1f;
+
                 tmp.a = 1f;
                 spriteObjs[0].color = spriteObjs[1].color = tmp;
 
