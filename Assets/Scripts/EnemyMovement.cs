@@ -196,6 +196,13 @@ public class EnemyMovement : MonoBehaviour
         //audioSource.PlayOneShot(deathSound);
         death = true;
         coll.enabled = false;
+        Debug.Log("Dead");
+    }
+
+    private void SkreeDeath()
+    {
+        fp.enabled = false;
+        gameObject.GetComponent<Rigidbody2D>().gravityScale = 1f;
     }
 
     private void DeathSound()

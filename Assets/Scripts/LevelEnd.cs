@@ -31,7 +31,7 @@ public class LevelEnd : MonoBehaviour
     {
         lvlOver.GetComponent<Text>().text = "Townsfolk died!";
         lvlOverShadow.GetComponent<Text>().text = "Townsfolk died!";
-        audioSource.PlayOneShot(failAudio);
+        PlayClip(failAudio);
         EnableText(true, 0);
         
     }
@@ -45,5 +45,12 @@ public class LevelEnd : MonoBehaviour
             retryLvl.SetActive(status);
         else if (success == 1)
             nextLvl.SetActive(status);
+    }
+
+    private void PlayClip(AudioClip audio)
+    {
+        audioSource.clip = audio;
+        audioSource.Play();
+        audioSource.loop = false;
     }
 }

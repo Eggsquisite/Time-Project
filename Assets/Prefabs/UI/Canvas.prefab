@@ -883,6 +883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12cd022705afb884c99a0c3161c0c24d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scrollSound: {fileID: 8300000, guid: a31d178363102ae43a78a15ff31a6a74, type: 3}
 --- !u!1 &788467517
 GameObject:
   m_ObjectHideFlags: 0
@@ -2789,15 +2790,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8404339646590418420, guid: 56b791fae8049f6479b7ad4016c6e6fe,
         type: 3}
-      propertyPath: bm
-      value: 
-      objectReference: {fileID: 667756724}
-    - target: {fileID: 8404339646590418420, guid: 56b791fae8049f6479b7ad4016c6e6fe,
-        type: 3}
       propertyPath: portalPrefab
       value: 
       objectReference: {fileID: 3435811625339818748, guid: 8a59437b005656a48bb8a79988490959,
         type: 3}
+    - target: {fileID: 8404339646590418420, guid: 56b791fae8049f6479b7ad4016c6e6fe,
+        type: 3}
+      propertyPath: bm
+      value: 
+      objectReference: {fileID: 667756724}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56b791fae8049f6479b7ad4016c6e6fe, type: 3}
 --- !u!224 &3510950908296496295 stripped

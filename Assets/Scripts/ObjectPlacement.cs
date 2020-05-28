@@ -7,12 +7,11 @@ public class ObjectPlacement : MonoBehaviour
     //[SerializeField] GameObject selectObj = null;
     //[SerializeField] GameObject manaBar = null;
     [SerializeField] GameObject objPosition = null;
-    [SerializeField] ButtonManager bm = null;
-    [SerializeField] AudioClip scrollSelect = null;
     [SerializeField] float slowTime = 0.5f;
     [SerializeField] int portalCount = 5;
 
     private ManaBar mb;
+    private ButtonManager bm = null;
     private AudioSource audioSource;
     private GameObject tempObj, selectObj;
     private GameObject[] allObjs;
@@ -25,7 +24,6 @@ public class ObjectPlacement : MonoBehaviour
     {
         //manaReady = true;
         //mb = manaBar.GetComponent<ManaBar>();
-
         audioSource = Camera.main.GetComponent<AudioSource>();
 
         // Max five scrolls possibly
@@ -81,7 +79,7 @@ public class ObjectPlacement : MonoBehaviour
                 tmp.a = 1f;
                 spriteObjs[0].color = spriteObjs[1].color = tmp;
 
-                tempObj.GetComponent<AudioSource>().Play();
+                audioSource.PlayOneShot(tempObj.GetComponent<TimeAlt>().GetPortalSound());
                 tempObj.GetComponent<CapsuleCollider2D>().enabled = true;
                 tempObj.GetComponent<ParticleSystem>().Play();
                 allObjs[index] = tempObj;

@@ -6,6 +6,12 @@ public class TimeAlt : MonoBehaviour
 {
     [SerializeField] float timeMultiplier = 2f;
     [SerializeField] float timeLength = 1f;
+    [SerializeField] AudioClip portalSound = null;
+
+    public AudioClip GetPortalSound()
+    {
+        return portalSound;
+    }
 
     private void OnTriggerStay2D(Collider2D collision)
     {

@@ -820,8 +820,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b028e8affe14bc242ae5e3a831d4d4c4, type: 3}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
@@ -935,6 +935,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objPosition: {fileID: 48737506}
   bm: {fileID: 0}
-  scrollSelect: {fileID: 8300000, guid: bcf742ee35ceb7c44bc75827913069f8, type: 3}
+  scrollSelect: {fileID: 8300000, guid: a31d178363102ae43a78a15ff31a6a74, type: 3}
   slowTime: 0.5
   portalCount: 5

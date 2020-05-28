@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1361742501}
   - component: {fileID: 1361742502}
+  - component: {fileID: 839239934}
   m_Layer: 0
   m_Name: Light
   m_TagString: Untagged
@@ -71,6 +72,25 @@ MonoBehaviour:
   - {x: 1.0029283, y: -0.18900514, z: 0}
   - {x: 0.058880806, y: 0.28384566, z: 0}
   - {x: -0.96696806, y: -0.21225882, z: 0}
+--- !u!95 &839239934
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361742500}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 74086d10e3a074d4bad54235bef60a4e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3193606802815319650
 GameObject:
   m_ObjectHideFlags: 0
