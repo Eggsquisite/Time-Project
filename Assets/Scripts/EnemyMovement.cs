@@ -202,4 +202,18 @@ public class EnemyMovement : MonoBehaviour
             anim.SetBool("moving", false);
         }
     }
+
+    public void OnElevator()
+    {
+        waitModifier = 0f;
+        moving = false;
+        anim.SetBool("moving", false);
+    }
+
+    public void OffElevator()
+    {
+        waitModifier = 1f;
+        moving = true;
+        anim.SetBool("moving", true);
+    }
 }

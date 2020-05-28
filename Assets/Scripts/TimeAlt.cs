@@ -21,6 +21,10 @@ public class TimeAlt : MonoBehaviour
 
             enemyMovement.InPortal(timeMultiplier);
         }
+        else if (collision.GetComponent<Elevator>())
+        {
+            collision.GetComponent<Elevator>().SetWaitMod(timeMultiplier);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -36,6 +40,10 @@ public class TimeAlt : MonoBehaviour
             var enemyMovement = collision.GetComponent<EnemyMovement>();
 
             enemyMovement.OutPortal(timeLength);
+        }
+        else if (collision.GetComponent<Elevator>())
+        {
+            collision.GetComponent<Elevator>().ResetWaitMod();
         }
     }
 }

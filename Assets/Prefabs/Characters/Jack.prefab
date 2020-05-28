@@ -53,7 +53,7 @@ MonoBehaviour:
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
-  m_AlphaBlendOnOverlap: 0
+  m_AlphaBlendOnOverlap: 1
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -191,8 +191,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00925374, y: -0.16747248}
-  m_Size: {x: 1.1328721, y: 2.5578644}
+  m_Offset: {x: 0.035974503, y: -0.42576134}
+  m_Size: {x: 1.1863136, y: 3.0744421}
   m_Direction: 0
 --- !u!95 &395048694757751301
 Animator:

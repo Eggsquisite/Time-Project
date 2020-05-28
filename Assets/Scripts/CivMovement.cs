@@ -18,11 +18,13 @@ public class CivMovement : MonoBehaviour
     {
         t = GetComponent<Transform>();
         anim = GetComponent<Animator>();
+        anim.SetBool("moving", true);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (waitModifier > 0)
         t.position = new Vector2(t.position.x + moveSpeed * Time.deltaTime * waitModifier, t.position.y);
 
         if (timeAlt)
@@ -59,5 +61,17 @@ public class CivMovement : MonoBehaviour
             waitModifier = spdMultiplier;
 
         anim.SetFloat("animMultiplier", spdMultiplier);
+    }
+
+    public void OnElevator()
+    {
+        waitModifier = 0f;
+        anim.SetBool("moving", false);
+    }
+
+    public void OffElevator()
+    {
+        waitModifier = 1f;
+        anim.SetBool("moving", true);
     }
 }

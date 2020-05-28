@@ -8,6 +8,7 @@ public class ObjectPlacement : MonoBehaviour
     //[SerializeField] GameObject manaBar = null;
     [SerializeField] GameObject objPosition = null;
     [SerializeField] ButtonManager bm = null;
+    [SerializeField] float slowTime = 0.5f;
     [SerializeField] int portalCount = 5;
 
     private ManaBar mb;
@@ -54,11 +55,13 @@ public class ObjectPlacement : MonoBehaviour
                 tmp = spriteObjs[0].color;
                 tmp.a = 0.3f;
                 spriteObjs[0].color = spriteObjs[1].color = tmp;
+                Time.timeScale = slowTime;
 
                 ready = true;
             }
             else if (Input.GetButtonDown("Fire2") && ready && !placed)
             {
+                Time.timeScale = 1f;
                 Destroy(tempObj);
                 selectObj = null;
                 bm.Reset();
@@ -67,9 +70,11 @@ public class ObjectPlacement : MonoBehaviour
 
             if (Input.GetButtonDown("Fire1") && ready && index < portalCount)
             {
+                Time.timeScale = 1f;
                 tmp.a = 1f;
                 spriteObjs[0].color = spriteObjs[1].color = tmp;
 
+                tempObj.GetComponent<AudioSource>().Play();
                 tempObj.GetComponent<CapsuleCollider2D>().enabled = true;
                 tempObj.GetComponent<ParticleSystem>().Play();
                 allObjs[index] = tempObj;

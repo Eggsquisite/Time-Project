@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class LevelEnd : MonoBehaviour
 {
-    [SerializeField] GameObject uiBackground, lvlOver, retryLvl, nextLvl;
+    [SerializeField] GameObject uiBackground, lvlOver, lvlOverShadow, retryLvl, nextLvl;
 
     // Start is called before the first frame update
     void Start()
@@ -17,12 +17,14 @@ public class LevelEnd : MonoBehaviour
     public void SuccessText()
     {
         lvlOver.GetComponent<Text>().text = "All Townsfolk Alive!";
+        lvlOverShadow.GetComponent<Text>().text = "All Townsfolk Alive!";
         EnableText(true, 1);
     }
 
     public void FailureText()
     {
         lvlOver.GetComponent<Text>().text = "Townsfolk died!";
+        lvlOverShadow.GetComponent<Text>().text = "Townsfolk died!";
         EnableText(true, 0);
     }
 
