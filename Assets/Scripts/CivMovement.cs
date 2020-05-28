@@ -6,6 +6,7 @@ public class CivMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 2f;
     [SerializeField] float waitTime = 2f;
+    [SerializeField] Collider2D feet = null;
 
     private Transform t;
     private Animator anim;
@@ -75,6 +76,7 @@ public class CivMovement : MonoBehaviour
 
         maxGravAlt = gravLength;
         gravAlt = true;
+        feet.enabled = false;
     }
 
     private void ResetGrav()
@@ -85,6 +87,7 @@ public class CivMovement : MonoBehaviour
         {
             gravAlt = false;
             rb.gravityScale = 1f;
+            feet.enabled = true;
         }
     }
 

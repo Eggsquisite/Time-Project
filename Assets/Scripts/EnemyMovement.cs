@@ -10,6 +10,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] Collider2D attackTrig = null;
     [SerializeField] AudioClip attackSound = null;
     [SerializeField] AudioClip deathSound = null;
+    [SerializeField] Collider2D feet = null;
 
     //[Header("Enemy Stats")]
 
@@ -193,6 +194,7 @@ public class EnemyMovement : MonoBehaviour
 
         maxGravAlt = gravLength;
         gravAlt = true;
+        feet.enabled = false;
     }
 
     private void ResetGrav()
@@ -202,6 +204,7 @@ public class EnemyMovement : MonoBehaviour
         else if (maxGravAlt <= 0)
         {
             gravAlt = false;
+            feet.enabled = true;
             if (!skree) 
                 rb.gravityScale = 1f;
         }
