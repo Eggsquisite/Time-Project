@@ -5,7 +5,7 @@ using UnityEngine;
 public class TimeAlt : MonoBehaviour
 {
     [SerializeField] float timeMultiplier = 2f;
-    [SerializeField] float timeLength = 1f;
+    [SerializeField] float portalLength = 1f;
     [SerializeField] AudioClip portalSound = null;
 
     public AudioClip GetPortalSound()
@@ -39,13 +39,13 @@ public class TimeAlt : MonoBehaviour
         {
             var charMovement = collision.GetComponent<CivMovement>();
 
-            charMovement.OutPortal(timeLength);
+            charMovement.OutPortal(portalLength);
         }
         else if (collision.tag == "Enemy")
         {
             var enemyMovement = collision.GetComponent<EnemyMovement>();
 
-            enemyMovement.OutPortal(timeLength);
+            enemyMovement.OutPortal(portalLength);
         }
         else if (collision.GetComponent<Elevator>())
         {

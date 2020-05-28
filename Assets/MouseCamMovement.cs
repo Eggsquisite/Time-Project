@@ -27,7 +27,6 @@ public class MouseCamMovement : MonoBehaviour
 
     private void OnMouseOver()
     {
-        Debug.Log("Moving left");
         t.position = new Vector3(t.position.x - moveSpeed * Time.deltaTime, t.position.y, t.position.z);
     }
 }

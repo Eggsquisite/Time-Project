@@ -28,16 +28,18 @@ public class EnemyMovement : MonoBehaviour
 
     private Collider2D coll;
     private AudioSource audioSource;
+    private Rigidbody2D rb;
     private float waitModifier = 1f;
-    private bool timeAlt, moving, attack, death;
+    private bool timeAlt, gravAlt, moving, attack, death;
     private bool skelly;
     private bool skree, flying;
-    private float baseMoveSpeed, baseWaitTime, baseWalkTime, baseAttackTime, baseRezTime, maxTimeAlt;
+    private float baseMoveSpeed, baseWaitTime, baseWalkTime, baseAttackTime, baseRezTime, maxTimeAlt, maxGravAlt;
 
     // Start is called before the first frame update
     void Start()
     {
         coll = GetComponent<Collider2D>();
+        rb = GetComponent<Rigidbody2D>();
         audioSource = Camera.main.GetComponent<AudioSource>();
         SetAttackTrigger(0);
         SetBase();
@@ -79,7 +81,10 @@ public class EnemyMovement : MonoBehaviour
             }
 
             if (timeAlt)
-                Resetting();
+                ResetTime();
+
+            if (gravAlt)
+                ResetGrav();
         }
 
         if (death && skelly)
@@ -141,7 +146,7 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    private void Resetting()
+    private void ResetTime()
     {
         if (maxTimeAlt > 0)
             maxTimeAlt -= Time.deltaTime;
@@ -155,10 +160,11 @@ public class EnemyMovement : MonoBehaviour
         timeAlt = false;
 
         waitModifier = 1f;
-        if (fp != null)
-            fp.WaitMod(waitModifier);
         moveSpeed = baseMoveSpeed;
         anim.SetFloat("animMultiplier", 1f);
+
+        if (fp != null)
+            fp.WaitMod(waitModifier);
     }
 
     public void OutPortal(float timeLength)
@@ -174,9 +180,31 @@ public class EnemyMovement : MonoBehaviour
 
         moveSpeed *= spdMultiplier;
         waitModifier = spdMultiplier;
+        anim.SetFloat("animMultiplier", spdMultiplier);
+
         if (fp != null)
             fp.WaitMod(waitModifier);
-        anim.SetFloat("animMultiplier", spdMultiplier);
+    }
+
+    public void GravPortal(float grav, float gravLength)
+    {
+        if (!skree)
+            rb.gravityScale = grav;
+
+        maxGravAlt = gravLength;
+        gravAlt = true;
+    }
+
+    private void ResetGrav()
+    {
+        if (maxGravAlt > 0)
+            maxGravAlt -= Time.deltaTime;
+        else if (maxGravAlt <= 0)
+        {
+            gravAlt = false;
+            if (!skree) 
+                rb.gravityScale = 1f;
+        }
     }
 
     public void SetAttackTrigger(float status)
@@ -202,7 +230,7 @@ public class EnemyMovement : MonoBehaviour
     private void SkreeDeath()
     {
         fp.enabled = false;
-        gameObject.GetComponent<Rigidbody2D>().gravityScale = 1f;
+        rb.gravityScale = 1f;
     }
 
     private void DeathSound()
