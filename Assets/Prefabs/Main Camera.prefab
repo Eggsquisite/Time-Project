@@ -588,7 +588,6 @@ GameObject:
   - component: {fileID: 4575178916551320762}
   - component: {fileID: 4575178916551320709}
   - component: {fileID: 4575178916551320710}
-  - component: {fileID: 2938457987193959189}
   - component: {fileID: 4431686347835639735}
   m_Layer: 0
   m_Name: Main Camera
@@ -679,22 +678,6 @@ MonoBehaviour:
   target: {fileID: 4575178916551320763}
   xMin: -20
   xMax: 20
---- !u!114 &2938457987193959189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4575178916551320708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f709b0075ecda04089186c78fce565c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 10
-  pauseMovement: 0.02
-  timeMultiplier: 3
-  constantMovement: 0
 --- !u!114 &4431686347835639735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -707,7 +690,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc335399b0d3d5241849ad9b5b16b97b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectObj: {fileID: 0}
   objPosition: {fileID: 48737506}
   bm: {fileID: 0}
   portalCount: 5

@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class CamMovement : MonoBehaviour
 {
+    [SerializeField] GameObject pauseMenu = null;
     [SerializeField] float moveSpeed = 2f;
     [SerializeField] float pauseMovement = 0.02f;
-    [SerializeField] float timeMultiplier = 2f;
+    [SerializeField] float moveMultiplier = 2f;
     [SerializeField] bool constantMovement;
 
     private Transform t;
-    private bool paused;
+    private bool paused, speeding;
 
     // Start is called before the first frame update
     void Start()
@@ -20,10 +21,31 @@ public class CamMovement : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !paused)
+        if (Time.timeScale > 0)
+            paused = false;
+
+        if (Input.GetKeyDown(KeyCode.Space) && !pauseMenu.activeSelf && !paused)
             Pausing();
-        else if (Input.GetKeyDown(KeyCode.Space) && paused)
+        else if (Input.GetKeyDown(KeyCode.Space) && !pauseMenu.activeSelf && paused)
             Unpausing();
+
+        if (Input.GetKey(KeyCode.LeftShift) && !speeding)
+            SpeedUp();
+        else if (Input.GetKeyUp(KeyCode.LeftShift) && speeding)
+            NormalSpeed();
+            
+    }
+
+    private void SpeedUp()
+    {
+        speeding = true;
+        moveSpeed *= moveMultiplier;
+    }
+
+    private void NormalSpeed()
+    {
+        speeding = false;
+        moveSpeed /= moveMultiplier;
     }
 
     private void Pausing()
@@ -54,7 +76,7 @@ public class CamMovement : MonoBehaviour
                 t.position = new Vector3(t.position.x + moveSpeed * Time.deltaTime, t.position.y, t.position.z);
             }
         }
-        else if (paused)
+        else if (paused && !pauseMenu.activeSelf)
         {
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
