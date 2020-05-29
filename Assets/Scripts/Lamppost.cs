@@ -5,16 +5,18 @@ using UnityEngine;
 public class Lamppost : MonoBehaviour
 {
 
-    [SerializeField] LevelEnd lvlEnd = null;
-    [SerializeField] CivManager civs = null;
     [SerializeField] Animator lightAnim = null;
 
+    private LevelEnd lvlEnd;
+    private CivManager civs;
     private int numOfCivs;
     private float rescued = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        lvlEnd = FindObjectOfType<LevelEnd>();
+        civs = FindObjectOfType<CivManager>();
         numOfCivs = civs.GetNumOfCivs();
     }
 

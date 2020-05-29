@@ -5,9 +5,14 @@ using UnityEngine;
 public class CivManager : MonoBehaviour
 {
 
-    [SerializeField] LevelEnd lvlEnd = null;
     [SerializeField] Transform civs = null;
     [SerializeField] float deathTime = 1f;
+    private LevelEnd lvlEnd;
+
+    private void Start()
+    {
+        lvlEnd = FindObjectOfType<LevelEnd>();    
+    }
 
     public void Failure()
     {
