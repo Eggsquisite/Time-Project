@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class Hide : MonoBehaviour
 {
-    [SerializeField] Collider2D coll;
+    [SerializeField] Collider2D coll = null;
+    [SerializeField] Animator anim = null;
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         coll.enabled = false;
+        anim.SetBool("hidden", true);
     }
 
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         coll.enabled = true;
+        anim.SetBool("hidden", false);
     }
 }

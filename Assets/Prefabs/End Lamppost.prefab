@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1.5
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: c1f02bdbb7d2183aedc0ae75ed1323e45b65e6a700000000
+  m_ApplyToSortingLayers: c1f02bdbedc0ae75ed1323e45b65e6a700000000
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -212,6 +212,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ff17c0a383dca41b7f399ad7f27994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lvlEnd: {fileID: 0}
-  civs: {fileID: 0}
   lightAnim: {fileID: 839239934}

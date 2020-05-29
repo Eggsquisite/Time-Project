@@ -44,7 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ab7122d7f01b74a8c3282bd31547f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lvlEnd: {fileID: 0}
   civs: {fileID: 9048009726884518646}
   deathTime: 1
 --- !u!1001 &8160041035374457275
@@ -62,7 +61,7 @@ PrefabInstance:
     - target: {fileID: 395048694757751302, guid: c0a9dbcefce795f488314d3e3cc2a444,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -34.03
+      value: -33.86
       objectReference: {fileID: 0}
     - target: {fileID: 395048694757751302, guid: c0a9dbcefce795f488314d3e3cc2a444,
         type: 3}
@@ -119,6 +118,11 @@ PrefabInstance:
       propertyPath: feet
       value: 
       objectReference: {fileID: 1701840090476226302}
+    - target: {fileID: 8417035351448982511, guid: c0a9dbcefce795f488314d3e3cc2a444,
+        type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 6983170309038956212}
     - target: {fileID: 7395030010433656645, guid: c0a9dbcefce795f488314d3e3cc2a444,
         type: 3}
       propertyPath: m_Offset.x
@@ -139,6 +143,12 @@ PrefabInstance:
 --- !u!4 &8378160575303027645 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 395048694757751302, guid: c0a9dbcefce795f488314d3e3cc2a444,
+    type: 3}
+  m_PrefabInstance: {fileID: 8160041035374457275}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6983170309038956212 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1285635252337291023, guid: c0a9dbcefce795f488314d3e3cc2a444,
     type: 3}
   m_PrefabInstance: {fileID: 8160041035374457275}
   m_PrefabAsset: {fileID: 0}
