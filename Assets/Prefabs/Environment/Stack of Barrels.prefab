@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5075774203633938232}
   - component: {fileID: 8798697601910528865}
   m_Layer: 12
-  m_Name: Stack of Barrels 1
+  m_Name: Stack of Barrels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

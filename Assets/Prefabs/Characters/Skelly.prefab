@@ -279,10 +279,10 @@ MonoBehaviour:
   attackSound: {fileID: 8300000, guid: 1b905a03fd0dfb34ab986c944415f53e, type: 3}
   deathSound: {fileID: 8300000, guid: 7fbcba2f45f6ef74ab071ee1ae733031, type: 3}
   feet: {fileID: 395354544}
-  moveSpeed: 2.5
-  walkTime: 5
+  moveSpeed: 3
+  walkTime: 3
   waitTime: 1
-  attackTime: 3
-  right: 0
+  attackTime: 5
+  right: 1
   rezTime: 6
   fp: {fileID: 0}

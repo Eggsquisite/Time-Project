@@ -160,7 +160,7 @@ MonoBehaviour:
   attackSound: {fileID: 8300000, guid: 1b905a03fd0dfb34ab986c944415f53e, type: 3}
   deathSound: {fileID: 8300000, guid: b524432a6770868428c2ea0e21adec11, type: 3}
   feet: {fileID: 3872909003231260476}
-  moveSpeed: 3
+  moveSpeed: 2
   walkTime: 99
   waitTime: 6
   attackTime: 1
