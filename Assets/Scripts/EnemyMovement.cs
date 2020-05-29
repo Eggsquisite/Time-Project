@@ -35,7 +35,7 @@ public class EnemyMovement : MonoBehaviour
     private bool skelly;
     private bool skree, flying;
     private float baseWaitTime, baseWalkTime, baseAttackTime, baseRezTime, baseGrav; 
-    private float maxTimeAlt, maxGravAlt;
+    private float maxTimeAlt, maxGravAlt, newGrav;
 
     // Start is called before the first frame update
     void Start()
@@ -173,21 +173,44 @@ public class EnemyMovement : MonoBehaviour
             waitModifier -= Time.deltaTime;
             if (fp != null)
                 fp.WaitMod(waitModifier);
+
+            if (waitModifier <= 1)
+            {
+                //if (gravAlt)
+                //rb.gravityScale = baseGrav;
+
+                waitModifier = 1f;
+                restoreTime = false;
+            }
         }
-        else if (waitModifier <= 1)
+        else if (waitModifier < 1)
         {
-            waitModifier = 1f;
-            restoreTime = false;
-            rb.gravityScale = baseGrav;
+            waitModifier += Time.deltaTime / 5;
+            if (fp != null)
+                fp.WaitMod(waitModifier);
+
+            if (waitModifier >= 1)
+            {
+                waitModifier = 1f;
+                restoreTime = false;
+            }
         }
     }
 
     private void GravWait()
     {
-        if (maxGravAlt > 0)
-            maxGravAlt -= Time.deltaTime * waitModifier;
+        if (maxGravAlt > 0 && timeAlt)
+        {
+            maxGravAlt -= Time.deltaTime;
+        }
+        else if (maxGravAlt > 0 && !timeAlt)
+        {
+            maxGravAlt -= Time.deltaTime;
+            rb.gravityScale = newGrav;
+        }
         else if (maxGravAlt <= 0)
         {
+            Debug.Log("Restoring Grav");
             maxGravAlt = 0;
             gravAlt = false;
             //restoreGrav = true;
@@ -213,10 +236,7 @@ public class EnemyMovement : MonoBehaviour
         if (waitModifier != spdMultiplier)
             waitModifier = spdMultiplier;
 
-        if (gravAlt && !skree)
-            rb.gravityScale *= waitModifier * 2;
-        else if (!gravAlt && !skree)
-            rb.gravityScale *= waitModifier;
+        rb.gravityScale *= waitModifier;
 
         timeAlt = true;
         maxTimeAlt = timeLength;
@@ -231,6 +251,7 @@ public class EnemyMovement : MonoBehaviour
         if (!skree)
             rb.gravityScale = grav * waitModifier;
 
+        newGrav = grav;
         gravAlt = true;
         feet.enabled = false;
         maxGravAlt = gravLength;

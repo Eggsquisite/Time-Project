@@ -57,16 +57,31 @@ public class CivMovement : MonoBehaviour
     private void RestoreTime()
     {
         anim.SetFloat("animMultiplier", waitModifier);
-        
+
+        // For speedup
         if (waitModifier > 1)
-            waitModifier -= Time.deltaTime;
-        else if (waitModifier <= 1)
-        { 
-            //if (gravAlt)
+        {
+            waitModifier -= Time.deltaTime / 2;
+
+            if (waitModifier <= 1)
+            {
+                //if (gravAlt)
                 //rb.gravityScale = baseGrav;
 
-            waitModifier = 1f;
-            restoreTime = false;
+                waitModifier = 1f;
+                restoreTime = false;
+            }
+        }
+        // For slowdown
+        else if (waitModifier < 1)
+        {
+            waitModifier += Time.deltaTime / 5;
+
+            if (waitModifier >= 1)
+            {
+                waitModifier = 1f;
+                restoreTime = false;
+            }
         }
     }
 
