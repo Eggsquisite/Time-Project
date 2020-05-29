@@ -312,7 +312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coll: {fileID: 7559686732079877644}
-  anim: {fileID: 0}
+  anim: {fileID: 1285635252337291023}
 --- !u!58 &7395030010433656645
 CircleCollider2D:
   m_ObjectHideFlags: 0
