@@ -44,7 +44,9 @@ public class Portrait : MonoBehaviour
 
         if (followTarget)
         {
-            t.position = new Vector3(civ.position.x, t.position.y, t.position.z);
+            if (civ != null)
+                //t.position = new Vector3(civ.position.x, t.position.y, t.position.z);
+                t.position = Vector2.Lerp(t.position, civ.position, moveSpeed * Time.deltaTime);
         }
     }
 

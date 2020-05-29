@@ -98,10 +98,7 @@ public class EnemyMovement : MonoBehaviour
             if (rezTime > 0)
                 rezTime -= Time.deltaTime;
             else if (rezTime <= 0)
-            {
-                Debug.Log("rezzing");
                 anim.SetBool("rez", true);
-            }
         }
     }
 
@@ -147,9 +144,9 @@ public class EnemyMovement : MonoBehaviour
                 waitTime = 0;
             else
             {
+                right = !right;
                 waitTime = baseWaitTime;
             }
-                right = !right;
 
             moving = true;
             anim.SetBool("moving", true);

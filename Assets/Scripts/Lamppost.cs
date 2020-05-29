@@ -6,6 +6,7 @@ public class Lamppost : MonoBehaviour
 {
 
     [SerializeField] Animator lightAnim = null;
+    [SerializeField] GameObject magicWall = null;
 
     private LevelEnd lvlEnd;
     private CivManager civs;
@@ -18,12 +19,14 @@ public class Lamppost : MonoBehaviour
         lvlEnd = FindObjectOfType<LevelEnd>();
         civs = FindObjectOfType<CivManager>();
         numOfCivs = civs.GetNumOfCivs();
+        magicWall.SetActive(false);
     }
 
     private void Success()
     {
         lightAnim.SetBool("lvlSuccess", true);
         lvlEnd.SuccessText();
+        magicWall.SetActive(true);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
