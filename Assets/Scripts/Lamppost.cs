@@ -7,7 +7,7 @@ public class Lamppost : MonoBehaviour
 
     [SerializeField] LevelEnd lvlEnd = null;
     [SerializeField] CivManager civs = null;
-    [SerializeField] Animator light = null;
+    [SerializeField] Animator lightAnim = null;
 
     private int numOfCivs;
     private float rescued = 0;
@@ -20,7 +20,7 @@ public class Lamppost : MonoBehaviour
 
     private void Success()
     {
-        light.SetBool("lvlSuccess", true);
+        lightAnim.SetBool("lvlSuccess", true);
         lvlEnd.SuccessText();
     }
 

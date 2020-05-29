@@ -31,10 +31,10 @@ public class EnemyMovement : MonoBehaviour
     private AudioSource audioSource;
     private Rigidbody2D rb;
     private float waitModifier = 1f;
-    private bool timeAlt, gravAlt, restoreTime, restoreGrav, moving, attack, death;
+    private bool timeAlt, gravAlt, restoreTime, moving, attack, death;
     private bool skelly;
     private bool skree, flying;
-    private float baseMoveSpeed, baseWaitTime, baseWalkTime, baseAttackTime, baseRezTime, baseGrav; 
+    private float baseWaitTime, baseWalkTime, baseAttackTime, baseRezTime, baseGrav; 
     private float maxTimeAlt, maxGravAlt;
 
     // Start is called before the first frame update
@@ -89,8 +89,8 @@ public class EnemyMovement : MonoBehaviour
 
             if (gravAlt)
                 GravWait();
-            else if (restoreGrav)
-                RestoreGrav();
+            //else if (restoreGrav)
+                //RestoreGrav();
         }
 
         if (death && skelly)
@@ -109,7 +109,6 @@ public class EnemyMovement : MonoBehaviour
 
     private void SetBase()
     {
-        baseMoveSpeed = moveSpeed;
         baseWaitTime = waitTime;
         baseWalkTime = walkTime;
         baseAttackTime = attackTime;
@@ -211,13 +210,16 @@ public class EnemyMovement : MonoBehaviour
 
     public void TimePortal(float spdMultiplier, float timeLength)
     {
-        if (moveSpeed != baseMoveSpeed)
-            moveSpeed = baseMoveSpeed;
+        if (waitModifier != spdMultiplier)
+            waitModifier = spdMultiplier;
+
+        if (gravAlt && !skree)
+            rb.gravityScale *= waitModifier * 2;
+        else if (!gravAlt && !skree)
+            rb.gravityScale *= waitModifier;
 
         timeAlt = true;
         maxTimeAlt = timeLength;
-
-        waitModifier = spdMultiplier;
         anim.SetFloat("animMultiplier", spdMultiplier);
 
         if (fp != null)

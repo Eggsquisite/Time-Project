@@ -5,7 +5,6 @@ using UnityEngine;
 public class CivMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 2f;
-    [SerializeField] float waitTime = 2f;
     [SerializeField] Collider2D feet = null;
 
     private Transform t;
@@ -13,7 +12,7 @@ public class CivMovement : MonoBehaviour
     private Rigidbody2D rb;
     private float waitModifier = 1f;
     private float maxTimeAlt, maxGravAlt, baseGrav;
-    private bool timeAlt, gravAlt, restoreTime, restoreGrav;
+    private bool timeAlt, gravAlt, restoreTime;
 
     // Start is called before the first frame update
     void Start()
@@ -38,8 +37,8 @@ public class CivMovement : MonoBehaviour
 
         if (gravAlt)
             GravWait();
-        else if (restoreGrav)
-            RestoreGrav();
+        //else if (restoreGrav)
+            //RestoreGrav();
     }
 
 
@@ -104,6 +103,8 @@ public class CivMovement : MonoBehaviour
 
         if (gravAlt)
             rb.gravityScale *= waitModifier * 2;
+        else
+            rb.gravityScale *= waitModifier;
         
 
         timeAlt = true;

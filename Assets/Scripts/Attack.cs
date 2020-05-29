@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    [SerializeField] int dmg;
+    [SerializeField] int dmg = 0;
     [SerializeField] GameObject itMe = null;
 
     Animator anim;
