@@ -6,53 +6,45 @@ public class Portrait : MonoBehaviour
 {
     [SerializeField] Transform civ = null;
     [SerializeField] float moveSpeed = 10f;
+    [SerializeField] Vector3 offset;
 
     Transform t;
-    private bool findTarget, followTarget;
+    private CamClamp cam;
+    private bool followTarget;
 
     // Start is called before the first frame update
     void Start()
     {
         t = Camera.main.transform;
+        cam = Camera.main.GetComponent<CamClamp>();
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.A)         || 
-            Input.GetKeyDown(KeyCode.LeftArrow) || 
-            Input.GetKeyDown(KeyCode.D)         || 
+        if (Input.GetKeyDown(KeyCode.A) ||
+            Input.GetKeyDown(KeyCode.LeftArrow) ||
+            Input.GetKeyDown(KeyCode.D) ||
             Input.GetKeyDown(KeyCode.RightArrow))
         {
-            findTarget = false;
             followTarget = false;
         }
-
-        if (findTarget && civ.position.x < t.position.x + 0.5 && civ.position.x > t.position.x - 0.5)
-        {
-            findTarget = false;
-            followTarget = true;
-        }
-        else if (findTarget && civ.position.x >= t.position.x)
-        {
-            t.position = new Vector3(t.position.x + moveSpeed * Time.deltaTime, t.position.y, t.position.z);
-        }
-        else if (findTarget && civ.position.x < t.position.x)
-        {
-            t.position = new Vector3(t.position.x - moveSpeed * Time.deltaTime, t.position.y, t.position.z);
-        }
-
-        if (followTarget)
+        else if (cam.GetMoving())
+            followTarget = false;
+        else if (followTarget && !cam.GetMoving())
         {
             if (civ != null)
-                //t.position = new Vector3(civ.position.x, t.position.y, t.position.z);
-                t.position = Vector2.Lerp(t.position, civ.position, moveSpeed * Time.deltaTime);
+            {
+                Vector3 desiredPosition = civ.position + offset;
+                Vector3 smoothedPosition = Vector3.Lerp(t.position, desiredPosition, moveSpeed * Time.deltaTime);
+                t.position = smoothedPosition;
+            }
         }
     }
 
-    public void FindTarget()
+    public void FollowTarget()
     {
         if (civ != null)
-            findTarget = true;
+            followTarget = true;
     }
 }

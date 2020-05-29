@@ -921,6 +921,8 @@ MonoBehaviour:
   target: {fileID: 4575178916551320763}
   xMin: -20
   xMax: -2
+  yVal: 3.5
+  zVal: -10
 --- !u!114 &4431686347835639735
 MonoBehaviour:
   m_ObjectHideFlags: 0

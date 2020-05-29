@@ -11,6 +11,7 @@ public class AltTime : MonoBehaviour
 
     private ParticleSystem fx;
     private Animator anim;
+    private Collider2D coll;
     private AudioSource audioSource;
     private bool portalStart;
 
@@ -19,6 +20,8 @@ public class AltTime : MonoBehaviour
         audioSource = Camera.main.GetComponent<AudioSource>();
         fx = GetComponent<ParticleSystem>();
         anim = GetComponent<Animator>();
+        coll = GetComponent<Collider2D>();
+        coll.enabled = false;
     }
 
     private void Update()
@@ -46,12 +49,13 @@ public class AltTime : MonoBehaviour
     private void EffectsOff()
     {
         fx.Stop();
-        GetComponent<Collider2D>().enabled = false;
+        coll.enabled = false;
     }
 
     private void EffectsOn()
     {
-        fx.Play();  
+        fx.Play();
+        coll.enabled = true;
     }
 
     private void DestroyPortal()

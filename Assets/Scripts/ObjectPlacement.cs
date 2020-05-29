@@ -90,9 +90,7 @@ public class ObjectPlacement : MonoBehaviour
                 else if (tempObj.GetComponent<AltGrav>() != null)
                     audioSource.PlayOneShot(tempObj.GetComponent<AltGrav>().GetPortalSound());
 
-                tempObj.GetComponent<CapsuleCollider2D>().enabled = true;
                 tempObj.GetComponent<Animator>().enabled = true;
-                //tempObj.GetComponent<ParticleSystem>().Play();
                 allObjs[index] = tempObj;
 
                 index++;

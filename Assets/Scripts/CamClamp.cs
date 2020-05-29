@@ -9,22 +9,29 @@ public class CamClamp : MonoBehaviour
     [SerializeField] float xMax = 25;
 
     Transform t;
-    private float yVal;
+    private bool moving;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         t = transform;
-        yVal = t.position.y;
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
         float x = Mathf.Clamp(target.position.x, xMin, xMax);
-        float y = Mathf.Clamp(target.position.y, yVal, yVal);
-        float z = Mathf.Clamp(target.position.z, -10, -10);
 
-        t.position = new Vector3(x, y, z);
+        t.position = new Vector3(x, t.position.y, t.position.z);
+    }
+
+    public void SetMoving(bool status)
+    {
+        moving = status;
+    }
+
+    public bool GetMoving()
+    {
+        return moving;
     }
 }

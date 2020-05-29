@@ -8,6 +8,7 @@ public class MouseCamMovement : MonoBehaviour
     [SerializeField] float pauseMoveSpeed = 0.02f;
     
     private Transform t = null;
+    private CamClamp cam;
     private float baseMoveSpeed;
 
 
@@ -15,6 +16,7 @@ public class MouseCamMovement : MonoBehaviour
     {
         t = Camera.main.transform;
         baseMoveSpeed = moveSpeed;
+        cam = Camera.main.GetComponent<CamClamp>();
     }
 
     private void Update()
@@ -28,5 +30,11 @@ public class MouseCamMovement : MonoBehaviour
     private void OnMouseOver()
     {
         t.position = new Vector3(t.position.x - moveSpeed * Time.deltaTime, t.position.y, t.position.z);
+        cam.SetMoving(true);
+    }
+
+    private void OnMouseExit()
+    {
+        cam.SetMoving(false);
     }
 }
