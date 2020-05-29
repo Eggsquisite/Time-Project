@@ -8,15 +8,14 @@ public class Lamppost : MonoBehaviour
     [SerializeField] Animator lightAnim = null;
     [SerializeField] GameObject magicWall = null;
 
-    private LevelEnd lvlEnd;
     private CivManager civs;
     private int numOfCivs;
     private float rescued = 0;
+    private bool success;
 
     // Start is called before the first frame update
     void Start()
     {
-        lvlEnd = FindObjectOfType<LevelEnd>();
         civs = FindObjectOfType<CivManager>();
         numOfCivs = civs.GetNumOfCivs();
         magicWall.SetActive(false);
@@ -25,7 +24,7 @@ public class Lamppost : MonoBehaviour
     private void Success()
     {
         lightAnim.SetBool("lvlSuccess", true);
-        lvlEnd.SuccessText();
+        civs.Success();
         magicWall.SetActive(true);
     }
 
@@ -34,7 +33,10 @@ public class Lamppost : MonoBehaviour
         if (collision.tag == "Civilian")
             rescued++;
 
-        if (rescued == numOfCivs)
+        if (rescued == numOfCivs && !success)
+        {
+            success = true;
             Success();
+        }
     }
 }

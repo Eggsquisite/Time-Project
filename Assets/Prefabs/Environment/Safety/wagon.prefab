@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 787872676}
   m_Layer: 12
   m_Name: wagon
-  m_TagString: Untagged
+  m_TagString: Safety
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

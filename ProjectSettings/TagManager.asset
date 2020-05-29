@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Civilian
   - Tombstone
+  - Safety
   layers:
   - Default
   - TransparentFX

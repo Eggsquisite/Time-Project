@@ -19,6 +19,11 @@ public class CivManager : MonoBehaviour
         StartCoroutine(Failed());
     }
 
+    public void Success()
+    {
+        lvlEnd.SuccessText();
+    }
+
     private IEnumerator Failed()
     { 
         yield return new WaitForSeconds(deathTime);
