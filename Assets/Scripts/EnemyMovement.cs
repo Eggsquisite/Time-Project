@@ -32,7 +32,7 @@ public class EnemyMovement : MonoBehaviour
     private Rigidbody2D rb;
     private float waitModifier = 1f;
     private bool timeAlt, gravAlt, restoreTime, moving, attack, death;
-    private bool skelly;
+    private bool skelly, gobby;
     private bool skree, flying;
     private float baseWaitTime, baseWalkTime, baseAttackTime, baseRezTime, baseGrav; 
     private float maxTimeAlt, maxGravAlt, newGrav;
@@ -55,6 +55,8 @@ public class EnemyMovement : MonoBehaviour
         {
             skelly = true;
         }
+        else if (name.Contains("Gobby"))
+            gobby = true;
     }
 
     // Update is called once per frame
@@ -89,8 +91,6 @@ public class EnemyMovement : MonoBehaviour
 
             if (gravAlt)
                 GravWait();
-            //else if (restoreGrav)
-                //RestoreGrav();
         }
 
         if (death && skelly)
@@ -99,10 +99,8 @@ public class EnemyMovement : MonoBehaviour
                 rezTime -= Time.deltaTime;
             else if (rezTime <= 0)
             {
-                death = false;
-                coll.enabled = true;
-                rezTime = baseRezTime;
-                anim.SetTrigger("rez");
+                Debug.Log("rezzing");
+                anim.SetBool("rez", true);
             }
         }
     }
@@ -145,10 +143,16 @@ public class EnemyMovement : MonoBehaviour
             waitTime -= Time.deltaTime * waitModifier;
         else if (waitTime <= 0)
         {
-            right = !right;
-            waitTime = baseWaitTime;
-            anim.SetBool("moving", true);
+            if (gobby)
+                waitTime = 0;
+            else
+            {
+                waitTime = baseWaitTime;
+            }
+                right = !right;
+
             moving = true;
+            anim.SetBool("moving", true);
         }
     }
 
@@ -265,17 +269,19 @@ public class EnemyMovement : MonoBehaviour
         else
             attackTrig.enabled = false;
     }
-    private void AttackSound()
-    {
-        audioSource.PlayOneShot(attackSound);
-    }
 
     public void Dead()
     {
-        //audioSource.PlayOneShot(deathSound);
         death = true;
         coll.enabled = false;
-        Debug.Log("Dead");
+    }
+
+    private void Rez()
+    {
+        death = false;
+        coll.enabled = true;
+        rezTime = baseRezTime;
+        anim.SetBool("rez", false);
     }
 
     private void SkreeDeath()
@@ -284,11 +290,20 @@ public class EnemyMovement : MonoBehaviour
         rb.gravityScale = 1f;
     }
 
+    private void AttackSound()
+    {
+        audioSource.PlayOneShot(attackSound);
+    }
+
     private void DeathSound()
     {
         audioSource.PlayOneShot(deathSound);
     }
 
+    public bool GetGobby()
+    {
+        return gobby;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -298,6 +313,15 @@ public class EnemyMovement : MonoBehaviour
             moving = false;
             if (skree)
                 fp.Attacking(attack, baseAttackTime);
+
+            walkTime = baseWalkTime;
+            anim.SetTrigger("attack");
+            anim.SetBool("moving", false);
+        }
+        else if (collision.tag == "Enemy" && attack == false && gobby)
+        {
+            attack = true;
+            moving = false;
 
             walkTime = baseWalkTime;
             anim.SetTrigger("attack");

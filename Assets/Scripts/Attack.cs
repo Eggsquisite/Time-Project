@@ -22,13 +22,19 @@ public class Attack : MonoBehaviour
         {
             var civ = collision.GetComponent<Civvie>();
 
+            /*
             if (civ.name.Contains("Ed") && civ.GetHealth() > 1)
             {
                 anim.SetTrigger("hit");
                 enemy.Dead();
-            }
+            }*/
 
             civ.Hurt(dmg);
+        }
+        else if (collision.tag == "Enemy" && enemy.GetGobby())
+        {
+            collision.GetComponent<Animator>().SetTrigger("hit");
+            collision.GetComponent<EnemyMovement>().Dead();
         }
     }
 }
