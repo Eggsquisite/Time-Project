@@ -40,12 +40,17 @@ public class CamMovement : MonoBehaviour
     {
         speeding = true;
         moveSpeed *= moveMultiplier;
+
+        // For testing purposes
+        Time.timeScale = moveMultiplier;
     }
 
     private void NormalSpeed()
     {
         speeding = false;
         moveSpeed /= moveMultiplier;
+
+        Time.timeScale = 1f;
     }
 
     private void Pausing()

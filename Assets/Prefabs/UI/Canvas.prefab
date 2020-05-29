@@ -1949,10 +1949,10 @@ GameObject:
   - component: {fileID: 3121871764610409652}
   - component: {fileID: 3121871764610409653}
   - component: {fileID: 3121871764610409654}
+  - component: {fileID: 2003708082}
   - component: {fileID: 1401455471}
   - component: {fileID: 141961359}
   - component: {fileID: 1977919139}
-  - component: {fileID: 2003708082}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2044,6 +2044,23 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &2003708082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3121871764610409655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f709b0075ecda04089186c78fce565c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 1535312593}
+  moveSpeed: 10
+  pauseMovement: 0.02
+  moveMultiplier: 2
+  constantMovement: 0
 --- !u!114 &1401455471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2090,23 +2107,6 @@ MonoBehaviour:
   nextLvl: {fileID: 1299643634}
   victoryAudio: {fileID: 8300000, guid: aa348f776c7354f36917fef10c6b48d1, type: 3}
   failAudio: {fileID: 8300000, guid: 2f07c3b7706a64f489133201c2342886, type: 3}
---- !u!114 &2003708082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3121871764610409655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f709b0075ecda04089186c78fce565c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 1535312593}
-  moveSpeed: 10
-  pauseMovement: 0.02
-  moveMultiplier: 2
-  constantMovement: 0
 --- !u!1 &3651177134719127522
 GameObject:
   m_ObjectHideFlags: 0

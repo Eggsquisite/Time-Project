@@ -16,6 +16,7 @@ public class FlightPattern : MonoBehaviour
     private int wpIndex = 0;
     private int wtIndex = 0;
     private bool moveReady, waitStart, fly, retrace;
+    private Vector3 lastPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,7 @@ public class FlightPattern : MonoBehaviour
         // Set position of character to start of path
         waypoints = GetWaypoints();
         transform.position = waypoints[wpIndex].transform.position;
+        lastPosition = transform.position;
     }
 
     public void Fly()
@@ -60,6 +62,19 @@ public class FlightPattern : MonoBehaviour
                     UnpauseMovement();
             }
         }
+
+        if (moveReady)
+        {
+            var direction = transform.position - lastPosition;
+            var localDirection = transform.InverseTransformDirection(direction);
+            lastPosition = transform.position;
+
+            if (direction.x > 0)
+                transform.rotation = new Quaternion(0, 0, 0, 0);
+            else if (direction.x <= 0)
+                transform.rotation = new Quaternion(0, 180, 0, 0);
+        }
+
     }
 
     private void MoveToNextWaypoint()
@@ -73,10 +88,10 @@ public class FlightPattern : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, movementThisFrame);
 
         // If retracing, face left, else face right
-        if (!retrace)
-            transform.rotation = new Quaternion(0, 0, 0, 0);
-        else
-            transform.rotation = new Quaternion(0, 180, 0, 0);
+        //if (!retrace)
+            //transform.rotation = new Quaternion(0, 0, 0, 0);
+        //else
+            //transform.rotation = new Quaternion(0, 180, 0, 0);
 
         if (transform.position == targetPosition)
             PauseMovement();
