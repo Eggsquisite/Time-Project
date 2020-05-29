@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CamClamp : MonoBehaviour
 {
-    [SerializeField] Transform target;
+    [SerializeField] Transform target = null;
     [SerializeField] float xMin = -25;
     [SerializeField] float xMax = 25;
 

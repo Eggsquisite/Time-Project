@@ -52,11 +52,29 @@ public class LevelManager : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        SceneManager.LoadScene(level + 1);
+        StartCoroutine(AsyncNextLevel());
+    }
+
+    IEnumerator AsyncNextLevel()
+    {
+        AsyncOperation nextLevel = SceneManager.LoadSceneAsync(level + 1);
+        while (!nextLevel.isDone)
+        {
+            yield return null;
+        }
     }
 
     public void RetryLevel()
     {
-        SceneManager.LoadScene(level);
+        StartCoroutine(AsyncRetryLevel());
+    }
+
+    IEnumerator AsyncRetryLevel()
+    {
+        AsyncOperation retryLevel = SceneManager.LoadSceneAsync(level);
+        while (!retryLevel.isDone)
+        {
+            yield return null;
+        }
     }
 }

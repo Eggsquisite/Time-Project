@@ -11,7 +11,7 @@ public class CivMovement : MonoBehaviour
     private Animator anim;
     private Rigidbody2D rb;
     private float waitModifier = 1f;
-    private float maxTimeAlt, maxGravAlt, baseGrav;
+    private float maxTimeAlt, maxGravAlt, baseGrav, newGrav;
     private bool timeAlt, gravAlt, restoreTime;
 
     // Start is called before the first frame update
@@ -62,8 +62,8 @@ public class CivMovement : MonoBehaviour
             waitModifier -= Time.deltaTime;
         else if (waitModifier <= 1)
         { 
-            if (!gravAlt)
-                rb.gravityScale = baseGrav;
+            //if (gravAlt)
+                //rb.gravityScale = baseGrav;
 
             waitModifier = 1f;
             restoreTime = false;
@@ -72,8 +72,15 @@ public class CivMovement : MonoBehaviour
 
     private void GravWait()
     {
-        if (maxGravAlt > 0 && !timeAlt)
-            maxGravAlt -= Time.deltaTime * waitModifier;
+        if (maxGravAlt > 0 && timeAlt)
+        {
+            maxGravAlt -= Time.deltaTime;
+        }
+        else if (maxGravAlt > 0 && !timeAlt)
+        {
+            maxGravAlt -= Time.deltaTime;
+            rb.gravityScale = newGrav;
+        }
         else if (maxGravAlt <= 0)
         {
             Debug.Log("Restoring Grav");
@@ -101,10 +108,10 @@ public class CivMovement : MonoBehaviour
         if (waitModifier != spdMultiplier)
             waitModifier = spdMultiplier;
 
-        if (gravAlt)
-            rb.gravityScale *= waitModifier * 2;
-        else
-            rb.gravityScale *= waitModifier;
+        //if (gravAlt)
+           rb.gravityScale *= waitModifier;
+        //else if (!gravAlt)
+            //rb.gravityScale *= waitModifier;
         
 
         timeAlt = true;
@@ -116,6 +123,7 @@ public class CivMovement : MonoBehaviour
     {
         rb.gravityScale = grav * waitModifier;
 
+        newGrav = grav;
         gravAlt = true;
         feet.enabled = false;
         maxGravAlt = gravLength;

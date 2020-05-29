@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class StartMenu : MonoBehaviour
 {
-    [SerializeField] Button continueButt, nextButt, loadLvlButt;
+    [SerializeField] Button continueButt = null;
+    [SerializeField] Button nextButt = null;
+    [SerializeField] Button loadLvlButt = null;
     [SerializeField] GameObject menuButtons, titleText, controls, controlList;
 
     private List<Transform> theList;
@@ -58,19 +60,37 @@ public class StartMenu : MonoBehaviour
 
     public void NewGame()
     {
-        SceneManager.LoadScene("Lvl1");
+        StartCoroutine(AsyncNewGame());
+    }
+
+    IEnumerator AsyncNewGame()
+    {
+        AsyncOperation newGame = SceneManager.LoadSceneAsync("Lvl1");
+        while (!newGame.isDone)
+        {
+            yield return null;
+        }
     }
 
     public void Continue()
     {
         Debug.Log(PlayerPrefs.GetInt("LevelProgress"));
-        if (level > 1) 
-            SceneManager.LoadScene(level);
+        if (level > 1)
+            StartCoroutine(AsyncContinueLevel());
+    }
+
+    IEnumerator AsyncContinueLevel()
+    {
+        AsyncOperation contGame = SceneManager.LoadSceneAsync(level);
+        while (!contGame.isDone)
+        {
+            yield return null;
+        }
     }
 
     public void LoadLevel()
     { 
-        
+        //
     }
 
     public void Controls()

@@ -8,7 +8,7 @@ public class CamMovement : MonoBehaviour
     [SerializeField] float moveSpeed = 2f;
     [SerializeField] float pauseMovement = 0.02f;
     [SerializeField] float moveMultiplier = 2f;
-    [SerializeField] bool constantMovement;
+    [SerializeField] bool constantMovement = false;
 
     private Transform t;
     private bool paused, speeding;

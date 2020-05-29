@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeMultiplier: 3
-  portalLength: 1
+  timeLength: 1
   portalSound: {fileID: 8300000, guid: a2ae90e42daaf4723a539c25867d37fd, type: 3}
 --- !u!198 &1429067300392241237
 ParticleSystem:

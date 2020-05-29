@@ -214,4 +214,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lvlEnd: {fileID: 0}
   civs: {fileID: 0}
-  light: {fileID: 839239934}
+  lightAnim: {fileID: 839239934}
