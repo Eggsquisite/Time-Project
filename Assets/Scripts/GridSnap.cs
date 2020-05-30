@@ -22,6 +22,7 @@ public class GridSnap : MonoBehaviour
         // so 1.45 to nearest .5 is 1.5
         x = Mathf.Round(transform.position.x * snapXInverse) / snapXInverse;
         y = Mathf.Round(transform.position.y * snapYInverse) / snapYInverse;
+
         z = depth;  // depth from camera
 
         transform.position = new Vector3(x, yOffset, z);
