@@ -196,9 +196,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822bedfe9038db945b50d96800c45f53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portalLength: 3
+  portalLength: 4
   gravMultiplier: -0.1
-  portalTimer: 3
+  portalTimer: 2
   portalSound: {fileID: 8300000, guid: 7743889c22ea9472a895ecd63b2bb221, type: 3}
 --- !u!198 &1669878225005944279
 ParticleSystem:

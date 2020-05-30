@@ -10,6 +10,7 @@ public class AltGrav : MonoBehaviour
     [SerializeField] AudioClip portalSound = null;
 
     private ParticleSystem fx;
+    private Collider2D coll;
     private Animator anim;
     private AudioSource audioSource;
     private bool portalStart;
@@ -19,6 +20,7 @@ public class AltGrav : MonoBehaviour
         audioSource = Camera.main.GetComponent<AudioSource>();
         fx = GetComponent<ParticleSystem>();
         anim = GetComponent<Animator>();
+        coll = GetComponent<Collider2D>();
     }
 
     private void Update()
@@ -46,12 +48,13 @@ public class AltGrav : MonoBehaviour
     private void EffectsOff()
     {
         fx.Stop();
-        GetComponent<Collider2D>().enabled = false;
+        coll.enabled = false;
     }
 
     private void EffectsOn()
     {
         fx.Play();
+        coll.enabled = true;
     }
 
     private void DestroyPortal()

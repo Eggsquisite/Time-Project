@@ -121,9 +121,9 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.9912174, y: -0.5055189}
-  m_Size: {x: 1.8896213, y: 2.2674093}
-  m_Direction: 0
+  m_Offset: {x: 0.8049913, y: -0.33094814}
+  m_Size: {x: 2.2620764, y: 1.9182746}
+  m_Direction: 1
 --- !u!95 &3537417599597108625
 Animator:
   serializedVersion: 3
@@ -160,7 +160,7 @@ MonoBehaviour:
   attackSound: {fileID: 8300000, guid: 1b905a03fd0dfb34ab986c944415f53e, type: 3}
   deathSound: {fileID: 8300000, guid: b524432a6770868428c2ea0e21adec11, type: 3}
   feet: {fileID: 3872909003231260476}
-  moveSpeed: 2
+  moveSpeed: 3
   walkTime: 99
   waitTime: 2
   attackTime: 1
@@ -269,9 +269,9 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.4685407, y: -0.86873627}
-  m_Size: {x: 3.4364824, y: 3.4364824}
-  m_Direction: 0
+  m_Offset: {x: 2.468541, y: -0.62520987}
+  m_Size: {x: 3.436483, y: 1.9753236}
+  m_Direction: 1
 --- !u!114 &3872909003545493448
 MonoBehaviour:
   m_ObjectHideFlags: 0
