@@ -6,6 +6,7 @@ public class AltTime : MonoBehaviour
 {
     [SerializeField] float timeMultiplier = 2f;
     [SerializeField] float timeLength = 1f;
+    [SerializeField] float restoreMult = 5f;
     [SerializeField] float portalTimer = 2f;
     [SerializeField] AudioClip portalSound = null;
 
@@ -74,13 +75,13 @@ public class AltTime : MonoBehaviour
         {
             var charMovement = collision.GetComponent<CivMovement>();
 
-            charMovement.TimePortal(timeMultiplier, timeLength);
+            charMovement.TimePortal(timeMultiplier, timeLength, restoreMult);
         }
         else if (collision.tag == "Enemy")
         {
             var enemyMovement = collision.GetComponent<EnemyMovement>();
 
-            enemyMovement.TimePortal(timeMultiplier, timeLength);
+            enemyMovement.TimePortal(timeMultiplier, timeLength, restoreMult);
         }
     }
 }

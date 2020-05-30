@@ -35,7 +35,7 @@ public class EnemyMovement : MonoBehaviour
     private bool skelly, gobby;
     private bool skree, flying;
     private float baseWaitTime, baseWalkTime, baseAttackTime, baseRezTime, baseGrav; 
-    private float maxTimeAlt, maxGravAlt, newGrav;
+    private float maxTimeAlt, maxGravAlt, newGrav, restoreMult;
 
     // Start is called before the first frame update
     void Start()
@@ -171,7 +171,7 @@ public class EnemyMovement : MonoBehaviour
 
         if (waitModifier > 1)
         {
-            waitModifier -= Time.deltaTime;
+            waitModifier -= Time.deltaTime * restoreMult;
             if (fp != null)
                 fp.WaitMod(waitModifier);
 
@@ -186,7 +186,7 @@ public class EnemyMovement : MonoBehaviour
         }
         else if (waitModifier < 1)
         {
-            waitModifier += Time.deltaTime / 5;
+            waitModifier += Time.deltaTime * restoreMult;
             if (fp != null)
                 fp.WaitMod(waitModifier);
 
@@ -232,10 +232,13 @@ public class EnemyMovement : MonoBehaviour
         } */
     }
 
-    public void TimePortal(float spdMultiplier, float timeLength)
+    public void TimePortal(float spdMultiplier, float timeLength, float restore)
     {
         if (waitModifier != spdMultiplier)
+        {
             waitModifier = spdMultiplier;
+            restoreMult = ((moveSpeed * waitModifier) - moveSpeed) / restore;
+        }
 
         rb.gravityScale *= waitModifier;
 

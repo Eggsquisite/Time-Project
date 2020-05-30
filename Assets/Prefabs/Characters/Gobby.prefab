@@ -121,8 +121,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.5227536, y: -0.5055189}
-  m_Size: {x: 2.2499774, y: 2.2674093}
+  m_Offset: {x: 0.9912174, y: -0.5055189}
+  m_Size: {x: 1.8896213, y: 2.2674093}
   m_Direction: 0
 --- !u!95 &3537417599597108625
 Animator:
@@ -162,7 +162,7 @@ MonoBehaviour:
   feet: {fileID: 3872909003231260476}
   moveSpeed: 2
   walkTime: 99
-  waitTime: 6
+  waitTime: 2
   attackTime: 1
   right: 0
   rezTime: 5

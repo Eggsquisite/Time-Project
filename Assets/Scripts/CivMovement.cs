@@ -11,7 +11,7 @@ public class CivMovement : MonoBehaviour
     private Animator anim;
     private Rigidbody2D rb;
     private float waitModifier = 1f;
-    private float maxTimeAlt, maxGravAlt, baseGrav, newGrav;
+    private float maxTimeAlt, maxGravAlt, baseGrav, newGrav, restoreMult;
     private bool timeAlt, gravAlt, restoreTime;
 
     // Start is called before the first frame update
@@ -61,7 +61,7 @@ public class CivMovement : MonoBehaviour
         // For speedup
         if (waitModifier > 1)
         {
-            waitModifier -= Time.deltaTime / 2;
+            waitModifier -= Time.deltaTime * restoreMult;
 
             if (waitModifier <= 1)
             {
@@ -75,7 +75,7 @@ public class CivMovement : MonoBehaviour
         // For slowdown
         else if (waitModifier < 1)
         {
-            waitModifier += Time.deltaTime / 5;
+            waitModifier += Time.deltaTime / restoreMult;
 
             if (waitModifier >= 1)
             {
@@ -118,17 +118,20 @@ public class CivMovement : MonoBehaviour
         }*/
     }
 
-    public void TimePortal(float spdMultiplier, float timeLength)
+    public void TimePortal(float spdMultiplier, float timeLength, float restore)
     {
         if (waitModifier != spdMultiplier)
+        {
             waitModifier = spdMultiplier;
+            restoreMult = ((moveSpeed * waitModifier) - moveSpeed) / restore;
+        }
 
         //if (gravAlt)
-           rb.gravityScale *= waitModifier;
         //else if (!gravAlt)
             //rb.gravityScale *= waitModifier;
         
 
+        rb.gravityScale *= waitModifier;
         timeAlt = true;
         maxTimeAlt = timeLength;
         anim.SetFloat("animMultiplier", spdMultiplier);
