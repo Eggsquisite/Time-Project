@@ -11,7 +11,7 @@ public class CivMovement : MonoBehaviour
     private Animator anim;
     private Rigidbody2D rb;
     private float waitModifier = 1f;
-    private float maxTimeAlt, maxGravAlt, baseGrav, newGrav, restoreMult;
+    private float maxTimeAlt, maxGravAlt, baseGrav, baseMoveSpeed, newGrav, restoreMult;
     private bool timeAlt, gravAlt, restoreTime;
 
     // Start is called before the first frame update
@@ -20,15 +20,16 @@ public class CivMovement : MonoBehaviour
         t = GetComponent<Transform>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        anim.SetBool("moving", true);
         baseGrav = rb.gravityScale;
-        //anim.SetBool("moving", true);
+        baseMoveSpeed = moveSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (waitModifier > 0)
-        t.position = new Vector2(t.position.x + moveSpeed * Time.deltaTime * waitModifier, t.position.y);
+            t.position = new Vector2(t.position.x + moveSpeed * Time.deltaTime * waitModifier, t.position.y);
 
         if (timeAlt)
             TimeWait();
@@ -147,6 +148,20 @@ public class CivMovement : MonoBehaviour
         maxGravAlt = gravLength;
     }
 
+    public void RoseHide()
+    {
+        moveSpeed = 0f;
+    }
+
+    public void RoseReveal()
+    {
+        moveSpeed = baseMoveSpeed;
+    }
+
+    public float GetWaitModifier()
+    {
+        return waitModifier;
+    }
 
     public void OnElevator()
     {
