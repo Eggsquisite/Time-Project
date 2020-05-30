@@ -186,7 +186,7 @@ public class EnemyMovement : MonoBehaviour
         }
         else if (waitModifier < 1)
         {
-            waitModifier += Time.deltaTime * restoreMult;
+            waitModifier += Time.deltaTime / 5;
             if (fp != null)
                 fp.WaitMod(waitModifier);
 
@@ -251,8 +251,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void GravPortal(float grav, float gravLength)
     {
-        if (!skree)
-            rb.gravityScale = grav * waitModifier;
+        rb.gravityScale = grav * waitModifier;
 
         newGrav = grav;
         gravAlt = true;

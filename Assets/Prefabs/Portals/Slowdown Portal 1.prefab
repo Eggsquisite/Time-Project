@@ -394,7 +394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeMultiplier: 0.25
-  timeLength: 1
+  timeLength: 2
   restoreMult: 5
   portalTimer: 2
   timer: {fileID: 2850729522855388804}

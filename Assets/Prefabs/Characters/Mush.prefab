@@ -163,7 +163,7 @@ MonoBehaviour:
   moveSpeed: 0
   walkTime: 0
   waitTime: 3
-  attackTime: 3
+  attackTime: 1
   right: 1
   rezTime: 0
   fp: {fileID: 0}

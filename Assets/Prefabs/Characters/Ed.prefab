@@ -280,7 +280,7 @@ MonoBehaviour:
   coll: {fileID: 2197030490149794045}
   deathSound: {fileID: 8300000, guid: 3435cccef32974b4b8b1c80dacf2b9fe, type: 3}
   health: 2
-  maxTime: 2
+  maxTime: 3
   timeInterval: 0.1
 --- !u!1 &9184817180803433647
 GameObject:

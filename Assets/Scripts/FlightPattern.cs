@@ -5,6 +5,7 @@ using UnityEngine;
 public class FlightPattern : MonoBehaviour
 {
     [SerializeField] GameObject pathPrefab = null;
+    [SerializeField] GameObject carry = null;
 
     [Header ("Skree stats")]
     [SerializeField] float moveSpeed = 2f;
@@ -74,7 +75,17 @@ public class FlightPattern : MonoBehaviour
             else if (direction.x <= 0)
                 transform.rotation = new Quaternion(0, 180, 0, 0);
         }
+    }
 
+    private void Drop()
+    {
+        if (carry != null)
+        {
+            Debug.Log("Dropping");
+            carry.GetComponent<Rigidbody2D>().gravityScale = 2f;
+            carry.GetComponent<EnemyMovement>().enabled = true;
+            carry.transform.parent = null;
+        }
     }
 
     private void MoveToNextWaypoint()
@@ -141,6 +152,8 @@ public class FlightPattern : MonoBehaviour
             {
                 wpIndex--;
                 wtIndex--;
+                Debug.Log("Drop");
+                Drop();
                 retrace = !retrace;
                 moveReady = true;
             }

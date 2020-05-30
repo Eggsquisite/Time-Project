@@ -75,7 +75,7 @@ public class CivMovement : MonoBehaviour
         // For slowdown
         else if (waitModifier < 1)
         {
-            waitModifier += Time.deltaTime / restoreMult;
+            waitModifier += Time.deltaTime / 5;
 
             if (waitModifier >= 1)
             {
@@ -123,6 +123,7 @@ public class CivMovement : MonoBehaviour
         {
             waitModifier = spdMultiplier;
             restoreMult = ((moveSpeed * waitModifier) - moveSpeed) / restore;
+
         }
 
         //if (gravAlt)
