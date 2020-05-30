@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 3123242212510107517}
   - component: {fileID: 3123242212510107522}
   - component: {fileID: 550647860}
+  - component: {fileID: 588869306146802646}
   - component: {fileID: 1669878225005944279}
   - component: {fileID: 1669878225005944278}
   - component: {fileID: 1972843122}
@@ -200,6 +201,22 @@ MonoBehaviour:
   gravMultiplier: -0.1
   portalTimer: 2
   portalSound: {fileID: 8300000, guid: 7743889c22ea9472a895ecd63b2bb221, type: 3}
+--- !u!114 &588869306146802646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3123242212510107518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c0c6bd307be443448e1854e79229317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snapXValue: 4
+  snapYValue: 1
+  yOffset: -1
+  depth: 10
 --- !u!198 &1669878225005944279
 ParticleSystem:
   m_ObjectHideFlags: 0

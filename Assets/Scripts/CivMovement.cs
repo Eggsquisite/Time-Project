@@ -98,7 +98,6 @@ public class CivMovement : MonoBehaviour
         }
         else if (maxGravAlt <= 0)
         {
-            Debug.Log("Restoring Grav");
             maxGravAlt = 0;
             gravAlt = false;
             //restoreGrav = true;

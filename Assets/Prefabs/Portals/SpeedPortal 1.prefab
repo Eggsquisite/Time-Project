@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 3435811625339818751}
   - component: {fileID: 3435811625339818496}
   - component: {fileID: 3435811625339818497}
+  - component: {fileID: 126434533376504631}
   - component: {fileID: 1429067300392241237}
   - component: {fileID: 1429067300392241236}
   - component: {fileID: 628710492}
@@ -110,7 +111,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3435811625339818748}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -134, z: -10}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 1429067299273211934}
@@ -196,8 +197,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeMultiplier: 3
   timeLength: 0.5
+  restoreMult: 5
   portalTimer: 2
   portalSound: {fileID: 8300000, guid: a2ae90e42daaf4723a539c25867d37fd, type: 3}
+--- !u!114 &126434533376504631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3435811625339818748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c0c6bd307be443448e1854e79229317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snapXValue: 4
+  snapYValue: 4
+  yOffset: -1
+  depth: 10
 --- !u!198 &1429067300392241237
 ParticleSystem:
   m_ObjectHideFlags: 0
