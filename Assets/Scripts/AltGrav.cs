@@ -7,6 +7,7 @@ public class AltGrav : MonoBehaviour
     [SerializeField] float portalLength = 1f;
     [SerializeField] float gravMultiplier = -1f;
     [SerializeField] float portalTimer = 2f;
+    [SerializeField] GameObject timer = null;
     [SerializeField] AudioClip portalSound = null;
 
     private ParticleSystem fx;
@@ -54,6 +55,7 @@ public class AltGrav : MonoBehaviour
     private void EffectsOn()
     {
         fx.Play();
+        timer.SetActive(true);
         coll.enabled = true;
     }
 
@@ -75,7 +77,7 @@ public class AltGrav : MonoBehaviour
 
             charMovement.GravPortal(gravMultiplier, portalLength);
         }
-        else if (collision.tag == "Enemy")
+        else if (collision.tag == "Enemy" && !collision.name.Contains("Skree"))
         {
             var enemyMovement = collision.GetComponent<EnemyMovement>();
 

@@ -8,6 +8,7 @@ public class AltTime : MonoBehaviour
     [SerializeField] float timeLength = 1f;
     [SerializeField] float restoreMult = 5f;
     [SerializeField] float portalTimer = 2f;
+    [SerializeField] GameObject timer = null;
     [SerializeField] AudioClip portalSound = null;
 
     private ParticleSystem fx;
@@ -56,6 +57,7 @@ public class AltTime : MonoBehaviour
     private void EffectsOn()
     {
         fx.Play();
+        timer.SetActive(true);
         coll.enabled = true;
     }
 

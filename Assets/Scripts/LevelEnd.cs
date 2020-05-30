@@ -24,7 +24,6 @@ public class LevelEnd : MonoBehaviour
         lvlOver.GetComponent<Text>().text = "All Townsfolk Alive!";
         lvlOverShadow.GetComponent<Text>().text = "All Townsfolk Alive!";
         audioSource.PlayOneShot(victoryAudio);
-        Debug.Log("Victory text");
         EnableText(true, 1);
     }
 

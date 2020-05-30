@@ -6,7 +6,7 @@ using UnityEngine;
 public class GridSnap : MonoBehaviour
 {
     [SerializeField] float snapXValue = 4f;
-    [SerializeField] float snapYValue = 1f;
+    [SerializeField] float snapYValue = 4f;
     
     private float yOffset = -1f;
     private float depth = 10;
@@ -24,6 +24,6 @@ public class GridSnap : MonoBehaviour
         y = Mathf.Round(transform.position.y * snapYInverse) / snapYInverse;
         z = depth;  // depth from camera
 
-        transform.position = new Vector3(x, y + yOffset, z);
+        transform.position = new Vector3(x, yOffset, z);
     }
 }
