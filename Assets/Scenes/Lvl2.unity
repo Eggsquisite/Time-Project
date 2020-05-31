@@ -484,6 +484,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b75dbbc05488d74faae8187265ed1c3, type: 3}
+--- !u!1 &1555349642 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4575178916551320708, guid: 8b75dbbc05488d74faae8187265ed1c3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1555349641}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1555349643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555349642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e2bacc2dee0ce949b364058bca5927a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music:
+  - {fileID: 8300000, guid: f66d2df428ac77644bd7b61bbe89228c, type: 3}
+  - {fileID: 8300000, guid: b86faf73ac4f6f14095d1029cb40aa37, type: 3}
 --- !u!1001 &1793006682
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1535,6 +1556,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Civilians
       objectReference: {fileID: 0}
+    - target: {fileID: 8378160575303027645, guid: 4acfc2f628375b84ca95da5b28b20eed,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -30.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378160575303027645, guid: 4acfc2f628375b84ca95da5b28b20eed,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.04
+      objectReference: {fileID: 0}
     - target: {fileID: 9048009726884518646, guid: 4acfc2f628375b84ca95da5b28b20eed,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1590,26 +1621,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8378160575303027645, guid: 4acfc2f628375b84ca95da5b28b20eed,
+    - target: {fileID: 8160041036996720357, guid: 4acfc2f628375b84ca95da5b28b20eed,
         type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -30.89
-      objectReference: {fileID: 0}
-    - target: {fileID: 8378160575303027645, guid: 4acfc2f628375b84ca95da5b28b20eed,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 9.04
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4416281993487912741, guid: 4acfc2f628375b84ca95da5b28b20eed,
         type: 3}
       propertyPath: lvlEnd
       value: 
       objectReference: {fileID: 1977919139}
-    - target: {fileID: 8160041036996720357, guid: 4acfc2f628375b84ca95da5b28b20eed,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4acfc2f628375b84ca95da5b28b20eed, type: 3}
 --- !u!114 &8160041036396776766 stripped

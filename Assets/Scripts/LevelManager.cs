@@ -52,6 +52,7 @@ public class LevelManager : MonoBehaviour
 
     public void LoadNextLevel()
     {
+        //Destroy(Camera.main);
         StartCoroutine(AsyncNextLevel());
     }
 
@@ -80,6 +81,7 @@ public class LevelManager : MonoBehaviour
 
     public void RetryLevel()
     {
+        //DontDestroyOnLoad(Camera.main);
         StartCoroutine(AsyncRetryLevel());
     }
 
