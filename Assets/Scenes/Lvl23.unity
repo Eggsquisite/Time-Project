@@ -1288,6 +1288,21 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6214276605510225515, guid: 9aaaecbc8c35bc24c80f26027eea1960,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Retrylevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073665703133462028, guid: 9aaaecbc8c35bc24c80f26027eea1960,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 6764291132191516923, guid: 9aaaecbc8c35bc24c80f26027eea1960,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Unpause
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9aaaecbc8c35bc24c80f26027eea1960, type: 3}
 --- !u!1001 &1304138660
@@ -2066,6 +2081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pathPrefab: {fileID: 135491885}
+  carry: {fileID: 0}
   moveSpeed: 5
   waitTimes:
   - 3.5

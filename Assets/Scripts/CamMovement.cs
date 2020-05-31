@@ -17,6 +17,7 @@ public class CamMovement : MonoBehaviour
     void Start()
     {
         t = Camera.main.transform;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     private void Update()

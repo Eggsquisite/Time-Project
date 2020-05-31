@@ -17,15 +17,24 @@ public class Lamppost : MonoBehaviour
     void Start()
     {
         civs = FindObjectOfType<CivManager>();
-        numOfCivs = civs.GetNumOfCivs();
         magicWall.SetActive(false);
+
+        if (civs != null)
+            numOfCivs = civs.GetNumOfCivs();
     }
 
     private void Success()
     {
+        if (civs == null)
+        {
+            civs = FindObjectOfType<CivManager>();
+        }
+
+        Debug.Log("Success");
         lightAnim.SetBool("lvlSuccess", true);
         civs.Success();
         magicWall.SetActive(true);
+       
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

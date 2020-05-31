@@ -21,6 +21,11 @@ public class LevelButton : MonoBehaviour
         lm.RetryLevel();
     }
 
+    public void MainMenu()
+    {
+        lm.MainMenu();
+    }
+
     public void QuitGame()
     {
         //lm.SaveLevel();

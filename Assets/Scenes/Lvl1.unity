@@ -645,6 +645,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b75dbbc05488d74faae8187265ed1c3, type: 3}
+--- !u!114 &1741319947 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 141961359, guid: e8757e9db8d2c2e4fb766004da42c948,
+    type: 3}
+  m_PrefabInstance: {fileID: 1977919133}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148a2cab8f03cd8448633a93d21996f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1793006682
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -840,6 +852,33 @@ PrefabInstance:
       propertyPath: civ
       value: 
       objectReference: {fileID: 8160041036396776767}
+    - target: {fileID: 1157384875, guid: e8757e9db8d2c2e4fb766004da42c948, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1852639351, guid: e8757e9db8d2c2e4fb766004da42c948, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 575072987, guid: e8757e9db8d2c2e4fb766004da42c948, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -250
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739194014452850163, guid: e8757e9db8d2c2e4fb766004da42c948,
+        type: 3}
+      propertyPath: m_Name
+      value: MainMenu Shdw
+      objectReference: {fileID: 0}
+    - target: {fileID: 3794406258218080221, guid: e8757e9db8d2c2e4fb766004da42c948,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1741319947}
+    - target: {fileID: 3794406258218080221, guid: e8757e9db8d2c2e4fb766004da42c948,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: MainMenu
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8757e9db8d2c2e4fb766004da42c948, type: 3}
 --- !u!114 &1977919139 stripped
@@ -936,6 +975,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pathPrefab: {fileID: 927302852}
+  carry: {fileID: 0}
   moveSpeed: 5
   waitTimes:
   - 1.5
@@ -1285,11 +1325,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4416281993487912741, guid: 4acfc2f628375b84ca95da5b28b20eed,
-        type: 3}
-      propertyPath: lvlEnd
-      value: 
-      objectReference: {fileID: 1977919139}
     - target: {fileID: 8378160575303027645, guid: 4acfc2f628375b84ca95da5b28b20eed,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1300,6 +1335,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 4416281993487912741, guid: 4acfc2f628375b84ca95da5b28b20eed,
+        type: 3}
+      propertyPath: lvlEnd
+      value: 
+      objectReference: {fileID: 1977919139}
     - target: {fileID: 8160041036996720357, guid: 4acfc2f628375b84ca95da5b28b20eed,
         type: 3}
       propertyPath: m_IsActive

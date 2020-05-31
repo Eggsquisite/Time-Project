@@ -587,6 +587,11 @@ PrefabInstance:
       propertyPath: civ
       value: 
       objectReference: {fileID: 8160041036396776766}
+    - target: {fileID: 5952402119863503275, guid: a3f621ac669b6094caea7a4e2fd30ddf,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: MainMenu
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3f621ac669b6094caea7a4e2fd30ddf, type: 3}
 --- !u!1001 &1555349641

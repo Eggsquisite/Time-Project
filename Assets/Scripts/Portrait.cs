@@ -17,6 +17,9 @@ public class Portrait : MonoBehaviour
     {
         t = Camera.main.transform;
         cam = Camera.main.GetComponent<CamClamp>();
+        
+        if (civ.name.Contains("Jack"))
+            FollowTarget();
     }
 
     // Update is called once per frame

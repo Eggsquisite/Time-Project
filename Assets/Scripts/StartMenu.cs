@@ -8,16 +8,16 @@ public class StartMenu : MonoBehaviour
 {
     [SerializeField] Button continueButt = null;
     [SerializeField] Button nextButt = null;
-    [SerializeField] Button loadLvlButt = null;
-    [SerializeField] GameObject menuButtons, titleText, controls, controlList;
+    [SerializeField] GameObject menuButtons, titleText, controls, controlList, credits, loadLvl;
 
     private List<Transform> theList;
     private int level, index;
-    private bool control, title;
+    private bool control, title, creditsOn, loadLvlOn;
 
     private void Awake()
     {
         title = true;
+        titleText.SetActive(true);
         menuButtons.SetActive(false);
     }
 
@@ -25,8 +25,9 @@ public class StartMenu : MonoBehaviour
     void Start()
     {
         theList = GetControlList();
-        loadLvlButt.interactable = false;
         controls.SetActive(control);
+        credits.SetActive(creditsOn);
+        loadLvl.SetActive(loadLvlOn);
 
         level = PlayerPrefs.GetInt("LevelProgress");
         if (level < 2)
@@ -37,14 +38,18 @@ public class StartMenu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Escape))
-            Application.Quit();
-        else if (Input.anyKeyDown && title)
+        if (Input.anyKeyDown && title)
         {
-            title = !title;
+            title = false;
             titleText.SetActive(false);
             menuButtons.SetActive(true);
         }
+
+        if (Input.GetKey(KeyCode.Escape))
+            Application.Quit();
+
+        if (Time.timeScale < 1)
+            Time.timeScale = 1f;
     }
 
     private List<Transform> GetControlList()
@@ -88,14 +93,35 @@ public class StartMenu : MonoBehaviour
         }
     }
 
-    public void LoadLevel()
-    { 
-        //
+    public void LoadScreen()
+    {
+        loadLvlOn = !loadLvlOn;
+        loadLvl.SetActive(loadLvlOn);
+    }
+
+    public void LoadLevel(int lvl)
+    {
+        StartCoroutine(AsyncLoadLevel(lvl));
+    }
+
+    IEnumerator AsyncLoadLevel(int lvl)
+    {
+        AsyncOperation loadGame = SceneManager.LoadSceneAsync(lvl);
+        while (!loadGame.isDone)
+        {
+            yield return null;
+        }
     }
 
     public void Controls()
     {
         controls.SetActive(true);
+    }
+
+    public void Credits()
+    {
+        creditsOn = !creditsOn;
+        credits.SetActive(creditsOn);
     }
 
     public void Next()

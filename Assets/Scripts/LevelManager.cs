@@ -64,6 +64,20 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public void MainMenu()
+    {
+        StartCoroutine(AsyncMainMenu());
+    }
+
+    IEnumerator AsyncMainMenu()
+    {
+        AsyncOperation mainMenu = SceneManager.LoadSceneAsync("StartMenu");
+        while (!mainMenu.isDone)
+        {
+            yield return null;
+        }
+    }
+
     public void RetryLevel()
     {
         StartCoroutine(AsyncRetryLevel());

@@ -152,7 +152,6 @@ public class FlightPattern : MonoBehaviour
             {
                 wpIndex--;
                 wtIndex--;
-                Debug.Log("Drop");
                 Drop();
                 retrace = !retrace;
                 moveReady = true;
