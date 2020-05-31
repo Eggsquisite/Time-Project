@@ -340,7 +340,7 @@ MonoBehaviour:
   walkTime: 99
   waitTime: 1
   attackTime: 1
-  right: 1
+  right: 0
   rezTime: 5
   fp: {fileID: 0}
 --- !u!1 &6984742387401181440
@@ -526,6 +526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathPrefab: {fileID: 0}
   carry: {fileID: 5522041935038274900}
+  endGame: 0
   moveSpeed: 2.5
   waitTimes:
   - 0

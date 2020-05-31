@@ -1468,6 +1468,11 @@ PrefabInstance:
       propertyPath: attackTime
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 5522041935038274907, guid: 3c111d4227cceb8408216ed0e3030a8a,
+        type: 3}
+      propertyPath: right
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c111d4227cceb8408216ed0e3030a8a, type: 3}
 --- !u!1001 &1977919133
