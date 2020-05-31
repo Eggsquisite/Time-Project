@@ -6,6 +6,7 @@ public class FlightPattern : MonoBehaviour
 {
     [SerializeField] GameObject pathPrefab = null;
     [SerializeField] GameObject carry = null;
+    [SerializeField] bool endGame;
 
     [Header ("Skree stats")]
     [SerializeField] float moveSpeed = 2f;
@@ -79,7 +80,7 @@ public class FlightPattern : MonoBehaviour
 
     private void Drop()
     {
-        if (carry != null)
+        if (carry != null && !endGame)
         {
             carry.GetComponent<Rigidbody2D>().gravityScale = 2f;
             carry.GetComponent<Collider2D>().enabled = true;

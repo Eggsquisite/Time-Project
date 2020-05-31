@@ -9,16 +9,29 @@ public class LevelEnd : MonoBehaviour
     [SerializeField] AudioClip victoryAudio = null;
     [SerializeField] AudioClip failAudio = null;
     [SerializeField] float timeScale = 1f;
+    [SerializeField] bool endGame;
 
     private AudioSource audioSource;
-    private bool oneEnding;
+    private bool oneEnding, end;
 
     // Start is called before the first frame update
     void Awake()
     {
         Time.timeScale = timeScale;
-        EnableText(false, -1);
         audioSource = Camera.main.GetComponent<AudioSource>();
+
+        if (!endGame)
+            EnableText(false, -1);
+    }
+
+    private void Update()
+    {
+        /*
+        if (endGame && !end)
+        {
+            EnableText(true, -1);
+            end = true;
+        }*/
     }
 
     public void SuccessText()

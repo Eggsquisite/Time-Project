@@ -34,7 +34,7 @@ public class LevelManager : MonoBehaviour
     {
         scene = SceneManager.GetActiveScene();
         level = scene.buildIndex;
-        //SaveLevel();
+        SaveLevel();
         Debug.Log("Furthest lvl: " + PlayerPrefs.GetInt("LevelProgress"));
         Debug.Log("Current level: " + level);
     }
