@@ -81,8 +81,8 @@ public class FlightPattern : MonoBehaviour
     {
         if (carry != null)
         {
-            Debug.Log("Dropping");
             carry.GetComponent<Rigidbody2D>().gravityScale = 2f;
+            carry.GetComponent<Collider2D>().enabled = true;
             carry.GetComponent<EnemyMovement>().enabled = true;
             carry.transform.parent = null;
         }

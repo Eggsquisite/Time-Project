@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 272273711867950007}
   - component: {fileID: 8081777008666315171}
   - component: {fileID: 8081777009047822146}
+  - component: {fileID: 4007572473399696931}
   m_Layer: 8
   m_Name: Rose
   m_TagString: Civilian
@@ -173,10 +174,24 @@ MonoBehaviour:
     type: 3}
   sprite: {fileID: 272273711867950005}
   coll: {fileID: 7950356142026016702}
-  deathSound: {fileID: 8300000, guid: 5b451454cb990a749bf5033d3319cf46, type: 3}
+  deathSound: {fileID: 8300000, guid: 74908c1df3826cc498ea70b12e01cde5, type: 3}
   health: 1
   maxTime: 2
   timeInterval: 0.1
+--- !u!114 &4007572473399696931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272273711867949962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa20f72fd688a648b55892cf1080c4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  civ: {fileID: 8081777008666315171}
+  hideTime: 2
 --- !u!1 &485317621038894828
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,7 +295,7 @@ GameObject:
   - component: {fileID: 6925512939643657975}
   m_Layer: 11
   m_Name: Feet
-  m_TagString: Untagged
+  m_TagString: CivFeet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

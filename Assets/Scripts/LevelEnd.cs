@@ -11,6 +11,7 @@ public class LevelEnd : MonoBehaviour
     [SerializeField] float timeScale = 1f;
 
     private AudioSource audioSource;
+    private bool oneEnding;
 
     // Start is called before the first frame update
     void Awake()
@@ -22,19 +23,26 @@ public class LevelEnd : MonoBehaviour
 
     public void SuccessText()
     {
-        lvlOver.GetComponent<Text>().text = "All Townsfolk Alive!";
-        lvlOverShadow.GetComponent<Text>().text = "All Townsfolk Alive!";
-        audioSource.PlayOneShot(victoryAudio);
-        EnableText(true, 1);
+        if (!oneEnding)
+        {
+            lvlOver.GetComponent<Text>().text = "All Townsfolk Alive!";
+            lvlOverShadow.GetComponent<Text>().text = "All Townsfolk Alive!";
+            audioSource.PlayOneShot(victoryAudio);
+            EnableText(true, 1);
+            oneEnding = true;
+        }
     }
 
     public void FailureText()
     {
-        lvlOver.GetComponent<Text>().text = "Townsfolk died!";
-        lvlOverShadow.GetComponent<Text>().text = "Townsfolk died!";
-        PlayClip(failAudio);
-        EnableText(true, 0);
-        
+        if (!oneEnding)
+        {
+            lvlOver.GetComponent<Text>().text = "Townsfolk died!";
+            lvlOverShadow.GetComponent<Text>().text = "Townsfolk died!";
+            PlayClip(failAudio);
+            EnableText(true, 0);
+            oneEnding = true;
+        }
     }
 
     private void EnableText(bool status, int success)

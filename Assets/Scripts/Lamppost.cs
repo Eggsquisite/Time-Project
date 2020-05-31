@@ -30,7 +30,6 @@ public class Lamppost : MonoBehaviour
             civs = FindObjectOfType<CivManager>();
         }
 
-        Debug.Log("Success");
         lightAnim.SetBool("lvlSuccess", true);
         civs.Success();
         magicWall.SetActive(true);
