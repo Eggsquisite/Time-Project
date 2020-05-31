@@ -46,5 +46,4 @@ public class Rose : MonoBehaviour
             anim.SetBool("moving", false);
         }
     }
-
 }

@@ -14,12 +14,10 @@ public class AltTime : MonoBehaviour
     private ParticleSystem fx;
     private Animator anim;
     private Collider2D coll;
-    private AudioSource audioSource;
     private bool portalStart;
 
     private void Start()
     {
-        audioSource = Camera.main.GetComponent<AudioSource>();
         fx = GetComponent<ParticleSystem>();
         anim = GetComponent<Animator>();
         coll = GetComponent<Collider2D>();

@@ -238,8 +238,9 @@ public class EnemyMovement : MonoBehaviour
             waitModifier = spdMultiplier;
             restoreMult = ((moveSpeed * waitModifier) - moveSpeed) / restore;
         }
-
-        rb.gravityScale *= waitModifier;
+        
+        if (waitModifier > 0)
+            rb.gravityScale *= waitModifier;
 
         timeAlt = true;
         maxTimeAlt = timeLength;

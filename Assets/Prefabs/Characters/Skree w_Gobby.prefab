@@ -96,14 +96,14 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5190965139163758342}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.468541, y: -0.62520987}
-  m_Size: {x: 3.436483, y: 1.9753236}
+  m_Offset: {x: 1.8920318, y: -0.6252098}
+  m_Size: {x: 4.589501, y: 1.9753345}
   m_Direction: 1
 --- !u!114 &5190965139163758339
 MonoBehaviour:
@@ -340,7 +340,7 @@ MonoBehaviour:
   walkTime: 99
   waitTime: 1
   attackTime: 1
-  right: 0
+  right: 1
   rezTime: 5
   fp: {fileID: 0}
 --- !u!1 &6984742387401181440
@@ -569,7 +569,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7225729392669338450}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -585,7 +585,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7225729392669338450}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd048cdb82a76a946b8e2f29aaa3313f, type: 3}
   m_Name: 

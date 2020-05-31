@@ -131,8 +131,8 @@ public class CivMovement : MonoBehaviour
         //else if (!gravAlt)
             //rb.gravityScale *= waitModifier;
         
-
-        rb.gravityScale *= waitModifier;
+        if (waitModifier > 0)
+            rb.gravityScale *= waitModifier;
         timeAlt = true;
         maxTimeAlt = timeLength;
         anim.SetFloat("animMultiplier", spdMultiplier);
