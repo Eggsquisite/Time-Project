@@ -63,8 +63,18 @@ public class StartMenu : MonoBehaviour
         return tmp;
     }
 
+    private void ResetTutorialText()
+    {
+        PlayerPrefs.SetInt("portalText", 0);
+        PlayerPrefs.SetInt("hiddenText", 0);
+        PlayerPrefs.SetInt("edText", 0);
+        PlayerPrefs.SetInt("roseText", 0);
+        PlayerPrefs.SetInt("oscarText", 0);
+    }
+
     public void NewGame()
     {
+        ResetTutorialText();
         StartCoroutine(AsyncNewGame());
     }
 
@@ -101,6 +111,7 @@ public class StartMenu : MonoBehaviour
 
     public void LoadLevel(int lvl)
     {
+        ResetTutorialText();
         StartCoroutine(AsyncLoadLevel(lvl));
     }
 

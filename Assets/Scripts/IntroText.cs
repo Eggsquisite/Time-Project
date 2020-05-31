@@ -6,12 +6,24 @@ public class IntroText : MonoBehaviour
 {
     [SerializeField] GameObject civs = null, enemies = null;
 
+    private bool portal, hidden, ed, rose, oscar;
+
     // Start is called before the first frame update
     void Start()
     {
-        //Time.timeScale = 0f;
         civs.SetActive(false);
         enemies.SetActive(false);
+
+        if (gameObject.name.Contains("Portal"))
+            portal = true;
+        else if (gameObject.name.Contains("Hidden"))
+            hidden = true;
+        else if (gameObject.name.Contains("Ed"))
+            ed = true;
+        else if (gameObject.name.Contains("Rose"))
+            rose = true;
+        else if (gameObject.name.Contains("Oscar"))
+            oscar = true;
     }
 
     private void Update()
@@ -19,14 +31,31 @@ public class IntroText : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Space))
             Continue();
 
-        //if (PlayerPrefs.GetInt("EdText") != 1)
-            //Continue();
+        if (PlayerPrefs.GetInt("portalText") == 1 && portal)
+            Continue();
+        else if (PlayerPrefs.GetInt("hiddenText") == 1 && hidden)
+            Continue();
+        else if (PlayerPrefs.GetInt("edText") == 1 && ed)
+            Continue();
+        else if (PlayerPrefs.GetInt("roseText") == 1 && rose)
+            Continue();
+        else if (PlayerPrefs.GetInt("oscarText") == 1 && oscar)
+            Continue();
     }
 
     public void Continue()
     {
-        //PlayerPrefs.SetInt("EdText", 1);
-        //Time.timeScale = 1f;
+        if (portal)
+            PlayerPrefs.SetInt("portalText", 1);
+        else if (hidden)
+            PlayerPrefs.SetInt("hiddenText", 1);
+        else if (ed)
+            PlayerPrefs.SetInt("edText", 1);
+        else if (rose)
+            PlayerPrefs.SetInt("roseText", 1);
+        else if (oscar)
+            PlayerPrefs.SetInt("oscarText", 1);
+
         civs.SetActive(true);
         enemies.SetActive(true);
         Destroy(gameObject);
