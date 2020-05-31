@@ -8,6 +8,7 @@ TagManager:
   - Civilian
   - Tombstone
   - Safety
+  - CivFeet
   layers:
   - Default
   - TransparentFX
