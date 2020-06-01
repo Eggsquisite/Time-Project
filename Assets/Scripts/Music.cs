@@ -15,8 +15,15 @@ public class Music : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        audioSource.volume = PlayerPrefs.GetFloat("audioLevel");
+        if (PlayerPrefs.GetFloat("audioLevel") > 0)
+            audioSource.volume = PlayerPrefs.GetFloat("audioLevel");
+        else
+        {
+            audioSource.volume = 0.25f;
+            audioPlay = true;
+        }
 
+        //PlayerPrefs.SetFloat("audioLevel", 0);
         if (PlayerPrefs.GetFloat("audioLevel") == 0.25f)
         {
             audioSource.Stop();
@@ -27,6 +34,10 @@ public class Music : MonoBehaviour
         {
             audioSource.playOnAwake = true;
             audioPlay = true;
+        }
+        else
+        {
+            audioSource.Play();
         }
 
         level = SceneManager.GetActiveScene().buildIndex;
@@ -40,9 +51,4 @@ public class Music : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

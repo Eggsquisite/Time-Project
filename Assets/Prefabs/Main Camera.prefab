@@ -954,3 +954,6 @@ MonoBehaviour:
   music:
   - {fileID: 8300000, guid: f66d2df428ac77644bd7b61bbe89228c, type: 3}
   - {fileID: 8300000, guid: b86faf73ac4f6f14095d1029cb40aa37, type: 3}
+  - {fileID: 8300000, guid: e91f9c17c8c183c4daf7f05aabb87413, type: 3}
+  - {fileID: 8300000, guid: ff93fc0236e383f4cb4907b781956d35, type: 3}
+  - {fileID: 8300000, guid: eff6b97ec87b24045a86de21f62f11e8, type: 3}
