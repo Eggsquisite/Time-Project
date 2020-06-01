@@ -1747,23 +1747,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 221316420812408409}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1992224414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1992224410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 727cd7cd5302db3498028883c2b63fbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 500
-  timeMultiplier: 0
-  timeLength: 0
-  restoreMult: 5
-  portalSound: {fileID: 8300000, guid: 4253ea676060e49dd9488f73d692ea2a, type: 3}
 --- !u!58 &1992224415
 CircleCollider2D:
   m_ObjectHideFlags: 0
