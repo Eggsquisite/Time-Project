@@ -357,11 +357,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: StopPortal
       objectReference: {fileID: 0}
-    - target: {fileID: 1543492268714417125, guid: de977a962372d4540bce0e357e437bf5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1543492268714417122, guid: de977a962372d4540bce0e357e437bf5,
         type: 3}
       propertyPath: m_LocalPosition.x

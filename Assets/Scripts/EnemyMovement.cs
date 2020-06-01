@@ -317,7 +317,7 @@ public class EnemyMovement : MonoBehaviour
             anim.SetTrigger("attack");
             anim.SetBool("moving", false);
         }
-        else if (collision.tag == "Enemy" && attack == false && gobby)
+        else if (collision.tag == "Enemy" && attack == false && gobby && !collision.name.Contains("Skree"))
         {
             attack = true;
             moving = false;

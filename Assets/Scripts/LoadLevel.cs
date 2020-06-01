@@ -10,7 +10,6 @@ public class LoadLevel : MonoBehaviour
     [SerializeField] GameObject lvlList = null;
 
     private List<Transform> list;
-    private int level;
 
     private void Start()
     {
@@ -24,10 +23,9 @@ public class LoadLevel : MonoBehaviour
         for (int i = 0; i < list.Count; i++)
         {
             tmp = Int32.Parse(list[i].gameObject.name);
-
+            
             if (tmp <= PlayerPrefs.GetInt("LevelProgress"))
             {
-                //level = i + 1;
                 list[i].GetComponent<Button>().interactable = true;
             }
         }
@@ -47,9 +45,6 @@ public class LoadLevel : MonoBehaviour
 
     public void SetLevel(int lvl)
     {
-        if (lvl == 30)
-            startMenu.LoadLevel(30);
-        
         startMenu.LoadLevel(lvl);
     }
 }
