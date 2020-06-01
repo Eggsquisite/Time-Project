@@ -183,7 +183,8 @@ public class FlightPattern : MonoBehaviour
         // foreach (TYPE varname in VARIABLE)
         foreach (Transform child in pathPrefab.transform)
         {
-            charWaypoints.Add(child);
+            if (!child.name.Contains("Skree"))
+                charWaypoints.Add(child);
         }
 
         return charWaypoints;
