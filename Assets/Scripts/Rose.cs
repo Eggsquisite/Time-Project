@@ -16,6 +16,7 @@ public class Rose : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         feet = GetComponentInChildren<Hide>();
+        anim.SetBool("moving", true);
     }
 
     private void Update()

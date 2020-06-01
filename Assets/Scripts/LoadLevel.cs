@@ -27,7 +27,7 @@ public class LoadLevel : MonoBehaviour
 
             if (tmp <= PlayerPrefs.GetInt("LevelProgress"))
             {
-                level = i + 1;
+                //level = i + 1;
                 list[i].GetComponent<Button>().interactable = true;
             }
         }
@@ -45,8 +45,11 @@ public class LoadLevel : MonoBehaviour
         return tmp;
     }
 
-    public void SetLevel()
+    public void SetLevel(int lvl)
     {
-        startMenu.LoadLevel(level);
+        if (lvl == 30)
+            startMenu.LoadLevel(30);
+        
+        startMenu.LoadLevel(lvl);
     }
 }

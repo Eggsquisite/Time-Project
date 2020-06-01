@@ -108,13 +108,13 @@ public class Elevator : MonoBehaviour
         {
             var charMovement = collision.gameObject.GetComponent<CivMovement>();
             Debug.Log("touching");
-            charMovement.OnElevator();
+            //charMovement.OnElevator();
         }
         else if (collision.tag == "Enemy")
         {
             var enemyMovement = collision.gameObject.GetComponent<EnemyMovement>();
 
-            enemyMovement.OnElevator();
+            //enemyMovement.OnElevator();
         }
     }
 }

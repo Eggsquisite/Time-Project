@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LevelEnd : MonoBehaviour
 {
@@ -26,17 +27,16 @@ public class LevelEnd : MonoBehaviour
 
     private void Update()
     {
-        /*
-        if (endGame && !end)
+        
+        if (endGame && uiBackground.activeSelf && Input.GetKeyDown(KeyCode.Escape))
         {
-            EnableText(true, -1);
-            end = true;
-        }*/
+            SceneManager.LoadScene("StartMenu");
+        }
     }
 
     public void SuccessText()
     {
-        if (!oneEnding)
+        if (!oneEnding && !endGame)
         {
             lvlOver.GetComponent<Text>().text = "All Townsfolk Alive!";
             lvlOverShadow.GetComponent<Text>().text = "All Townsfolk Alive!";

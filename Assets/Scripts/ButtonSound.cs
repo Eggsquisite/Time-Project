@@ -9,11 +9,13 @@ public class ButtonSound : MonoBehaviour
     [SerializeField] AudioClip audioClip = null;
 
     private AudioSource myAudio;
-    private bool audioOn = true;
+    private bool audioOn;
 
     private void Start()
     {
         myAudio = Camera.main.GetComponent<AudioSource>();
+        if (myAudio.isPlaying)
+            audioOn = true;
     }
 
     public void PlayAudio()
@@ -23,17 +25,17 @@ public class ButtonSound : MonoBehaviour
 
     public void SwitchMusic()
     {
-        if (audioOn || PlayerPrefs.GetFloat("audioLevel") == 0.26f)
+        if (myAudio.isPlaying || PlayerPrefs.GetFloat("audioLevel") == 0.26f)
         {
             myAudio.Stop();
             PlayerPrefs.SetFloat("audioLevel", 0.25f);
-            audioOn = !audioOn;
+            audioOn = false;
         }
-        else if (!audioOn || PlayerPrefs.GetFloat("audioLevel") == 0.25f)
+        else if (!myAudio.isPlaying || PlayerPrefs.GetFloat("audioLevel") == 0.25f)
         {
             myAudio.Play();
             PlayerPrefs.SetFloat("audioLevel", 0.26f);
-            audioOn = !audioOn;
+            audioOn = true;
         }
     }
 }

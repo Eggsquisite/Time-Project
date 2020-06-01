@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stopPortal: {fileID: 221316421051934915}
-  stopTime: 2
+  stopTime: 4
 --- !u!1 &409396363259342343
 GameObject:
   m_ObjectHideFlags: 0

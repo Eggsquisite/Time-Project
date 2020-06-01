@@ -106,7 +106,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4795367275833287786}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.52, z: 10}
+  m_LocalPosition: {x: 0, y: 1.45, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4795367274508301661}
@@ -530,7 +530,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 9
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -566,7 +566,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b86faf73ac4f6f14095d1029cb40aa37, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -666,7 +666,7 @@ MonoBehaviour:
   target: {fileID: 7659478211306960260}
   xMin: -20
   xMax: -7.5
-  yVal: 3.5
+  yVal: 4.5
 --- !u!114 &7544973459070080648
 MonoBehaviour:
   m_ObjectHideFlags: 0

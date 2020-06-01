@@ -14,13 +14,17 @@ public class Lamppost : MonoBehaviour
     private bool success;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         civs = FindObjectOfType<CivManager>();
-        magicWall.SetActive(false);
+        
+        if (magicWall != null)
+            magicWall.SetActive(false);
 
         if (civs != null)
+        {
             numOfCivs = civs.GetNumOfCivs();
+        }
     }
 
     private void Success()
@@ -32,7 +36,9 @@ public class Lamppost : MonoBehaviour
 
         lightAnim.SetBool("lvlSuccess", true);
         civs.Success();
-        magicWall.SetActive(true);
+
+        if (magicWall != null)
+            magicWall.SetActive(true);
        
     }
 

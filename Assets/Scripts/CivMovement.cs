@@ -162,16 +162,4 @@ public class CivMovement : MonoBehaviour
     {
         return waitModifier;
     }
-
-    public void OnElevator()
-    {
-        waitModifier = 0f;
-        anim.SetBool("moving", false);
-    }
-
-    public void OffElevator()
-    {
-        waitModifier = 1f;
-        anim.SetBool("moving", true);
-    }
 }

@@ -11,6 +11,7 @@ public class StartMenu : MonoBehaviour
     [SerializeField] GameObject menuButtons, titleText, controls, controlList, credits, loadLvl;
 
     private List<Transform> theList;
+    private AudioSource audioSource;
     private int level, index;
     private bool control, title, creditsOn, loadLvlOn;
 
@@ -19,6 +20,7 @@ public class StartMenu : MonoBehaviour
         title = true;
         titleText.SetActive(true);
         menuButtons.SetActive(false);
+        audioSource = Camera.main.GetComponent<AudioSource>();
     }
 
     // Start is called before the first frame update
@@ -28,6 +30,8 @@ public class StartMenu : MonoBehaviour
         controls.SetActive(control);
         credits.SetActive(creditsOn);
         loadLvl.SetActive(loadLvlOn);
+
+        audioSource.volume = PlayerPrefs.GetFloat("audioLevel");
 
         level = PlayerPrefs.GetInt("LevelProgress");
         if (level < 2)
