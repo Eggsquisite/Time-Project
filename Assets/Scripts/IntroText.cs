@@ -6,7 +6,7 @@ public class IntroText : MonoBehaviour
 {
     [SerializeField] GameObject civs = null, enemies = null;
 
-    private bool portal, hidden, ed, rose, oscar;
+    private bool portal, hidden, grav, ed, rose, oscar;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +18,8 @@ public class IntroText : MonoBehaviour
             portal = true;
         else if (gameObject.name.Contains("Hidden"))
             hidden = true;
+        else if (gameObject.name.Contains("Gravity"))
+            grav = true;
         else if (gameObject.name.Contains("Ed"))
             ed = true;
         else if (gameObject.name.Contains("Rose"))
@@ -35,6 +37,8 @@ public class IntroText : MonoBehaviour
             Continue();
         else if (PlayerPrefs.GetInt("hiddenText") == 1 && hidden)
             Continue();
+        else if (PlayerPrefs.GetInt("gravText") == 1 && grav)
+            Continue();
         else if (PlayerPrefs.GetInt("edText") == 1 && ed)
             Continue();
         else if (PlayerPrefs.GetInt("roseText") == 1 && rose)
@@ -49,6 +53,8 @@ public class IntroText : MonoBehaviour
             PlayerPrefs.SetInt("portalText", 1);
         else if (hidden)
             PlayerPrefs.SetInt("hiddenText", 1);
+        else if (grav)
+            PlayerPrefs.SetInt("gravText", 1);
         else if (ed)
             PlayerPrefs.SetInt("edText", 1);
         else if (rose)

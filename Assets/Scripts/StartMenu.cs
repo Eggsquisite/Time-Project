@@ -71,6 +71,7 @@ public class StartMenu : MonoBehaviour
     {
         PlayerPrefs.SetInt("portalText", 0);
         PlayerPrefs.SetInt("hiddenText", 0);
+        PlayerPrefs.SetInt("gravText", 0);
         PlayerPrefs.SetInt("edText", 0);
         PlayerPrefs.SetInt("roseText", 0);
         PlayerPrefs.SetInt("oscarText", 0);
