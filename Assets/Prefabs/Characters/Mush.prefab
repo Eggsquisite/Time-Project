@@ -158,7 +158,7 @@ MonoBehaviour:
   anim: {fileID: 8270958740502500008}
   attackTrig: {fileID: 8529924963767857399}
   attackSound: {fileID: 8300000, guid: bd0d58f525ae44ef787c3059d766aff7, type: 3}
-  deathSound: {fileID: 8300000, guid: ef93adb84d26c4c43bc5cf377604358f, type: 3}
+  deathSound: {fileID: 8300000, guid: 1213b82ed9b2640ed824a6eb4fa828cc, type: 3}
   feet: {fileID: 8529924964011335685}
   moveSpeed: 0
   walkTime: 0

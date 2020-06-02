@@ -712,6 +712,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2075332462559537496}
+    - target: {fileID: 1670547849255243121, guid: 1ee210e3fda378f47ad6bf294ff41507,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 8300000, guid: 2c6bf6490e5d749bf94eb110314aad49, type: 3}
     - target: {fileID: 1670547847220478774, guid: 1ee210e3fda378f47ad6bf294ff41507,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -905,6 +910,7 @@ GameObject:
   - component: {fileID: 2075332462559537494}
   - component: {fileID: 2075332462559537496}
   - component: {fileID: 825351575077502662}
+  - component: {fileID: 2075332462559537497}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1008,6 +1014,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2075332462559537497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075332462559537495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e2bacc2dee0ce949b364058bca5927a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music:
+  - {fileID: 8300000, guid: f66d2df428ac77644bd7b61bbe89228c, type: 3}
+  startMenu: 1
 --- !u!4 &2075332462559537512
 Transform:
   m_ObjectHideFlags: 0

@@ -79,13 +79,14 @@ public class StartMenu : MonoBehaviour
 
     public void NewGame()
     {
+        //PlayerPrefs.SetInt("LevelProgress", 1);
         ResetTutorialText();
         StartCoroutine(AsyncNewGame());
     }
 
     IEnumerator AsyncNewGame()
     {
-        AsyncOperation newGame = SceneManager.LoadSceneAsync("Lvl1");
+        AsyncOperation newGame = SceneManager.LoadSceneAsync(1);
         while (!newGame.isDone)
         {
             yield return null;
