@@ -49,8 +49,8 @@ public class StartMenu : MonoBehaviour
             menuButtons.SetActive(true);
         }
 
-        if (Input.GetKey(KeyCode.Escape))
-            Application.Quit();
+        //if (Input.GetKey(KeyCode.Escape))
+            //Application.Quit();
 
         if (Time.timeScale < 1)
             Time.timeScale = 1f;
