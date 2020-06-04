@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ButtonManager : MonoBehaviour
 {
     [SerializeField] AudioClip scrollSound = null;
+    [SerializeField] Text text = null;
 
     private Button b;
     private ObjectPlacement placer;
@@ -22,11 +23,16 @@ public class ButtonManager : MonoBehaviour
     {
         placer.SetSelected(portal);
         b = button;
+        if (text != null)
+            text.text = "Right Click-> Unselect";
+
         audioSource.PlayOneShot(scrollSound);
     }
 
     public void Reset()
     {
         b.interactable = true;
+        if (text != null)
+            text.text = "Left Click-> Select";
     }
 }

@@ -4,11 +4,20 @@ using UnityEngine;
 
 public class LevelButton : MonoBehaviour
 {
-    LevelManager lm;
+    [SerializeField] GameObject controls = null;
+    LevelManager lm = null;
     // Start is called before the first frame update
     void Start()
     {
         lm = FindObjectOfType<LevelManager>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Retrylevel();
+        }
     }
 
     public void LoadNextLevel()
@@ -19,6 +28,11 @@ public class LevelButton : MonoBehaviour
     public void Retrylevel()
     {
         lm.RetryLevel();
+    }
+
+    public void Controls()
+    {
+        controls.SetActive(true);
     }
 
     public void MainMenu()

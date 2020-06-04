@@ -62,8 +62,12 @@ public class IntroText : MonoBehaviour
         else if (oscar)
             PlayerPrefs.SetInt("oscarText", 1);
 
-        civs.SetActive(true);
-        enemies.SetActive(true);
+        if (!civs.activeSelf && !enemies.activeSelf && civs != null && enemies != null)
+        {
+            civs.SetActive(true);
+            enemies.SetActive(true);
+        }
+
         Destroy(gameObject);
     }
 }

@@ -18,6 +18,7 @@ public class CamMovement : MonoBehaviour
     {
         t = Camera.main.transform;
         Cursor.lockState = CursorLockMode.Confined;
+        moveMultiplier = 3f;
     }
 
     private void Update()

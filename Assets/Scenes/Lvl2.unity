@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -339,7 +339,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 766863069}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.974807, y: 3.5085847, z: -28.816406}
+  m_LocalPosition: {x: -8.92, y: 3.5085847, z: -28.816406}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8651198015212128527}
@@ -505,6 +505,7 @@ MonoBehaviour:
   music:
   - {fileID: 8300000, guid: f66d2df428ac77644bd7b61bbe89228c, type: 3}
   - {fileID: 8300000, guid: b86faf73ac4f6f14095d1029cb40aa37, type: 3}
+  startMenu: 0
 --- !u!1001 &1793006682
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -594,7 +595,7 @@ PrefabInstance:
     - target: {fileID: 6367817696603301848, guid: 3dcc146d1d02ad04ca4b75a191484e63,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -23.19
+      value: -21.37
       objectReference: {fileID: 0}
     - target: {fileID: 6367817696603301848, guid: 3dcc146d1d02ad04ca4b75a191484e63,
         type: 3}
@@ -1007,6 +1008,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathPrefab: {fileID: 2130331296}
   carry: {fileID: 0}
+  endGame: 0
   moveSpeed: 5
   waitTimes:
   - 1

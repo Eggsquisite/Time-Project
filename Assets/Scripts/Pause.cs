@@ -24,9 +24,9 @@ public class Pause : MonoBehaviour
         if (Time.timeScale > 0)
             paused = false;
 
-        if (Input.GetKeyDown(KeyCode.Escape) && !uiBackground.activeSelf && !paused)
+        if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P)) && !uiBackground.activeSelf && !paused)
             Paused();
-        else if (Input.GetKeyDown(KeyCode.Escape) && paused)
+        else if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P)) && paused)
             Unpause();
     } 
 
