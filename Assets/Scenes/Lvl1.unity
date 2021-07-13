@@ -1170,17 +1170,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 840228564}
     m_Modifications:
-    - target: {fileID: 1032684340695435255, guid: 3b3acb70af5a7104285bdc0232384fe0,
-        type: 3}
-      propertyPath: m_Text
-      value: "LEFT CLICK--> \t\t\tSelect scroll & place portal\nMOUSE------->\t\t\tMove
-        portal\nRIGHT CLICK--> \t\t\tUnselect scroll"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1032684340695435255, guid: 3b3acb70af5a7104285bdc0232384fe0,
-        type: 3}
-      propertyPath: m_FontData.m_HorizontalOverflow
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2827711506127013276, guid: 3b3acb70af5a7104285bdc0232384fe0,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1225,16 +1214,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 2827711506127013276, guid: 3b3acb70af5a7104285bdc0232384fe0,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 2827711506127013276, guid: 3b3acb70af5a7104285bdc0232384fe0,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2827711506127013276, guid: 3b3acb70af5a7104285bdc0232384fe0,
         type: 3}
@@ -1310,11 +1289,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: IntroText
-      objectReference: {fileID: 0}
-    - target: {fileID: 8659966686219562264, guid: 3b3acb70af5a7104285bdc0232384fe0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b3acb70af5a7104285bdc0232384fe0, type: 3}
@@ -1740,7 +1714,7 @@ PrefabInstance:
     - target: {fileID: 8378160575303027645, guid: 4acfc2f628375b84ca95da5b28b20eed,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.57
+      value: -27.19
       objectReference: {fileID: 0}
     - target: {fileID: 8378160575303027645, guid: 4acfc2f628375b84ca95da5b28b20eed,
         type: 3}

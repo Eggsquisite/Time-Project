@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1.1
-  m_Text: "ESC/P ---------->\t \tPause Menu\nR ----------------> \tRetry level\nSHIFT------->\t\t\tSpeed
+  m_Text: "ESC/P ---------->\t \tPause Menu\nR ----------------> \t\tRetry level\nSHIFT------->\t\t\t\tSpeed
     up time\nSPACEBAR-------->\t\tPause/Unpause"
 --- !u!1 &743934793395861556
 GameObject:
@@ -155,11 +155,11 @@ MonoBehaviour:
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1.1
-  m_Text: "LEFT CLICK--> \tSelect scroll & place portal\nMOUSE------->\tMove portal\nRIGHT
-    CLICK--> \tUnselect scroll"
+  m_Text: "LEFT CLICK--> \t\t\tSelect scroll & place portal\nMOUSE------->\t\t\tMove
+    portal\nRIGHT CLICK--> \t\t\tUnselect scroll"
 --- !u!1 &1017204219762936963
 GameObject:
   m_ObjectHideFlags: 0
@@ -785,7 +785,7 @@ RectTransform:
   m_GameObject: {fileID: 8659966686219562264}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 12, y: 12, z: 4.9886312}
+  m_LocalScale: {x: 11, y: 11, z: 4.9886312}
   m_Children:
   - {fileID: 227478621106634288}
   - {fileID: 8214343731115316772}
