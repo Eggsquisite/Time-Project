@@ -158,9 +158,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1.1
-  m_Text: "ESC/P ---------->\t \tPause Menu\nR ----------------> \t\tRetry level\nARROW
-    KEYS/AD-> \tMove Camera\nHold SHIFT------->\t\tSpeed up time\nSPACEBAR-------->\t\tPause/unpause
-    time"
+  m_Text: "ESC/P ---------->\t \tPause Menu\nR ----------------> \t\tRetry level\nHold
+    SHIFT------->\t\tSpeed up time\nSPACEBAR-------->\t\tPause/unpause time"
 --- !u!1 &495771342
 GameObject:
   m_ObjectHideFlags: 0
@@ -3947,7 +3946,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1670547848211217207
 RectTransform:
   m_ObjectHideFlags: 0
