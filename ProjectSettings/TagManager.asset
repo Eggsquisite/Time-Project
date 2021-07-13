@@ -64,3 +64,6 @@ TagManager:
   - name: Tombstone
     uniqueID: 2816894299
     locked: 0
+  - name: UI
+    uniqueID: 2294229387
+    locked: 0

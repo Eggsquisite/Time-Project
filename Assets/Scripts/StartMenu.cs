@@ -133,12 +133,14 @@ public class StartMenu : MonoBehaviour
     public void Controls()
     {
         controls.SetActive(true);
+        menuButtons.SetActive(false);
     }
 
     public void Credits()
     {
         creditsOn = !creditsOn;
         credits.SetActive(creditsOn);
+        menuButtons.SetActive(!creditsOn);
     }
 
     public void Next()
@@ -156,8 +158,10 @@ public class StartMenu : MonoBehaviour
 
     public void Back()
     {
-        if (index == 0)
+        if (index == 0) { 
             controls.SetActive(false);
+            menuButtons.SetActive(true);
+        }
         else
         {
             nextButt.interactable = true;
