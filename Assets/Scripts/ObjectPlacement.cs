@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ObjectPlacement : MonoBehaviour
 {
+    public static ObjectPlacement instance;
     //[SerializeField] GameObject selectObj = null;
     //[SerializeField] GameObject manaBar = null;
     [SerializeField] GameObject objPosition = null;
@@ -20,6 +21,11 @@ public class ObjectPlacement : MonoBehaviour
     private bool ready, placed, useMana, manaReady;
     private int index;
 
+    private void Awake()
+    {
+        instance = this;
+    }
+
     private void Start()
     {
         //manaReady = true;
@@ -29,8 +35,7 @@ public class ObjectPlacement : MonoBehaviour
         // Max five scrolls possibly
         allObjs = new GameObject[portalCount];
         spriteObjs = new SpriteRenderer[2];
-        if (bm == null)
-            bm = FindObjectOfType<ButtonManager>();
+        if (bm == null) bm = ButtonManager.instance;
     }
 
     // Update is called once per frame
@@ -52,6 +57,7 @@ public class ObjectPlacement : MonoBehaviour
             if (!ready && !placed && /*manaReady &&*/ index < portalCount)
             {
                 //audioSource.PlayOneShot(scrollSelect);
+                Debug.Log(index);
                 tempObj = Instantiate(selectObj, objPosition.transform.position, Quaternion.identity);
                 tempObj.GetComponent<ParticleSystem>().Stop();
                 tempObj.GetComponent<CapsuleCollider2D>().enabled = false;
@@ -97,6 +103,9 @@ public class ObjectPlacement : MonoBehaviour
                 ready = false;
                 placed = true;
                 //useMana = true;
+
+                if (index >= portalCount)
+                    bm.PortalsUsedUp();
             }
         }
     }

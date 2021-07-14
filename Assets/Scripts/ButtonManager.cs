@@ -5,12 +5,19 @@ using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviour
 {
+    public static ButtonManager instance;
     [SerializeField] AudioClip scrollSound = null;
     [SerializeField] Text text = null;
+    [SerializeField] List<Button> portals = null;
 
     private Button b;
     private ObjectPlacement placer;
     private AudioSource audioSource;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -34,5 +41,12 @@ public class ButtonManager : MonoBehaviour
         b.interactable = true;
         if (text != null)
             text.text = "Left Click-> Select";
+    }
+
+    public void PortalsUsedUp() { 
+        foreach(Button button in portals)
+        {
+            button.interactable = false;
+        }
     }
 }

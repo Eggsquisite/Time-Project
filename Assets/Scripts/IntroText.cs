@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class IntroText : MonoBehaviour
 {
-    [SerializeField] GameObject civs = null, enemies = null;
+    [SerializeField] GameObject civs = null;
+    [SerializeField] List<GameObject> enemies = null;
 
     private bool portal, hidden, grav, ed, rose, oscar;
 
@@ -12,7 +13,9 @@ public class IntroText : MonoBehaviour
     void Start()
     {
         civs.SetActive(false);
-        enemies.SetActive(false);
+        foreach(GameObject enemy in enemies) { 
+            enemy.SetActive(false);
+        }
 
         if (gameObject.name.Contains("Portal"))
             portal = true;
@@ -62,10 +65,12 @@ public class IntroText : MonoBehaviour
         else if (oscar)
             PlayerPrefs.SetInt("oscarText", 1);
 
-        if (!civs.activeSelf && !enemies.activeSelf && civs != null && enemies != null)
+        if (!civs.activeSelf && civs != null && enemies != null)
         {
             civs.SetActive(true);
-            enemies.SetActive(true);
+            foreach(GameObject enemy in enemies) { 
+                enemy.SetActive(true);
+            }
         }
 
         Destroy(gameObject);
