@@ -7,7 +7,8 @@ public class ButtonManager : MonoBehaviour
 {
     public static ButtonManager instance;
     [SerializeField] AudioClip scrollSound = null;
-    [SerializeField] Text text = null;
+    [SerializeField] Text helpText = null;
+    [SerializeField] Text portalCountTxt = null;
     [SerializeField] List<Button> portals = null;
 
     private Button b;
@@ -30,8 +31,8 @@ public class ButtonManager : MonoBehaviour
     {
         placer.SetSelected(portal);
         b = button;
-        if (text != null)
-            text.text = "Right Click-> Unselect";
+        if (helpText != null)
+            helpText.text = "Right Click-> Unselect";
 
         audioSource.PlayOneShot(scrollSound);
     }
@@ -39,8 +40,8 @@ public class ButtonManager : MonoBehaviour
     public void Reset()
     {
         b.interactable = true;
-        if (text != null)
-            text.text = "Left Click-> Select";
+        if (helpText != null)
+            helpText.text = "Left Click-> Select";
     }
 
     public void PortalsUsedUp() { 
@@ -48,5 +49,10 @@ public class ButtonManager : MonoBehaviour
         {
             button.interactable = false;
         }
+    }
+
+    public void UpdatePortalUses(int newValue) {
+        var value = newValue.ToString();
+        portalCountTxt.text = value;
     }
 }

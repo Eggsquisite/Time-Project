@@ -19,7 +19,7 @@ public class ObjectPlacement : MonoBehaviour
     private SpriteRenderer[] spriteObjs;
     private Color tmp;
     private bool ready, placed, useMana, manaReady;
-    private int index;
+    private int index, portalUpdatedCount;
 
     private void Awake()
     {
@@ -33,9 +33,11 @@ public class ObjectPlacement : MonoBehaviour
         audioSource = Camera.main.GetComponent<AudioSource>();
 
         // Max five scrolls possibly
+        portalUpdatedCount = portalCount;
         allObjs = new GameObject[portalCount];
         spriteObjs = new SpriteRenderer[2];
         if (bm == null) bm = ButtonManager.instance;
+        ButtonManager.instance.UpdatePortalUses(portalUpdatedCount);
     }
 
     // Update is called once per frame
@@ -100,10 +102,12 @@ public class ObjectPlacement : MonoBehaviour
                 allObjs[index] = tempObj;
 
                 index++;
+                portalUpdatedCount--;
                 ready = false;
                 placed = true;
                 //useMana = true;
 
+                ButtonManager.instance.UpdatePortalUses(portalUpdatedCount);
                 if (index >= portalCount)
                     bm.PortalsUsedUp();
             }
