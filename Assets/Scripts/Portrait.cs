@@ -47,7 +47,7 @@ public class Portrait : MonoBehaviour
 
     public void FollowTarget()
     {
-        if (civ != null)
-            followTarget = true;
+        //if (civ != null)
+            //followTarget = true;
     }
 }
