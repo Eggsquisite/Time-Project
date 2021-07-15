@@ -110,6 +110,8 @@ public class ObjectPlacement : MonoBehaviour
                 ButtonManager.instance.UpdatePortalUses(portalUpdatedCount);
                 if (index >= portalCount)
                     bm.PortalsUsedUp();
+                else
+                    bm.Reset();
             }
         }
     }

@@ -22,6 +22,6 @@ public class PortalSelect : MonoBehaviour
     {
         // Called thru button event, sends data to ButtonManager
         bm.SetSelected(portalPrefab, b);
-        //b.interactable = !on;
+        b.interactable = !on;
     }
 }

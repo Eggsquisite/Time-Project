@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class ObserveMode : MonoBehaviour
 {
-    [SerializeField] GameObject portals;
+    [SerializeField] GameObject portalButtons;
+    [SerializeField] GameObject observeUI;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (portals != null) portals.SetActive(false);
+        if (portalButtons != null) portalButtons.SetActive(false);
     }
 
     public void FinishObserveMode() {
         // called when player finishes observe mode
         GameManager.instance.SetObserveMode(false);
-        if (portals != null) portals.SetActive(true);
-        gameObject.SetActive(false);
+        if (portalButtons != null) portalButtons.SetActive(true);
+        if (observeUI != null) observeUI.SetActive(false);
     }
 
 
