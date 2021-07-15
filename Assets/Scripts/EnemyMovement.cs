@@ -21,6 +21,8 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] float attackTime = 1f;
     [SerializeField] bool right;
 
+    private Vector2 startPosition;
+
     [Header("Skelly Stats")]
     [SerializeField] float rezTime = 2f;
 
@@ -43,6 +45,7 @@ public class EnemyMovement : MonoBehaviour
         coll = GetComponent<Collider2D>();
         rb = GetComponent<Rigidbody2D>();
         audioSource = Camera.main.GetComponent<AudioSource>();
+        startPosition = transform.position;
         SetAttackTrigger(0);
         SetBase();
 
@@ -50,13 +53,17 @@ public class EnemyMovement : MonoBehaviour
         {
             skree = true;
             fp = this.GetComponent<FlightPattern>();
+            startPosition = fp.GetFirstWaypoint().position;
         }
         else if (name.Contains("Skelly"))
         {
             skelly = true;
+            startPosition = transform.position;
         }
-        else if (name.Contains("Gobby"))
+        else if (name.Contains("Gobby")) {
             gobby = true;
+            startPosition = transform.position;
+        }
     }
 
     // Update is called once per frame
@@ -108,7 +115,25 @@ public class EnemyMovement : MonoBehaviour
         baseWalkTime = walkTime;
         baseAttackTime = attackTime;
         baseRezTime = rezTime;
-        baseGrav = rb.gravityScale;
+        if (rb != null)
+            baseGrav = rb.gravityScale;
+    }
+
+    private void ResetVariables() {
+        waitTime = baseWaitTime;
+        walkTime = baseWalkTime;
+        attackTime = baseAttackTime;
+        rezTime = baseRezTime;
+        if (rb != null)
+            baseGrav = rb.gravityScale;
+    }
+
+    public void ObserveFinished()
+    {
+        ResetVariables();
+        transform.position = startPosition;
+        if (name.Contains("Skree"))
+            fp.ResetToStart();
     }
 
     private void Movement()

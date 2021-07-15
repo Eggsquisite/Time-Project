@@ -53,6 +53,7 @@ public class LevelManager : MonoBehaviour
     public void LoadNextLevel()
     {
         //Destroy(Camera.main);
+        GameManager.instance.SetObserveMode(true);
         StartCoroutine(AsyncNextLevel());
     }
 
@@ -82,6 +83,7 @@ public class LevelManager : MonoBehaviour
     public void RetryLevel()
     {
         //DontDestroyOnLoad(Camera.main);
+        GameManager.instance.SetObserveMode(true);
         StartCoroutine(AsyncRetryLevel());
     }
 

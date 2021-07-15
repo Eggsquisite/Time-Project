@@ -18,6 +18,7 @@ public class FlightPattern : MonoBehaviour
     private int wpIndex = 0;
     private int wtIndex = 0;
     private bool moveReady, waitStart, fly, retrace;
+    private Transform startPos;
     private Vector3 lastPosition;
 
     // Start is called before the first frame update
@@ -78,6 +79,13 @@ public class FlightPattern : MonoBehaviour
         }
     }
 
+    public void ResetToStart() {
+        wtIndex = 0;
+        wpIndex = 0;
+        waitTimer = waitTimes[wtIndex];
+        transform.position = waypoints[wpIndex].transform.position;
+    }
+
     private void Drop()
     {
         if (carry != null && !endGame)
@@ -109,6 +117,7 @@ public class FlightPattern : MonoBehaviour
             PauseMovement();
     }
 
+    // Pause after attacking
     private void PauseMovement(float attackTimer)
     {
         waitTimer = attackTimer;
@@ -122,6 +131,7 @@ public class FlightPattern : MonoBehaviour
         }
     }
 
+    // Pause and wait for waitTime
     private void PauseMovement()
     {
         waitTimer = waitTimes[wtIndex];
@@ -188,5 +198,18 @@ public class FlightPattern : MonoBehaviour
         }
 
         return charWaypoints;
+    }
+
+    public Transform GetFirstWaypoint() {
+        var index = 0;
+        foreach (Transform child in pathPrefab.transform)
+        {
+            if (index == 0)
+                startPos = child;
+            index++;
+            return startPos;
+        }
+
+        return startPos;
     }
 }

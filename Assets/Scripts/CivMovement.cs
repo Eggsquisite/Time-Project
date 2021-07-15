@@ -13,6 +13,7 @@ public class CivMovement : MonoBehaviour
     private float waitModifier = 1f;
     private float maxTimeAlt, maxGravAlt, baseGrav, baseMoveSpeed, newGrav, restoreMult;
     private bool timeAlt, gravAlt, restoreTime;
+    private bool observeMode = true;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +29,7 @@ public class CivMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (waitModifier > 0)
+        if (waitModifier > 0 && !observeMode)
             t.position = new Vector2(t.position.x + moveSpeed * Time.deltaTime * waitModifier, t.position.y);
 
         if (timeAlt)
@@ -40,6 +41,10 @@ public class CivMovement : MonoBehaviour
             GravWait();
         //else if (restoreGrav)
             //RestoreGrav();
+    }
+
+    public void ObserveFinished() {
+        observeMode = false;
     }
 
 

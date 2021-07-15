@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class IntroText : MonoBehaviour
 {
+    [SerializeField] GameObject portalUI = null;
+    [SerializeField] GameObject observeText = null;
     [SerializeField] GameObject civs = null;
     [SerializeField] List<GameObject> enemies = null;
 
@@ -13,6 +15,8 @@ public class IntroText : MonoBehaviour
     void Start()
     {
         civs.SetActive(false);
+        portalUI.SetActive(false);
+        observeText.SetActive(false);
         foreach(GameObject enemy in enemies) { 
             enemy.SetActive(false);
         }
@@ -65,6 +69,7 @@ public class IntroText : MonoBehaviour
         else if (oscar)
             PlayerPrefs.SetInt("oscarText", 1);
 
+        observeText.SetActive(true);
         if (!civs.activeSelf && civs != null && enemies != null)
         {
             civs.SetActive(true);

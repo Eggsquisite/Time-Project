@@ -12,7 +12,7 @@ public class Civvie : MonoBehaviour
 
     [Header("Civvie Stats")]
     [SerializeField] int health = 1;
-    [SerializeField] float maxTime = 2f;
+    [SerializeField] float maxHurtTime = 2f;
     [SerializeField] float timeInterval = 0.1f;
 
     private CivManager civManager;
@@ -27,7 +27,7 @@ public class Civvie : MonoBehaviour
         t = Camera.main.transform;
         audioSource = Camera.main.GetComponent<AudioSource>();
         civManager = FindObjectOfType<CivManager>();
-        baseMaxTime = maxTime;
+        baseMaxTime = maxHurtTime;
         baseTimeInterval = timeInterval;
     }
 
@@ -40,12 +40,12 @@ public class Civvie : MonoBehaviour
 
     private void Endurance()
     {
-        //var tmpMaxTime = maxTime;
+        //var tmpMaxTime = maxHurtTime;
         //var tmpTimeInterval = timeInterval;
 
-        if (maxTime > 0)
+        if (maxHurtTime > 0)
         {
-            maxTime -= Time.deltaTime;
+            maxHurtTime -= Time.deltaTime;
 
             if (timeInterval > 0)
             {
@@ -57,13 +57,13 @@ public class Civvie : MonoBehaviour
                 timeInterval = baseTimeInterval;
             }
         }
-        else if (maxTime <= 0)
+        else if (maxHurtTime <= 0)
         {
             coll.enabled = true;
             sprite.enabled = true;
             enduring = false;
 
-            maxTime = baseMaxTime;
+            maxHurtTime = baseMaxTime;
             timeInterval = baseTimeInterval;
         }
     }
