@@ -25,7 +25,7 @@ public class Portrait : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.A) ||
+/*        if (Input.GetKeyDown(KeyCode.A) ||
             Input.GetKeyDown(KeyCode.LeftArrow) ||
             Input.GetKeyDown(KeyCode.D) ||
             Input.GetKeyDown(KeyCode.RightArrow))
@@ -42,7 +42,7 @@ public class Portrait : MonoBehaviour
                 Vector3 smoothedPosition = Vector3.Lerp(t.position, desiredPosition, moveSpeed * Time.deltaTime);
                 t.position = smoothedPosition;
             }
-        }
+        }*/
     }
 
     public void FollowTarget()

@@ -23,12 +23,6 @@ public class GameManager : MonoBehaviour
         observeMode = true;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void SetObserveMode(bool flag) {
         observeMode = flag;
 
