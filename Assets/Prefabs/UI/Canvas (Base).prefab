@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 867188603}
   - component: {fileID: 867188602}
   m_Layer: 5
-  m_Name: SlowDown Button
+  m_Name: SlowDown Chevrons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 2125130027}
   - component: {fileID: 2125130026}
   m_Layer: 5
-  m_Name: SpeedUpText (1)
+  m_Name: SpeedUp Chevrons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -727,8 +727,11 @@ MonoBehaviour:
   pauseMovement: 0.02
   moveMultiplier: 2
   constantMovement: 0
-  speedUpButton: {fileID: 7565678885187833844}
-  normalSpeedButton: {fileID: 7565678885710438716}
+  timeMultiplier: 0.25
+  speedUpButton: {fileID: 7565678886279037866}
+  speedChevrons: {fileID: 2125130027}
+  slowDownButton: {fileID: 7565678885899234313}
+  slowChevrons: {fileID: 867188603}
   pauseButton: {fileID: 7565678886904746489}
   unpauseButton: {fileID: 7565678886749776242}
 --- !u!114 &7565678885598149840
@@ -1426,7 +1429,7 @@ GameObject:
   - component: {fileID: 7565678885187833848}
   - component: {fileID: 7565678885187833851}
   m_Layer: 5
-  m_Name: SpeedUp Button
+  m_Name: SpeedUp UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1866,7 +1869,7 @@ GameObject:
   - component: {fileID: 7565678885710438659}
   - component: {fileID: 7565678885710438658}
   m_Layer: 5
-  m_Name: SlowDown Button
+  m_Name: SlowDown UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2197,7 +2200,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7565678886057842445}
         m_TargetAssemblyTypeName: CamMovement, Assembly-CSharp
-        m_MethodName: NormalSpeed
+        m_MethodName: SlowSpeed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2336,7 +2339,7 @@ GameObject:
   - component: {fileID: 7565678886279037867}
   - component: {fileID: 7565678886279037866}
   m_Layer: 5
-  m_Name: SpeedUpText
+  m_Name: SpeedUp Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2849,7 +2852,7 @@ GameObject:
   - component: {fileID: 7565678886749776241}
   - component: {fileID: 7565678886749776240}
   m_Layer: 5
-  m_Name: Resume Button
+  m_Name: Resume UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3136,7 +3139,7 @@ GameObject:
   - component: {fileID: 7565678886904746493}
   - component: {fileID: 7565678886904746492}
   m_Layer: 5
-  m_Name: Pause Button
+  m_Name: Pause UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3483,7 +3486,7 @@ GameObject:
   - component: {fileID: 7565678887156284310}
   - component: {fileID: 7565678887156284305}
   m_Layer: 5
-  m_Name: PauseButton
+  m_Name: Pause Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
