@@ -86,6 +86,19 @@ public class CamMovement : MonoBehaviour
             Time.timeScale = 1 + (speedIndex * timeMultiplier);
     }
 
+    public void ResetTime() {
+        speedIndex = 0;
+        UpdateChevrons();
+        Time.timeScale = 1f;
+
+        speedUpButton.interactable = true;
+        slowDownButton.interactable = true;
+        if (!paused) {
+            pauseButton.SetActive(true);
+            unpauseButton.SetActive(false);
+        }
+    }
+
     public void Pausing()
     {
         paused = true;

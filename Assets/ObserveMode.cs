@@ -6,6 +6,7 @@ public class ObserveMode : MonoBehaviour
 {
     [SerializeField] GameObject portalButtons;
     [SerializeField] GameObject observeUI;
+    [SerializeField] private CamMovement cam;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,7 @@ public class ObserveMode : MonoBehaviour
 
     public void FinishObserveMode() {
         // called when player finishes observe mode
+        cam.ResetTime();
         GameManager.instance.SetObserveMode(false);
         if (portalButtons != null) portalButtons.SetActive(true);
         if (observeUI != null) observeUI.SetActive(false);

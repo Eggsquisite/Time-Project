@@ -4036,6 +4036,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7967440798428245715, guid: bf488089fb8ab304eb9087022d40f4d8,
         type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 7565678886057842445}
+    - target: {fileID: 7967440798428245715, guid: bf488089fb8ab304eb9087022d40f4d8,
+        type: 3}
       propertyPath: portalButtons
       value: 
       objectReference: {fileID: 7565678886869374733}
