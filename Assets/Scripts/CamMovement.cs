@@ -12,6 +12,7 @@ public class CamMovement : MonoBehaviour
     [SerializeField] bool constantMovement = false;
 
     [Header("UI Buttons")]
+    [SerializeField] bool isStartMenu;
     [SerializeField] float timeMultiplier;
     [SerializeField] Button speedUpButton;
     [SerializeField] Text speedChevrons;
@@ -30,7 +31,8 @@ public class CamMovement : MonoBehaviour
         t = Camera.main.transform;
         Cursor.lockState = CursorLockMode.Confined;
         moveMultiplier = 3f;
-        UpdateChevrons();
+        if (!isStartMenu)
+            UpdateChevrons();
     }
 
     private void Update()
