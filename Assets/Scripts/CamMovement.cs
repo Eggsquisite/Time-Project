@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CamMovement : MonoBehaviour
 {
@@ -10,7 +11,17 @@ public class CamMovement : MonoBehaviour
     [SerializeField] float moveMultiplier = 2f;
     [SerializeField] bool constantMovement = false;
 
+    [Header("UI Buttons")]
+    [SerializeField] float timeMultiplier;
+    [SerializeField] Button speedUpButton;
+    [SerializeField] Text speedChevrons;
+    [SerializeField] Button slowDownButton;
+    [SerializeField] Text slowChevrons;
+    [SerializeField] GameObject pauseButton;
+    [SerializeField] GameObject unpauseButton;
+
     private Transform t;
+    private int speedIndex;
     private bool paused, speeding;
 
     // Start is called before the first frame update
@@ -19,6 +30,7 @@ public class CamMovement : MonoBehaviour
         t = Camera.main.transform;
         Cursor.lockState = CursorLockMode.Confined;
         moveMultiplier = 3f;
+        UpdateChevrons();
     }
 
     private void Update()
@@ -26,7 +38,7 @@ public class CamMovement : MonoBehaviour
         if (Time.timeScale > 0)
             paused = false;
 
-        if (Input.GetKeyDown(KeyCode.Space) && !pauseMenu.activeSelf && !paused)
+/*        if (Input.GetKeyDown(KeyCode.Space) && !pauseMenu.activeSelf && !paused)
             Pausing();
         else if (Input.GetKeyDown(KeyCode.Space) && !pauseMenu.activeSelf && paused)
             Unpausing();
@@ -34,37 +46,97 @@ public class CamMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) && !speeding)
             SpeedUp();
         else if (Input.GetKeyUp(KeyCode.LeftShift) && speeding)
-            NormalSpeed();
-            
+            NormalSpeed();*/
     }
 
-    private void SpeedUp()
+    public void SpeedUp()
     {
-        speeding = true;
-        moveSpeed *= moveMultiplier;
+        // called during speedUp button event
+        //speeding = true;
+        if (speedIndex < 3)
+        {
+            speedIndex++;
+            slowDownButton.interactable = true;
 
-        // For testing purposes
-        Time.timeScale = moveMultiplier;
+            UpdateChevrons();
+            if (speedIndex >= 3)
+                speedUpButton.interactable = false;
+        }
+
+        //moveSpeed *= moveMultiplier;
+        moveSpeed = 1 + (speedIndex * timeMultiplier);
+        if (!paused) 
+            Time.timeScale = 1 + (speedIndex * timeMultiplier);
     }
 
-    private void NormalSpeed()
+    public void SlowSpeed()
     {
-        speeding = false;
-        moveSpeed /= moveMultiplier;
+        //speeding = false;
+        if (speedIndex > -3) {
+            speedIndex--;
+            speedUpButton.interactable = true;
 
-        Time.timeScale = 1f;
+            UpdateChevrons();
+            if (speedIndex <= -3)
+                slowDownButton.interactable = false;
+        }
+
+        moveSpeed = 1 + (speedIndex * timeMultiplier);
+        if (!paused) 
+            Time.timeScale = 1 + (speedIndex * timeMultiplier);
     }
 
-    private void Pausing()
+    public void Pausing()
     {
         paused = true;
         Time.timeScale = 0;
+        pauseButton.SetActive(false);
+        unpauseButton.SetActive(true);
     }
 
-    private void Unpausing()
+    public void Unpausing()
     {
         paused = false;
-        Time.timeScale = 1;
+        Time.timeScale = 1 + (speedIndex * timeMultiplier);
+        pauseButton.SetActive(true);
+        unpauseButton.SetActive(false);
+    }
+
+    private void UpdateChevrons() {
+        if (speedIndex == -3)
+        {
+            speedChevrons.text = "";
+            slowChevrons.text = "<<<";
+        }
+        else if (speedIndex == -2)
+        {
+            speedChevrons.text = "";
+            slowChevrons.text = "<<";
+        }
+        else if (speedIndex == -1)
+        {
+            speedChevrons.text = "";
+            slowChevrons.text = "<";
+        }
+        else if (speedIndex == 0) {
+            speedChevrons.text = "";
+            slowChevrons.text = "";
+        }
+        else if (speedIndex == 1)
+        {
+            speedChevrons.text = ">";
+            slowChevrons.text = "";
+        }
+        else if (speedIndex == 2)
+        {
+            speedChevrons.text = ">>";
+            slowChevrons.text = "";
+        }
+        else if (speedIndex == 3)
+        {
+            speedChevrons.text = ">>>";
+            slowChevrons.text = "";
+        }
     }
 
     // Update is called once per frame
