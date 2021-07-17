@@ -13,7 +13,8 @@ public class CamMovement : MonoBehaviour
 
     [Header("UI Buttons")]
     [SerializeField] bool isStartMenu;
-    [SerializeField] float timeMultiplier;
+    [SerializeField] float speedTimeMultiplier;
+    [SerializeField] float slowTimeMultiplier;
     [SerializeField] Button speedUpButton;
     [SerializeField] Text speedChevrons;
     [SerializeField] Button slowDownButton;
@@ -23,6 +24,7 @@ public class CamMovement : MonoBehaviour
 
     private Transform t;
     private int speedIndex;
+    private float baseMoveSpeed;
     private bool paused, speeding;
 
     // Start is called before the first frame update
@@ -31,6 +33,7 @@ public class CamMovement : MonoBehaviour
         t = Camera.main.transform;
         Cursor.lockState = CursorLockMode.Confined;
         moveMultiplier = 3f;
+        baseMoveSpeed = moveSpeed;
         if (!isStartMenu)
             UpdateChevrons();
     }
@@ -66,9 +69,20 @@ public class CamMovement : MonoBehaviour
         }
 
         //moveSpeed *= moveMultiplier;
-        moveSpeed = 1 + (speedIndex * timeMultiplier);
-        if (!paused) 
-            Time.timeScale = 1 + (speedIndex * timeMultiplier);
+        if (speedIndex > 0) { 
+            moveSpeed = 1 + (speedIndex * speedTimeMultiplier);
+            if (!paused)
+                Time.timeScale = 1 + (speedIndex * speedTimeMultiplier);
+        }
+        else if (speedIndex < 0) {
+            moveSpeed = 1 + (speedIndex * slowTimeMultiplier);
+            if (!paused) 
+                Time.timeScale = 1 + (speedIndex * slowTimeMultiplier);
+        } else if (speedIndex == 0) {
+            moveSpeed = baseMoveSpeed;
+            if (!paused)
+                Time.timeScale = 1f;
+        }
     }
 
     public void SlowSpeed()
@@ -83,9 +97,21 @@ public class CamMovement : MonoBehaviour
                 slowDownButton.interactable = false;
         }
 
-        moveSpeed = 1 + (speedIndex * timeMultiplier);
-        if (!paused) 
-            Time.timeScale = 1 + (speedIndex * timeMultiplier);
+        if (speedIndex > 0) { 
+            moveSpeed = 1 + (speedIndex * speedTimeMultiplier);
+            if (!paused)
+                Time.timeScale = 1 + (speedIndex * speedTimeMultiplier);
+        }
+        else if (speedIndex < 0) {
+            moveSpeed = 1 + (speedIndex * slowTimeMultiplier);
+            if (!paused) 
+                Time.timeScale = 1 + (speedIndex * slowTimeMultiplier);
+        } else if (speedIndex == 0)
+        {
+            moveSpeed = baseMoveSpeed;
+            if (!paused) 
+                Time.timeScale = 1f;
+        }
     }
 
     public void ResetTime() {
@@ -112,7 +138,17 @@ public class CamMovement : MonoBehaviour
     public void Unpausing()
     {
         paused = false;
-        Time.timeScale = 1 + (speedIndex * timeMultiplier);
+        if (speedIndex > 0)
+        {
+            Time.timeScale = 1 + (speedIndex * speedTimeMultiplier);
+        }
+        else if (speedIndex < 0)
+        {
+            Time.timeScale = 1 + (speedIndex * slowTimeMultiplier);
+        }
+        else if (speedIndex == 0)
+            Time.timeScale = 1f;
+
         pauseButton.SetActive(true);
         unpauseButton.SetActive(false);
     }

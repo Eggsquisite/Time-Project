@@ -727,7 +727,9 @@ MonoBehaviour:
   pauseMovement: 0.02
   moveMultiplier: 2
   constantMovement: 0
-  timeMultiplier: 0.25
+  isStartMenu: 0
+  speedTimeMultiplier: 0.5
+  slowTimeMultiplier: 0.25
   speedUpButton: {fileID: 7565678886279037866}
   speedChevrons: {fileID: 2125130027}
   slowDownButton: {fileID: 7565678885899234313}
