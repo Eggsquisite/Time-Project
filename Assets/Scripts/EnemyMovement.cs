@@ -20,6 +20,11 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] float waitTime = 1f;
     [SerializeField] float attackTime = 1f;
     [SerializeField] bool right;
+    [SerializeField] bool isCarried;
+
+    [Header("Carried Gobby Properties")]
+    [SerializeField] private Transform gobbyParent;
+    [SerializeField] Vector2 offset;
 
     private Vector2 startPosition;
 
@@ -34,7 +39,7 @@ public class EnemyMovement : MonoBehaviour
     private Rigidbody2D rb;
     private float waitModifier = 1f;
     private bool timeAlt, gravAlt, restoreTime, moving, attack, death, baseRight;
-    private bool skelly, gobby, wait;
+    private bool skelly, gobby, wait, dropped;
     private bool skree, flying;
     private float baseWaitTime, baseWalkTime, baseAttackTime, baseRezTime, baseGrav; 
     private float maxTimeAlt, maxGravAlt, newGrav, restoreMult;
@@ -52,7 +57,7 @@ public class EnemyMovement : MonoBehaviour
         if (name.Contains("Skree"))
         {
             skree = true;
-            fp = this.GetComponent<FlightPattern>();
+            fp = GetComponent<FlightPattern>();
             startPosition = fp.GetFirstWaypoint().position;
         }
         else if (name.Contains("Skelly"))
@@ -76,11 +81,11 @@ public class EnemyMovement : MonoBehaviour
                 fp.Fly();
                 flying = true;
             }
-            else if (moving && !wait && !attack && !flying)
+            else if (moving && !wait && !attack && !flying && ((isCarried && dropped) || (!isCarried && !dropped)))
                 Movement();
-            else if (!moving && wait && !flying)
+            else if (!moving && wait && !flying && ((isCarried && dropped) || (!isCarried && !dropped)))
                 Waiting();
-            else if (attack && !wait)
+            else if (attack && !wait && ((isCarried && dropped) || (!isCarried && !dropped)))
             {
                 // attack countdownTime
                 if (attackTime > 0)
@@ -126,6 +131,27 @@ public class EnemyMovement : MonoBehaviour
     }
 
     private void ResetVariables() {
+        // Case for a carried gobby
+        if (isCarried && dropped) {
+            if (gobbyParent != null)
+                transform.parent = gobbyParent;
+
+            transform.position = (Vector2)gobbyParent.position + offset;
+            dropped = false;
+            //isCarried = true;
+            coll.enabled = false;
+            rb.gravityScale = 0f;
+            if (!right)
+                transform.rotation = new Quaternion(0, 0, 0, 0);
+            else
+                transform.rotation = new Quaternion(0, 180, 0, 0);
+        }
+
+        death = false;
+        coll.enabled = true;
+        SetAttackTrigger(0);
+
+        rezTime = baseRezTime;
         waitTime = baseWaitTime;
         walkTime = baseWalkTime;
         attackTime = baseAttackTime;
@@ -137,13 +163,25 @@ public class EnemyMovement : MonoBehaviour
         if (waitTime > 0)
             wait = true;
         moving = false;
+        dropped = false;
+        anim.SetTrigger("restart");
+        anim.SetBool("dead", false);
         anim.SetBool("moving", false);
+    }
+
+    public void IsDropped() {
+        dropped = true;
+    }
+
+    public void SetIsCarred(bool flag) {
+        isCarried = flag;
     }
 
     public void ObserveFinished()
     {
         ResetVariables();
-        transform.position = startPosition;
+        if (!isCarried)
+            transform.position = startPosition;
         if (name.Contains("Skree"))
             fp.ResetToStart();
     }
@@ -315,6 +353,7 @@ public class EnemyMovement : MonoBehaviour
     {
         death = true;
         coll.enabled = false;
+        anim.SetBool("dead", true);
     }
 
     private void Rez()

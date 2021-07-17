@@ -92,7 +92,9 @@ public class FlightPattern : MonoBehaviour
         {
             carry.GetComponent<Rigidbody2D>().gravityScale = 2f;
             carry.GetComponent<Collider2D>().enabled = true;
-            carry.GetComponent<EnemyMovement>().enabled = true;
+            //carry.GetComponent<EnemyMovement>().enabled = true;
+            carry.GetComponent<EnemyMovement>().IsDropped();
+            //carry.GetComponent<EnemyMovement>().SetIsCarred(false);
             carry.transform.parent = null;
         }
     }

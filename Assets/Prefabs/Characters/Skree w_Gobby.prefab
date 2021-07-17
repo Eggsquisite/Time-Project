@@ -205,7 +205,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5522041935038274900}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.21999931, y: -0.7600002, z: 0}
+  m_LocalPosition: {x: 0.22, y: -0.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5190965139163758340}
@@ -224,9 +224,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -326,7 +329,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5522041935038274900}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 173b47ff85c399c45b8e2da9adc3edb5, type: 3}
   m_Name: 
@@ -341,6 +344,9 @@ MonoBehaviour:
   waitTime: 1
   attackTime: 1
   right: 0
+  isCarried: 1
+  gobbyParent: {fileID: 6984742387401181452}
+  offset: {x: 0.22, y: -0.75}
   rezTime: 5
   fp: {fileID: 0}
 --- !u!1 &6984742387401181440
@@ -393,9 +399,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -510,6 +519,9 @@ MonoBehaviour:
   waitTime: 0
   attackTime: 2
   right: 0
+  isCarried: 0
+  gobbyParent: {fileID: 0}
+  offset: {x: 0, y: 0}
   rezTime: 2
   fp: {fileID: 1987286175220003377}
 --- !u!114 &1987286175220003377
