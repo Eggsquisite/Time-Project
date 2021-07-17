@@ -33,7 +33,7 @@ public class EnemyMovement : MonoBehaviour
     private AudioSource audioSource;
     private Rigidbody2D rb;
     private float waitModifier = 1f;
-    private bool timeAlt, gravAlt, restoreTime, moving, attack, death;
+    private bool timeAlt, gravAlt, restoreTime, moving, attack, death, baseRight;
     private bool skelly, gobby;
     private bool skree, flying;
     private float baseWaitTime, baseWalkTime, baseAttackTime, baseRezTime, baseGrav; 
@@ -115,6 +115,7 @@ public class EnemyMovement : MonoBehaviour
         baseWalkTime = walkTime;
         baseAttackTime = attackTime;
         baseRezTime = rezTime;
+        baseRight = right;
         if (rb != null)
             baseGrav = rb.gravityScale;
     }
@@ -124,8 +125,12 @@ public class EnemyMovement : MonoBehaviour
         walkTime = baseWalkTime;
         attackTime = baseAttackTime;
         rezTime = baseRezTime;
+        right = baseRight;
         if (rb != null)
             baseGrav = rb.gravityScale;
+
+        moving = false;
+        anim.SetBool("moving", false);
     }
 
     public void ObserveFinished()

@@ -56,6 +56,8 @@ public class ButtonManager : MonoBehaviour
     }
 
     public void PortalsUsedUp() { 
+        if (helpText != null)
+            helpText.text = "";
         foreach(Button button in portals)
         {
             button.interactable = false;
