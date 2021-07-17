@@ -38,10 +38,10 @@ public class EnemyMovement : MonoBehaviour
     private AudioSource audioSource;
     private Rigidbody2D rb;
     private float waitModifier = 1f;
-    private bool timeAlt, gravAlt, restoreTime, moving, attack, death, baseRight;
+    private bool timeAlt, gravAlt, restoreTime, moving, attack, death, baseRight, restoreGrav;
     private bool skelly, gobby, wait, dropped;
     private bool skree, flying;
-    private float baseWaitTime, baseWalkTime, baseAttackTime, baseRezTime, baseGrav; 
+    private float baseWaitTime, baseWalkTime, baseAttackTime, baseRezTime, baseGrav;
     private float maxTimeAlt, maxGravAlt, newGrav, restoreMult;
 
     // Start is called before the first frame update
@@ -67,6 +67,10 @@ public class EnemyMovement : MonoBehaviour
         }
         else if (name.Contains("Gobby")) {
             gobby = true;
+            if (isCarried) { 
+                rb.gravityScale = 0f;
+                baseGrav = 2f;
+            }
             startPosition = transform.position;
         }
     }
@@ -131,22 +135,6 @@ public class EnemyMovement : MonoBehaviour
     }
 
     private void ResetVariables() {
-        // Case for a carried gobby
-        if (isCarried && dropped) {
-            if (gobbyParent != null)
-                transform.parent = gobbyParent;
-
-            transform.position = (Vector2)gobbyParent.position + offset;
-            dropped = false;
-            //isCarried = true;
-            coll.enabled = false;
-            rb.gravityScale = 0f;
-            if (!right)
-                transform.rotation = new Quaternion(0, 0, 0, 0);
-            else
-                transform.rotation = new Quaternion(0, 180, 0, 0);
-        }
-
         death = false;
         coll.enabled = true;
         SetAttackTrigger(0);
@@ -164,9 +152,37 @@ public class EnemyMovement : MonoBehaviour
             wait = true;
         moving = false;
         dropped = false;
+        anim.ResetTrigger("hit");
         anim.SetTrigger("restart");
         anim.SetBool("dead", false);
         anim.SetBool("moving", false);
+
+        // Case for a carried gobby
+        if (isCarried && dropped)
+        {
+            if (gobbyParent != null)
+                transform.parent = gobbyParent;
+
+            transform.position = (Vector2)gobbyParent.position + offset;
+            dropped = false;
+            //isCarried = true;
+            coll.enabled = false;
+            rb.gravityScale = 0f;
+            baseGrav = 2f;
+            if (!right)
+                transform.rotation = new Quaternion(0, 0, 0, 0);
+            else
+                transform.rotation = new Quaternion(0, 180, 0, 0);
+        } else if (isCarried && !dropped)
+        {
+            if (gobbyParent != null)
+                transform.parent = gobbyParent;
+
+            transform.position = (Vector2)gobbyParent.position + offset;
+            coll.enabled = false;
+            rb.gravityScale = 0f;
+            baseGrav = 2f;
+        }
     }
 
     public void IsDropped() {
@@ -200,6 +216,7 @@ public class EnemyMovement : MonoBehaviour
             transform.position = new Vector2(transform.position.x - moveSpeed * Time.deltaTime * waitModifier, transform.position.y);
         }
 
+        anim.ResetTrigger("restart");
         if (walkTime > 0)
             walkTime -= Time.deltaTime * waitModifier;
         else if (walkTime <= 0)
@@ -281,6 +298,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void GravWait()
     {
+        Debug.Log(baseGrav + ": of " + name);
         if (maxGravAlt > 0 && timeAlt)
         {
             maxGravAlt -= Time.deltaTime;
@@ -359,10 +377,12 @@ public class EnemyMovement : MonoBehaviour
 
     private void Rez()
     {
+        // Called during resurrect anim event
         death = false;
         coll.enabled = true;
         rezTime = baseRezTime;
         anim.SetBool("rez", false);
+        anim.SetBool("dead", false);
     }
 
     private void SkreeDeath()
