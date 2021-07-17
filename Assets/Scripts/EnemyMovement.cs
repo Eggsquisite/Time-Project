@@ -353,15 +353,6 @@ public class EnemyMovement : MonoBehaviour
         maxGravAlt = gravLength;
     }
 
-
-    public void SetAttackTrigger(float status)
-    {
-        if (status == 1)
-            attackTrig.enabled = true;
-        else 
-            attackTrig.enabled = false;
-    }
-
     public void Dead()
     {
         death = true;
@@ -398,6 +389,21 @@ public class EnemyMovement : MonoBehaviour
     public bool GetGobby()
     {
         return gobby;
+    }
+
+    public void SetAttackTrigger(float status)
+    {
+        if (status == 1)
+            attackTrig.enabled = true;
+        else
+        {
+            attackTrig.enabled = false;
+            if (skree)
+            {
+                attack = false;
+                flying = false;
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
