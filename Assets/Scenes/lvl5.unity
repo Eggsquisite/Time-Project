@@ -1195,7 +1195,7 @@ MonoBehaviour:
   deathSound: {fileID: 8300000, guid: 7fbcba2f45f6ef74ab071ee1ae733031, type: 3}
   feet: {fileID: 488239090}
   moveSpeed: 3
-  walkTime: 5.5
+  walkTime: 5
   waitTime: 1
   attackTime: 1
   right: 1

@@ -34,7 +34,7 @@ public class EnemyMovement : MonoBehaviour
     private Rigidbody2D rb;
     private float waitModifier = 1f;
     private bool timeAlt, gravAlt, restoreTime, moving, attack, death, baseRight;
-    private bool skelly, gobby;
+    private bool skelly, gobby, wait;
     private bool skree, flying;
     private float baseWaitTime, baseWalkTime, baseAttackTime, baseRezTime, baseGrav; 
     private float maxTimeAlt, maxGravAlt, newGrav, restoreMult;
@@ -76,18 +76,20 @@ public class EnemyMovement : MonoBehaviour
                 fp.Fly();
                 flying = true;
             }
-            else if (moving && !attack && !flying)
+            else if (moving && !wait && !attack && !flying)
                 Movement();
-            else if (!moving && !attack && !flying)
+            else if (!moving && wait && !flying)
                 Waiting();
-            else if (attack)
+            else if (attack && !wait)
             {
+                // attack countdownTime
                 if (attackTime > 0)
                     attackTime -= Time.deltaTime;
                 else if (attackTime <= 0)
                 {
                     attackTime = baseAttackTime;
-                    attack = false;
+                    //attack = false;
+                    wait = true;
                 }
             }
 
@@ -118,6 +120,9 @@ public class EnemyMovement : MonoBehaviour
         baseRight = right;
         if (rb != null)
             baseGrav = rb.gravityScale;
+
+        if (waitTime > 0)
+            wait = true;
     }
 
     private void ResetVariables() {
@@ -129,6 +134,8 @@ public class EnemyMovement : MonoBehaviour
         if (rb != null)
             baseGrav = rb.gravityScale;
 
+        if (waitTime > 0)
+            wait = true;
         moving = false;
         anim.SetBool("moving", false);
     }
@@ -160,6 +167,7 @@ public class EnemyMovement : MonoBehaviour
         {
             walkTime = baseWalkTime;
             anim.SetBool("moving", false);
+            wait = true;
             moving = false;
         }
     }
@@ -174,11 +182,15 @@ public class EnemyMovement : MonoBehaviour
                 waitTime = 0;
             else
             {
-                right = !right;
+                if (!attack) 
+                    right = !right;
+
                 waitTime = baseWaitTime;
             }
 
             moving = true;
+            wait = false;
+            attack = false;
             anim.SetBool("moving", true);
         }
     }
@@ -343,7 +355,7 @@ public class EnemyMovement : MonoBehaviour
             if (skree)
                 fp.Attacking(attack, baseAttackTime);
 
-            walkTime = baseWalkTime;
+            //walkTime = baseWalkTime;
             anim.SetTrigger("attack");
             anim.SetBool("moving", false);
         }
@@ -352,7 +364,7 @@ public class EnemyMovement : MonoBehaviour
             attack = true;
             moving = false;
 
-            walkTime = baseWalkTime;
+            //walkTime = baseWalkTime;
             anim.SetTrigger("attack");
             anim.SetBool("moving", false);
         }
