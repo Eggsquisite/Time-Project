@@ -53,10 +53,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9048009726884518646}
     m_Modifications:
-    - target: {fileID: 395048694757751352, guid: c0a9dbcefce795f488314d3e3cc2a444,
+    - target: {fileID: 1624655712, guid: c0a9dbcefce795f488314d3e3cc2a444, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624655712, guid: c0a9dbcefce795f488314d3e3cc2a444, type: 3}
+      propertyPath: m_ApplyToSortingLayers.Array.data[1]
+      value: 974705335
+      objectReference: {fileID: 0}
+    - target: {fileID: 395048694757751302, guid: c0a9dbcefce795f488314d3e3cc2a444,
         type: 3}
-      propertyPath: m_Name
-      value: Jack
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 395048694757751302, guid: c0a9dbcefce795f488314d3e3cc2a444,
         type: 3}
@@ -75,6 +83,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 395048694757751302, guid: c0a9dbcefce795f488314d3e3cc2a444,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 395048694757751302, guid: c0a9dbcefce795f488314d3e3cc2a444,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
@@ -87,16 +100,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 395048694757751302, guid: c0a9dbcefce795f488314d3e3cc2a444,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 395048694757751302, guid: c0a9dbcefce795f488314d3e3cc2a444,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 395048694757751302, guid: c0a9dbcefce795f488314d3e3cc2a444,
         type: 3}
@@ -113,16 +116,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8544468208846700561, guid: c0a9dbcefce795f488314d3e3cc2a444,
+    - target: {fileID: 395048694757751352, guid: c0a9dbcefce795f488314d3e3cc2a444,
         type: 3}
-      propertyPath: feet
-      value: 
-      objectReference: {fileID: 1701840090476226302}
-    - target: {fileID: 8417035351448982511, guid: c0a9dbcefce795f488314d3e3cc2a444,
+      propertyPath: m_Name
+      value: Jack
+      objectReference: {fileID: 0}
+    - target: {fileID: 7395030010433656645, guid: c0a9dbcefce795f488314d3e3cc2a444,
         type: 3}
-      propertyPath: anim
-      value: 
-      objectReference: {fileID: 6983170309038956212}
+      propertyPath: m_Radius
+      value: 0.36108017
+      objectReference: {fileID: 0}
     - target: {fileID: 7395030010433656645, guid: c0a9dbcefce795f488314d3e3cc2a444,
         type: 3}
       propertyPath: m_Offset.x
@@ -133,11 +136,16 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -1.322442
       objectReference: {fileID: 0}
-    - target: {fileID: 7395030010433656645, guid: c0a9dbcefce795f488314d3e3cc2a444,
+    - target: {fileID: 8417035351448982511, guid: c0a9dbcefce795f488314d3e3cc2a444,
         type: 3}
-      propertyPath: m_Radius
-      value: 0.36108017
-      objectReference: {fileID: 0}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 6983170309038956212}
+    - target: {fileID: 8544468208846700561, guid: c0a9dbcefce795f488314d3e3cc2a444,
+        type: 3}
+      propertyPath: feet
+      value: 
+      objectReference: {fileID: 1701840090476226302}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0a9dbcefce795f488314d3e3cc2a444, type: 3}
 --- !u!4 &8378160575303027645 stripped
