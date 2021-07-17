@@ -12,7 +12,7 @@ public class CivMovement : MonoBehaviour
     private Rigidbody2D rb;
     private float waitModifier = 1f;
     private float maxTimeAlt, maxGravAlt, baseGrav, baseMoveSpeed, newGrav, restoreMult;
-    private bool timeAlt, gravAlt, restoreTime;
+    private bool timeAlt, gravAlt, restoreTime, stopMovement;
     private bool observeMode = true;
 
     // Start is called before the first frame update
@@ -29,7 +29,7 @@ public class CivMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (waitModifier > 0 && !observeMode)
+        if (waitModifier > 0 && !observeMode && !stopMovement)
             t.position = new Vector2(t.position.x + moveSpeed * Time.deltaTime * waitModifier, t.position.y);
 
         if (timeAlt)
@@ -141,6 +141,21 @@ public class CivMovement : MonoBehaviour
         timeAlt = true;
         maxTimeAlt = timeLength;
         anim.SetFloat("animMultiplier", spdMultiplier);
+    }
+
+    public void StopMovement() {
+        // called for willy
+        stopMovement = true;
+        anim.SetBool("moving", false);
+        anim.SetTrigger("prepareRun");
+    }
+
+    public void ResumeMovement() {
+        // called for willy
+        stopMovement = false;
+        TimePortal(3f, 0.5f, 5f);
+        anim.SetBool("moving", true);
+        anim.ResetTrigger("prepareRun");
     }
 
     public void GravPortal(float grav, float gravLength)

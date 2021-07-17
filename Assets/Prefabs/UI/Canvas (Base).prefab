@@ -1304,9 +1304,9 @@ RectTransform:
   m_Father: {fileID: 7565678886992649393}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -150, y: -250}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 800, y: -250}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7565678885171923877
@@ -2499,9 +2499,9 @@ RectTransform:
   m_Father: {fileID: 7565678886992649393}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -400, y: -250}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 560, y: -250}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7565678886283769877
@@ -2728,9 +2728,9 @@ RectTransform:
   m_Father: {fileID: 7565678886992649393}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 400, y: -250}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -560, y: -250}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7565678886554325941
@@ -4033,7 +4033,7 @@ PrefabInstance:
     - target: {fileID: 6116974943979261126, guid: 71e3649ede28bc04e9cb0633484bc717,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6116974943979261126, guid: 71e3649ede28bc04e9cb0633484bc717,
         type: 3}
@@ -4043,7 +4043,7 @@ PrefabInstance:
     - target: {fileID: 6116974943979261126, guid: 71e3649ede28bc04e9cb0633484bc717,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6116974943979261126, guid: 71e3649ede28bc04e9cb0633484bc717,
         type: 3}
@@ -4098,7 +4098,7 @@ PrefabInstance:
     - target: {fileID: 6116974943979261126, guid: 71e3649ede28bc04e9cb0633484bc717,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 150
+      value: -800
       objectReference: {fileID: 0}
     - target: {fileID: 6116974943979261126, guid: 71e3649ede28bc04e9cb0633484bc717,
         type: 3}

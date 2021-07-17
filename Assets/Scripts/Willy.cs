@@ -5,10 +5,11 @@ using UnityEngine;
 public class Willy : MonoBehaviour
 {
 
-    [SerializeField] GameObject stopPortal = null;
+    //[SerializeField] GameObject stopPortal = null;
     [SerializeField] float stopTime = 2f;
 
     private GameObject tmp;
+    private CivMovement civMovement;
     private Collider2D coll;
     private bool stopStart;
 
@@ -16,6 +17,7 @@ public class Willy : MonoBehaviour
     void Start()
     {
         coll = GetComponent<Collider2D>();
+        civMovement = GetComponent<CivMovement>();
     }
 
     // Update is called once per frame
@@ -29,8 +31,9 @@ public class Willy : MonoBehaviour
             {
                 stopTime = 0;
                 stopStart = false;
-                coll.enabled = true;
-                stopPortal.GetComponent<Animator>().SetBool("close", true);
+                civMovement.ResumeMovement();
+                //coll.enabled = true;
+                //stopPortal.GetComponent<Animator>().SetBool("close", true);
             }
         }
     }
@@ -40,8 +43,7 @@ public class Willy : MonoBehaviour
         if (stopTime > 0)
         {
             stopStart = true;
-            coll.enabled = false;
-            stopPortal.SetActive(true);
+            civMovement.StopMovement();
             //tmp = Instantiate(stopPortal, gameObject.transform);
         }
     }

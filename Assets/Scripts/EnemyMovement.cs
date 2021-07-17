@@ -84,6 +84,8 @@ public class EnemyMovement : MonoBehaviour
             {
                 fp.Fly();
                 flying = true;
+                anim.ResetTrigger("attack");
+                anim.ResetTrigger("restart");
             }
             else if (moving && !wait && !attack && !flying && ((isCarried && dropped) || (!isCarried && !dropped)))
                 Movement();
@@ -152,13 +154,14 @@ public class EnemyMovement : MonoBehaviour
             wait = true;
         moving = false;
         dropped = false;
+        flying = false;
         anim.ResetTrigger("hit");
         anim.SetTrigger("restart");
         anim.SetBool("dead", false);
         anim.SetBool("moving", false);
 
         // Case for a carried gobby
-        if (isCarried && dropped)
+        if (isCarried)
         {
             if (gobbyParent != null)
                 transform.parent = gobbyParent;
@@ -173,16 +176,7 @@ public class EnemyMovement : MonoBehaviour
                 transform.rotation = new Quaternion(0, 0, 0, 0);
             else
                 transform.rotation = new Quaternion(0, 180, 0, 0);
-        } else if (isCarried && !dropped)
-        {
-            if (gobbyParent != null)
-                transform.parent = gobbyParent;
-
-            transform.position = (Vector2)gobbyParent.position + offset;
-            coll.enabled = false;
-            rb.gravityScale = 0f;
-            baseGrav = 2f;
-        }
+        } 
     }
 
     public void IsDropped() {
@@ -364,7 +358,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (status == 1)
             attackTrig.enabled = true;
-        else
+        else 
             attackTrig.enabled = false;
     }
 
@@ -418,6 +412,7 @@ public class EnemyMovement : MonoBehaviour
             //walkTime = baseWalkTime;
             anim.SetTrigger("attack");
             anim.SetBool("moving", false);
+            anim.ResetTrigger("restart");
         }
         else if (collision.tag == "Enemy" && attack == false && gobby && !collision.name.Contains("Skree"))
         {
@@ -427,6 +422,7 @@ public class EnemyMovement : MonoBehaviour
             //walkTime = baseWalkTime;
             anim.SetTrigger("attack");
             anim.SetBool("moving", false);
+            anim.ResetTrigger("restart");
         }
     }
 

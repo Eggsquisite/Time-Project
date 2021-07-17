@@ -7,6 +7,7 @@ public class Destroy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Destroy(collision.gameObject);
-        //collision.GetComponent<Collider2D>().enabled = false;
+        if (collision.tag == "Civilian")
+            collision.GetComponent<Collider2D>().enabled = false;
     }
 }

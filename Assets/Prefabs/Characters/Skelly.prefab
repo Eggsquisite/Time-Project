@@ -228,7 +228,7 @@ Rigidbody2D:
   m_GravityScale: 2
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!70 &700185526
@@ -289,7 +289,6 @@ MonoBehaviour:
   attackTime: 5
   right: 1
   isCarried: 0
-  grav: 2
   gobbyParent: {fileID: 0}
   offset: {x: 0, y: 0}
   rezTime: 6
