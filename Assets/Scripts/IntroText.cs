@@ -31,7 +31,7 @@ public class IntroText : MonoBehaviour
             ed = true;
         else if (gameObject.name.Contains("Rose"))
             rose = true;
-        else if (gameObject.name.Contains("Oscar"))
+        else if (gameObject.name.Contains("Willy"))
             oscar = true;
     }
 
@@ -40,7 +40,7 @@ public class IntroText : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Space))
             Continue();
 
-/*        if (PlayerPrefs.GetInt("portalText") == 1 && portal)
+        if (PlayerPrefs.GetInt("portalText") == 1 && portal)
             Continue();
         else if (PlayerPrefs.GetInt("hiddenText") == 1 && hidden)
             Continue();
@@ -51,7 +51,7 @@ public class IntroText : MonoBehaviour
         else if (PlayerPrefs.GetInt("roseText") == 1 && rose)
             Continue();
         else if (PlayerPrefs.GetInt("oscarText") == 1 && oscar)
-            Continue();*/
+            Continue();
     }
 
     public void Continue()

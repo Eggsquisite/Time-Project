@@ -38,6 +38,13 @@ public class StartMenu : MonoBehaviour
             continueButt.interactable = false;
         else 
             continueButt.interactable = true;
+
+        PlayerPrefs.SetInt("Portal", 0);
+        PlayerPrefs.SetInt("Hidden", 0);
+        PlayerPrefs.SetInt("Gravity", 0);
+        PlayerPrefs.SetInt("Ed", 0);
+        PlayerPrefs.SetInt("Rose", 0);
+        PlayerPrefs.SetInt("Willy", 0);
     }
 
     private void Update()

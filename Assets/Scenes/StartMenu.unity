@@ -464,7 +464,8 @@ MonoBehaviour:
   moveMultiplier: 2
   constantMovement: 1
   isStartMenu: 1
-  timeMultiplier: 0
+  speedTimeMultiplier: 0
+  slowTimeMultiplier: 0
   speedUpButton: {fileID: 0}
   speedChevrons: {fileID: 0}
   slowDownButton: {fileID: 0}
@@ -508,6 +509,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2075332462559537496}
+    - target: {fileID: 1670547848211217208, guid: 1ee210e3fda378f47ad6bf294ff41507,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1670547848243764366, guid: 1ee210e3fda378f47ad6bf294ff41507,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -528,6 +534,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2075332462559537496}
+    - target: {fileID: 1670547848484975125, guid: 1ee210e3fda378f47ad6bf294ff41507,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1670547848509204748, guid: 1ee210e3fda378f47ad6bf294ff41507,
         type: 3}
       propertyPath: startMenu
