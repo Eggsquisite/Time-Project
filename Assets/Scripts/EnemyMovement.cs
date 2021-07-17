@@ -171,6 +171,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void IsDropped() {
         dropped = true;
+        anim.ResetTrigger("restart");
     }
 
     public void SetIsCarred(bool flag) {
