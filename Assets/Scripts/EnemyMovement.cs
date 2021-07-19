@@ -419,6 +419,7 @@ public class EnemyMovement : MonoBehaviour
             anim.SetTrigger("attack");
             anim.SetBool("moving", false);
             anim.ResetTrigger("restart");
+            collision.GetComponent<CivMovement>().IsAttacked();
         }
         else if (collision.tag == "Enemy" && attack == false && gobby && !collision.name.Contains("Skree"))
         {

@@ -13,7 +13,7 @@ public class CivMovement : MonoBehaviour
     private Rigidbody2D rb;
     private float waitModifier = 1f;
     private float maxTimeAlt, maxGravAlt, baseGrav, baseMoveSpeed, newGrav, restoreMult;
-    private bool timeAlt, gravAlt, restoreTime, stopMovement;
+    private bool timeAlt, gravAlt, restoreTime, stopMovement, isBeingAttacked;
     private bool observeMode = true;
 
     // Start is called before the first frame update
@@ -30,7 +30,7 @@ public class CivMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (waitModifier > 0 && !observeMode && !stopMovement && !ghostObserving)
+        if (waitModifier > 0 && !observeMode && !stopMovement && !ghostObserving && !isBeingAttacked)
             t.position = new Vector2(t.position.x + moveSpeed * Time.deltaTime * waitModifier, t.position.y);
         else if (ghostObserving)
             t.position = new Vector2(t.position.x + moveSpeed * Time.deltaTime * waitModifier, t.position.y);
@@ -51,6 +51,10 @@ public class CivMovement : MonoBehaviour
             Destroy(gameObject);
 
         observeMode = false;
+    }
+
+    public void IsAttacked() {
+        isBeingAttacked = true;
     }
 
 
