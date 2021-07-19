@@ -55,10 +55,16 @@ public class CivMovement : MonoBehaviour
 
     public void IsAttacked() {
         isBeingAttacked = true;
+        StartCoroutine(IsAttackTimer());
     }
 
     public void ResetIsAttacked() {
         isBeingAttacked = false;
+    }
+
+    IEnumerator IsAttackTimer() {
+        yield return new WaitForSeconds(0.25f);
+        ResetIsAttacked();
     }
 
 

@@ -34,9 +34,12 @@ public class CivManager : MonoBehaviour
     {
         int tmp = 0;
 
-        foreach (Transform civ in civs.transform)
-            tmp++;
+        foreach (Transform child in transform) { 
+            if (child.GetComponent<Civvie>() != null)
+                tmp++;
+        }
 
+        Debug.Log("Number of civilians needed: " + tmp);
         return tmp;
     }
 }

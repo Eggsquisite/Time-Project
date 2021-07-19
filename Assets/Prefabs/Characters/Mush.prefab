@@ -167,10 +167,9 @@ MonoBehaviour:
   moveSpeed: 0
   walkTime: 0
   waitTime: 3
-  attackTime: 1
+  attackTime: 2
   right: 1
   isCarried: 0
-  grav: 1
   gobbyParent: {fileID: 0}
   offset: {x: 0, y: 0}
   rezTime: 0

@@ -64,7 +64,6 @@ public class Civvie : MonoBehaviour
             coll.enabled = true;
             sprite.enabled = true;
             enduring = false;
-            civMovement.ResetIsAttacked();
 
             maxHurtTime = baseMaxTime;
             timeInterval = baseTimeInterval;
