@@ -247,15 +247,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 897537613575136506, guid: 4acfc2f628375b84ca95da5b28b20eed,
+        type: 3}
+      propertyPath: m_Name
+      value: JackGhost
+      objectReference: {fileID: 0}
     - target: {fileID: 6508577149416079726, guid: 4acfc2f628375b84ca95da5b28b20eed,
         type: 3}
       propertyPath: m_Name
       value: Civilians
       objectReference: {fileID: 0}
-    - target: {fileID: 8378160575303027645, guid: 4acfc2f628375b84ca95da5b28b20eed,
+    - target: {fileID: 8378160575303027644, guid: 4acfc2f628375b84ca95da5b28b20eed,
         type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -29.97
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9048009726884518646, guid: 4acfc2f628375b84ca95da5b28b20eed,
         type: 3}

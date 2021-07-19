@@ -6,6 +6,7 @@ public class CivMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 2f;
     [SerializeField] Collider2D feet = null;
+    [SerializeField] private bool ghostObserving;
 
     private Transform t;
     private Animator anim;
@@ -29,7 +30,9 @@ public class CivMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (waitModifier > 0 && !observeMode && !stopMovement)
+        if (waitModifier > 0 && !observeMode && !stopMovement && !ghostObserving)
+            t.position = new Vector2(t.position.x + moveSpeed * Time.deltaTime * waitModifier, t.position.y);
+        else if (ghostObserving)
             t.position = new Vector2(t.position.x + moveSpeed * Time.deltaTime * waitModifier, t.position.y);
 
         if (timeAlt)
@@ -44,6 +47,9 @@ public class CivMovement : MonoBehaviour
     }
 
     public void ObserveFinished() {
+        if (ghostObserving)
+            Destroy(gameObject);
+
         observeMode = false;
     }
 
