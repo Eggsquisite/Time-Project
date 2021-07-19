@@ -55,7 +55,8 @@ public class CivMovement : MonoBehaviour
 
     public void IsAttacked() {
         isBeingAttacked = true;
-        StartCoroutine(IsAttackTimer());
+        if (gameObject.activeSelf)
+            StartCoroutine(IsAttackTimer());
     }
 
     public void ResetIsAttacked() {

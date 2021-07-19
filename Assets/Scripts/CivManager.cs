@@ -34,8 +34,8 @@ public class CivManager : MonoBehaviour
     {
         int tmp = 0;
 
-        foreach (Transform child in transform) { 
-            if (child.GetComponent<Civvie>() != null)
+        foreach (Transform child in transform) {
+            if (child.GetComponent<Civvie>() != null && child.gameObject.activeSelf == true)
                 tmp++;
         }
 
