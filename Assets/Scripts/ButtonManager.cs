@@ -66,6 +66,7 @@ public class ButtonManager : MonoBehaviour
 
     public void UpdatePortalUses(int newValue) {
         portalCount = newValue;
-        portalCountTxt.text = portalCount.ToString();
+        if (portalCountTxt != null)
+            portalCountTxt.text = portalCount.ToString();
     }
 }

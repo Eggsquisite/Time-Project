@@ -154,6 +154,9 @@ public class CamMovement : MonoBehaviour
     }
 
     private void UpdateChevrons() {
+        if (speedChevrons == null || slowChevrons == null)
+            return;
+
         if (speedIndex == -3)
         {
             speedChevrons.text = "";

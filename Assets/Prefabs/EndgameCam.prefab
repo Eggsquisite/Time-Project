@@ -42,9 +42,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -125,9 +128,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -250,9 +256,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -664,7 +673,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endLevel: 1
   target: {fileID: 7659478211306960260}
-  xMin: -20
+  xMin: -7.5
   xMax: -7.5
   yVal: 4.5
 --- !u!114 &7544973459070080648
@@ -697,6 +706,7 @@ MonoBehaviour:
   music:
   - {fileID: 8300000, guid: f66d2df428ac77644bd7b61bbe89228c, type: 3}
   - {fileID: 8300000, guid: b86faf73ac4f6f14095d1029cb40aa37, type: 3}
+  startMenu: 0
 --- !u!114 &9222721842127935664
 MonoBehaviour:
   m_ObjectHideFlags: 0
