@@ -54,7 +54,8 @@ public class CivMovement : MonoBehaviour
     }
 
     public void IsAttacked() {
-        isBeingAttacked = true;
+        if (!name.Contains("Willy"))
+            isBeingAttacked = true;
         if (gameObject.activeSelf)
             StartCoroutine(IsAttackTimer());
     }
@@ -174,7 +175,7 @@ public class CivMovement : MonoBehaviour
     public void ResumeMovement() {
         // called for willy
         stopMovement = false;
-        TimePortal(3f, 0.5f, 5f);
+        TimePortal(5f, 0.25f, 7.5f);
         anim.SetBool("moving", true);
         anim.ResetTrigger("prepareRun");
     }

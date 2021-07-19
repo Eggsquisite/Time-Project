@@ -1976,14 +1976,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2102326412, guid: ac7a5fd27bfc5d548832b54005b02c21, type: 3}
-      propertyPath: civs
-      value: 
-      objectReference: {fileID: 8160041036396776766}
-    - target: {fileID: 2102326412, guid: ac7a5fd27bfc5d548832b54005b02c21, type: 3}
-      propertyPath: lvlEnd
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3193606802815319650, guid: ac7a5fd27bfc5d548832b54005b02c21,
         type: 3}
       propertyPath: m_Name
@@ -2638,18 +2630,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4acfc2f628375b84ca95da5b28b20eed, type: 3}
---- !u!114 &8160041036396776766 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4416281993487912741, guid: 4acfc2f628375b84ca95da5b28b20eed,
-    type: 3}
-  m_PrefabInstance: {fileID: 8160041036396776765}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8160041036396776768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47ab7122d7f01b74a8c3282bd31547f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8160041036396776767 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 552331446668751274, guid: 4acfc2f628375b84ca95da5b28b20eed,
