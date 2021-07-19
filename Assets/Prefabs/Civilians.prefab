@@ -412,6 +412,11 @@ PrefabInstance:
       propertyPath: m_ApplyToSortingLayers.Array.data[1]
       value: 974705335
       objectReference: {fileID: 0}
+    - target: {fileID: 395048694757751299, guid: c0a9dbcefce795f488314d3e3cc2a444,
+        type: 3}
+      propertyPath: m_SleepingMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 395048694757751302, guid: c0a9dbcefce795f488314d3e3cc2a444,
         type: 3}
       propertyPath: m_RootOrder

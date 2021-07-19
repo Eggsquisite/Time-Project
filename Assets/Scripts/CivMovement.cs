@@ -57,6 +57,10 @@ public class CivMovement : MonoBehaviour
         isBeingAttacked = true;
     }
 
+    public void ResetIsAttacked() {
+        isBeingAttacked = false;
+    }
+
 
     private void TimeWait()
     {

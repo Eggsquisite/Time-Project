@@ -109,8 +109,8 @@ Rigidbody2D:
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &7950356142026016702
 CapsuleCollider2D:
@@ -161,6 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1.5
   feet: {fileID: 6925512939643657975}
+  ghostObserving: 0
 --- !u!114 &8081777009047822146
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,6 +16,7 @@ public class Civvie : MonoBehaviour
     [SerializeField] float timeInterval = 0.1f;
 
     private CivManager civManager;
+    private CivMovement civMovement;
     private Transform t;
     private AudioSource audioSource;
     private bool enduring;
@@ -27,6 +28,7 @@ public class Civvie : MonoBehaviour
         t = Camera.main.transform;
         audioSource = Camera.main.GetComponent<AudioSource>();
         civManager = FindObjectOfType<CivManager>();
+        civMovement = GetComponent<CivMovement>();
         baseMaxTime = maxHurtTime;
         baseTimeInterval = timeInterval;
     }
@@ -62,6 +64,7 @@ public class Civvie : MonoBehaviour
             coll.enabled = true;
             sprite.enabled = true;
             enduring = false;
+            civMovement.ResetIsAttacked();
 
             maxHurtTime = baseMaxTime;
             timeInterval = baseTimeInterval;
