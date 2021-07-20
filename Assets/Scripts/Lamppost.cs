@@ -44,7 +44,7 @@ public class Lamppost : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Civillian")
+        if (collision.tag == "CivFeet")
             rescued++;
 
         if (rescued == numOfCivs && !success)

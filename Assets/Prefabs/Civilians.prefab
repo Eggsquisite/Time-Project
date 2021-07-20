@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 384952814762167824}
   m_Layer: 13
   m_Name: Feet
-  m_TagString: CivFeet
+  m_TagString: GhostFeet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -637,7 +637,7 @@ GameObject:
   - component: {fileID: 5171852457534510835}
   m_Layer: 13
   m_Name: Feet
-  m_TagString: CivFeet
+  m_TagString: GhostFeet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -827,7 +827,7 @@ GameObject:
   - component: {fileID: 7772361244672645842}
   m_Layer: 13
   m_Name: Feet
-  m_TagString: CivFeet
+  m_TagString: GhostFeet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -874,7 +874,7 @@ GameObject:
   - component: {fileID: 2314155683288206553}
   m_Layer: 13
   m_Name: Feet
-  m_TagString: CivFeet
+  m_TagString: GhostFeet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

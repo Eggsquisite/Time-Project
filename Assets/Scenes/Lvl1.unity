@@ -1198,6 +1198,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e002ad08d4f28bc479ec7d4ae61d3095, type: 3}
+--- !u!1 &1824049943 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7435929645865327553, guid: 134534e260be72f43a8a44edc78c4f4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 7565678886100146466}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1895133536
 GameObject:
   m_ObjectHideFlags: 0
@@ -1867,6 +1873,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 54564632198311532, guid: 134534e260be72f43a8a44edc78c4f4c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3292573998932272009, guid: 134534e260be72f43a8a44edc78c4f4c,
+        type: 3}
+      propertyPath: m_Text
+      value: "ESC/P ---------->\t \tPause Menu\nR ----------------> \tRetry level\nSPACEBAR-------->\t\tPause/Unpause"
+      objectReference: {fileID: 0}
     - target: {fileID: 4876744223877257992, guid: 134534e260be72f43a8a44edc78c4f4c,
         type: 3}
       propertyPath: m_Name
@@ -1982,6 +1998,11 @@ PrefabInstance:
       propertyPath: civs
       value: 
       objectReference: {fileID: 1159625872}
+    - target: {fileID: 5229711813584780726, guid: 134534e260be72f43a8a44edc78c4f4c,
+        type: 3}
+      propertyPath: observeText
+      value: 
+      objectReference: {fileID: 1824049943}
     - target: {fileID: 5229711813584780726, guid: 134534e260be72f43a8a44edc78c4f4c,
         type: 3}
       propertyPath: enemies.Array.data[0]

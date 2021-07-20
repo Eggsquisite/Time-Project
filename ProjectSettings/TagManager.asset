@@ -9,6 +9,7 @@ TagManager:
   - Tombstone
   - Safety
   - CivFeet
+  - GhostFeet
   layers:
   - Default
   - TransparentFX

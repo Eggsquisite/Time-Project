@@ -43,12 +43,12 @@ public class CamMovement : MonoBehaviour
         if (Time.timeScale > 0)
             paused = false;
 
-/*        if (Input.GetKeyDown(KeyCode.Space) && !pauseMenu.activeSelf && !paused)
+        if (Input.GetKeyDown(KeyCode.Space) && !pauseMenu.activeSelf && !paused)
             Pausing();
         else if (Input.GetKeyDown(KeyCode.Space) && !pauseMenu.activeSelf && paused)
             Unpausing();
 
-        if (Input.GetKey(KeyCode.LeftShift) && !speeding)
+/*        if (Input.GetKey(KeyCode.LeftShift) && !speeding)
             SpeedUp();
         else if (Input.GetKeyUp(KeyCode.LeftShift) && speeding)
             NormalSpeed();*/
